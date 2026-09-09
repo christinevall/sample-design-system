@@ -24,7 +24,7 @@ const items = [
 
 const meta = {
   title: 'Components/Content/Accordion',
-  component: Accordion.Root,
+  component: Accordion,
   tags: ['autodocs'],
   argTypes: {
     multiple: { control: 'boolean' },
@@ -44,7 +44,7 @@ const meta = {
       </Accordion.Root>
     </div>
   ),
-} satisfies Meta<typeof Accordion.Root>;
+} satisfies Meta<typeof Accordion>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

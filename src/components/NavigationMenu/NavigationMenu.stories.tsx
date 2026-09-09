@@ -3,10 +3,10 @@ import { NavigationMenu } from './NavigationMenu';
 
 const meta = {
   title: 'Components/Navigation/NavigationMenu',
-  component: NavigationMenu.Root,
+  component: NavigationMenu,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
-} satisfies Meta<typeof NavigationMenu.Root>;
+} satisfies Meta<typeof NavigationMenu>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

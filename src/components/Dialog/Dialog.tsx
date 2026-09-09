@@ -42,10 +42,10 @@ function Actions({ className, ...props }: React.ComponentPropsWithoutRef<'div'>)
   return <div className={[styles.actions, className ?? ''].filter(Boolean).join(' ')} {...props} />;
 }
 
-export const Dialog = {
+export const Dialog = Object.assign(Content, {
   Root: BaseDialog.Root,
   Trigger: BaseDialog.Trigger,
   Close: BaseDialog.Close,
   Content,
   Actions,
-};
+});

@@ -3,10 +3,10 @@ import { Menubar } from './Menubar';
 
 const meta = {
   title: 'Components/Navigation/Menubar',
-  component: Menubar.Root,
+  component: Menubar,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
-} satisfies Meta<typeof Menubar.Root>;
+} satisfies Meta<typeof Menubar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

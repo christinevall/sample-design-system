@@ -4,9 +4,9 @@ import { Menu } from '../Menu';
 
 const meta = {
   title: 'Components/Navigation/Toolbar',
-  component: Toolbar.Root,
+  component: Toolbar,
   tags: ['autodocs'],
-} satisfies Meta<typeof Toolbar.Root>;
+} satisfies Meta<typeof Toolbar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -4,14 +4,14 @@ import { Button } from '../Button';
 
 const meta = {
   title: 'Components/Overlays/PreviewCard',
-  component: PreviewCard.Content,
+  component: PreviewCard,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
   argTypes: {
     side: { control: 'inline-radio', options: ['top', 'right', 'bottom', 'left'] },
     align: { control: 'inline-radio', options: ['start', 'center', 'end'] },
   },
-} satisfies Meta<typeof PreviewCard.Content>;
+} satisfies Meta<typeof PreviewCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

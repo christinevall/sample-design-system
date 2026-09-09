@@ -29,7 +29,7 @@ function Legend({ className, ...props }: FieldsetLegendProps) {
   );
 }
 
-export const Fieldset = {
+export const Fieldset = Object.assign(Root, {
   Root,
   Legend,
-};
+});

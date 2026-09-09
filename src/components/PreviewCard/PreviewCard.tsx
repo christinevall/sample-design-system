@@ -87,8 +87,8 @@ function Content({
   );
 }
 
-export const PreviewCard = {
+export const PreviewCard = Object.assign(Content, {
   Root: BasePreviewCard.Root,
   Trigger: BasePreviewCard.Trigger,
   Content,
-};
+});

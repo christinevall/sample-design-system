@@ -74,10 +74,10 @@ function Panel({ className, ...props }: TabsPanelProps) {
   );
 }
 
-export const Tabs = {
+export const Tabs = Object.assign(Root, {
   Root,
   List,
   Tab,
   Indicator,
   Panel,
-};
+});

@@ -8,10 +8,10 @@ import { Menu } from '../Menu';
 
 const meta = {
   title: 'Components/Overlays/AlertDialog',
-  component: AlertDialog.Content,
+  component: AlertDialog,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
-} satisfies Meta<typeof AlertDialog.Content>;
+} satisfies Meta<typeof AlertDialog>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

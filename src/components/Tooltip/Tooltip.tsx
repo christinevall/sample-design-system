@@ -89,9 +89,9 @@ function Content({
   );
 }
 
-export const Tooltip = {
+export const Tooltip = Object.assign(Content, {
   Provider: BaseTooltip.Provider,
   Root: BaseTooltip.Root,
   Trigger: BaseTooltip.Trigger,
   Content,
-};
+});

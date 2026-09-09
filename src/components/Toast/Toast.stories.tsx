@@ -9,7 +9,7 @@ import { Button } from '../Button';
  */
 const meta = {
   title: 'Components/Overlays/Toast',
-  component: Toast.Viewport,
+  component: Toast,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
   decorators: [
@@ -20,7 +20,7 @@ const meta = {
       </Toast.Provider>
     ),
   ],
-} satisfies Meta<typeof Toast.Viewport>;
+} satisfies Meta<typeof Toast>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

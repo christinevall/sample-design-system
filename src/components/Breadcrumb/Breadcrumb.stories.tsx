@@ -4,10 +4,10 @@ import { Breadcrumb } from './Breadcrumb';
 
 const meta = {
   title: 'Components/Navigation/Breadcrumb',
-  component: Breadcrumb.Root,
+  component: Breadcrumb,
   tags: ['autodocs'],
   args: { 'aria-label': 'Breadcrumb' },
-} satisfies Meta<typeof Breadcrumb.Root>;
+} satisfies Meta<typeof Breadcrumb>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

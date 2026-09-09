@@ -91,7 +91,7 @@ function Viewport({ className, children, ...props }: ToastViewportProps) {
   );
 }
 
-export const Toast = {
+export const Toast = Object.assign(Viewport, {
   Provider: BaseToast.Provider,
   Viewport,
   Root: BaseToast.Root,
@@ -102,4 +102,4 @@ export const Toast = {
   Close: BaseToast.Close,
   useToastManager: BaseToast.useToastManager,
   createToastManager: BaseToast.createToastManager,
-};
+});

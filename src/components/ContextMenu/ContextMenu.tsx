@@ -89,7 +89,7 @@ function Content({
   );
 }
 
-export const ContextMenu = {
+export const ContextMenu = Object.assign(Content, {
   Root: BaseContextMenu.Root,
   Trigger,
   Content,
@@ -100,4 +100,4 @@ export const ContextMenu = {
   Separator: Menu.Separator,
   SubmenuRoot: Menu.SubmenuRoot,
   SubmenuTrigger: Menu.SubmenuTrigger,
-};
+});

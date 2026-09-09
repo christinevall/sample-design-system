@@ -3,10 +3,10 @@ import { ContextMenu } from './ContextMenu';
 
 const meta = {
   title: 'Components/Navigation/ContextMenu',
-  component: ContextMenu.Content,
+  component: ContextMenu,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
-} satisfies Meta<typeof ContextMenu.Content>;
+} satisfies Meta<typeof ContextMenu>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

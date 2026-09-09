@@ -72,4 +72,8 @@ function Footer({ className, ...props }: CardFooterProps) {
   return <div className={cx(styles.footer, className ?? '')} {...props} />;
 }
 
-export const Card = { Root, Header, Title, Description, Body, Footer };
+/** `Card` is the root element and the namespace for its parts, so both
+ *  `<Card>` and `<Card.Root>` work. Being a real component reference rather
+ *  than a plain object is what lets Storybook resolve `component: Card` and
+ *  publish this component's props into the manifest agents read. */
+export const Card = Object.assign(Root, { Root, Header, Title, Description, Body, Footer });

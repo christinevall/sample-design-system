@@ -97,4 +97,4 @@ function Cell({ numeric = false, className, ...props }: TableCellProps) {
   );
 }
 
-export const Table = { Root, Head, Body, Row, HeaderCell, Cell };
+export const Table = Object.assign(Root, { Root, Head, Body, Row, HeaderCell, Cell });

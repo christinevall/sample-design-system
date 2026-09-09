@@ -148,7 +148,7 @@ function ItemShortcut({ className, ...props }: React.ComponentProps<'span'>) {
   );
 }
 
-export const Menu = {
+export const Menu = Object.assign(Content, {
   Root: BaseMenu.Root,
   Trigger: BaseMenu.Trigger,
   Content,
@@ -159,4 +159,4 @@ export const Menu = {
   Separator,
   SubmenuRoot: BaseMenu.SubmenuRoot,
   SubmenuTrigger,
-};
+});

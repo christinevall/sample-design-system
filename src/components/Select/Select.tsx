@@ -206,7 +206,7 @@ function SelectField({
   );
 }
 
-export const Select = {
+export const Select = Object.assign(SelectField, {
   Root: BaseSelect.Root,
   Trigger,
   Value: BaseSelect.Value,
@@ -219,4 +219,4 @@ export const Select = {
   GroupLabel,
   Separator: BaseSelect.Separator,
   Field: SelectField,
-};
+});

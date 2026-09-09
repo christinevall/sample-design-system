@@ -82,11 +82,11 @@ function Separator({ className, ...props }: ToolbarSeparatorProps) {
   );
 }
 
-export const Toolbar = {
+export const Toolbar = Object.assign(Root, {
   Root,
   Group,
   Button,
   Link,
   Input,
   Separator,
-};
+});
