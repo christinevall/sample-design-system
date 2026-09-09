@@ -1,5 +1,15 @@
 import type { Preview, Decorator } from '@storybook/react-vite';
 import '../src/tokens/base.css';
+import { breakpoints } from '../src/tokens/breakpoints';
+
+/** Viewports come from the breakpoint tokens, so the sizes designers test at
+ *  and the sizes the CSS is written against cannot drift apart. */
+const viewports = Object.fromEntries(
+  Object.entries(breakpoints).map(([name, width]) => [
+    name,
+    { name: `${name} (${width})`, styles: { width: `calc(${width})`, height: '900px' }, type: 'desktop' as const },
+  ]),
+);
 
 /**
  * Applies the selected theme by setting the token scope on a wrapper.
@@ -43,6 +53,7 @@ const preview: Preview = {
   },
   parameters: {
     layout: 'centered',
+    viewport: { options: viewports },
     controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },
     a11y: { test: 'error' },
     options: {

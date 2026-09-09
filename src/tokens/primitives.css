@@ -1,10 +1,13 @@
 /**
- * Primitive tokens: the raw palette and scales.
- * Nothing in a component should reference these directly.
- * They exist so semantic tokens have something to point at.
+ * GENERATED FILE — do not edit.
+ * Source: tokens/tier-1-definitions/
+ * Regenerate with: npm run build:tokens
  */
 :root {
-  /* Neutral ramp */
+  --sds-breakpoint-sm: 30rem;
+  --sds-breakpoint-md: 48rem;
+  --sds-breakpoint-lg: 64rem;
+  --sds-breakpoint-xl: 80rem;
   --sds-neutral-0: #ffffff;
   --sds-neutral-50: #f8f9fa;
   --sds-neutral-100: #f1f3f5;
@@ -17,8 +20,6 @@
   --sds-neutral-800: #343a40;
   --sds-neutral-900: #212529;
   --sds-neutral-950: #121416;
-
-  /* Brand ramp */
   --sds-brand-50: #eef2ff;
   --sds-brand-100: #e0e7ff;
   --sds-brand-200: #c7d2fe;
@@ -29,29 +30,31 @@
   --sds-brand-700: #4338ca;
   --sds-brand-800: #3730a3;
   --sds-brand-900: #312e81;
-
-  /* Success ramp */
   --sds-success-100: #dcfce7;
   --sds-success-300: #86efac;
   --sds-success-500: #22c55e;
   --sds-success-600: #16a34a;
   --sds-success-700: #15803d;
-
-  /* Warning ramp */
   --sds-warning-100: #fef3c7;
   --sds-warning-300: #fcd34d;
   --sds-warning-500: #f59e0b;
   --sds-warning-600: #d97706;
   --sds-warning-700: #b45309;
-
-  /* Danger ramp */
   --sds-danger-100: #fee2e2;
   --sds-danger-300: #fca5a5;
   --sds-danger-500: #ef4444;
   --sds-danger-600: #dc2626;
   --sds-danger-700: #b91c1c;
-
-  /* Spacing scale (4px base) */
+  --sds-duration-fast: 120ms;
+  --sds-duration-normal: 200ms;
+  --sds-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --sds-radius-sm: 4px;
+  --sds-radius-md: 8px;
+  --sds-radius-lg: 12px;
+  --sds-radius-full: 9999px;
+  --sds-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
+  --sds-shadow-md: 0 4px 12px rgb(0 0 0 / 0.1);
+  --sds-shadow-lg: 0 16px 40px rgb(0 0 0 / 0.16);
   --sds-space-0: 0;
   --sds-space-1: 0.25rem;
   --sds-space-2: 0.5rem;
@@ -62,14 +65,6 @@
   --sds-space-8: 2rem;
   --sds-space-10: 2.5rem;
   --sds-space-12: 3rem;
-
-  /* Radii */
-  --sds-radius-sm: 4px;
-  --sds-radius-md: 8px;
-  --sds-radius-lg: 12px;
-  --sds-radius-full: 9999px;
-
-  /* Typography */
   --sds-font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --sds-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
   --sds-font-size-xs: 0.75rem;
@@ -82,14 +77,7 @@
   --sds-font-weight-bold: 600;
   --sds-line-height-tight: 1.2;
   --sds-line-height-normal: 1.5;
-
-  /* Elevation */
-  --sds-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
-  --sds-shadow-md: 0 4px 12px rgb(0 0 0 / 0.1);
-  --sds-shadow-lg: 0 16px 40px rgb(0 0 0 / 0.16);
-
-  /* Motion */
-  --sds-duration-fast: 120ms;
-  --sds-duration-normal: 200ms;
-  --sds-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --sds-letter-spacing-tight: -0.01em;
+  --sds-letter-spacing-normal: 0;
+  --sds-letter-spacing-wide: 0.02em;
 }

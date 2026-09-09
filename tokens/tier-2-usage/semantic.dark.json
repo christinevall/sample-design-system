@@ -1,0 +1,42 @@
+{
+  "color": {
+    "$type": "color",
+    "bg":             { "$value": "{neutral.950}" },
+    "surface":        { "$value": "{neutral.900}" },
+    "surface-sunken": { "$value": "{neutral.800}" },
+    "border":         { "$value": "{neutral.700}" },
+    "border-strong":  { "$value": "{neutral.600}" },
+    "text":           { "$value": "{neutral.50}" },
+    "text-muted":     { "$value": "{neutral.500}" },
+    "text-inverse":   { "$value": "{neutral.950}" },
+
+    "accent":         { "$value": "{brand.500}" },
+    "accent-hover":   { "$value": "{brand.400}" },
+    "accent-active":  { "$value": "{brand.300}" },
+    "accent-subtle":  { "$value": "{brand.900}" },
+    "on-accent":      { "$value": "{neutral.0}" },
+
+    "danger":         { "$value": "{danger.500}" },
+    "danger-hover":   { "$value": "{danger.300}" },
+    "danger-subtle":  { "$value": "{danger.700}" },
+    "on-danger":      { "$value": "{neutral.0}" },
+
+    "success":        { "$value": "{success.500}" },
+    "success-hover":  { "$value": "{success.300}" },
+    "success-subtle": { "$value": "{success.700}" },
+    "on-success":     { "$value": "{neutral.950}" },
+
+    "warning":        { "$value": "{warning.500}" },
+    "warning-hover":  { "$value": "{warning.300}" },
+    "warning-subtle": { "$value": "{warning.700}" },
+    "on-warning":     { "$value": "{neutral.950}" },
+
+    "focus-ring":     { "$value": "{brand.400}" },
+    "overlay":        { "$value": "rgb(0 0 0 / 0.6)" }
+  },
+  "elevation": {
+    "$type": "shadow",
+    "raised":  { "$value": "0 1px 2px rgb(0 0 0 / 0.4)" },
+    "overlay": { "$value": "0 16px 40px rgb(0 0 0 / 0.6)" }
+  }
+}
