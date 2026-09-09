@@ -6,12 +6,19 @@ export function useResolved(names: string[]) {
   const ref = useRef<HTMLDivElement>(null);
   const [values, setValues] = useState<Record<string, string>>({});
 
+  // Runs after every render so a theme flip in the toolbar is picked up, but
+  // only commits when a value actually changed — otherwise setting a fresh
+  // object each time would re-trigger the effect forever.
   useEffect(() => {
     if (!ref.current) return;
     const style = getComputedStyle(ref.current);
     const next: Record<string, string> = {};
     for (const name of names) next[name] = style.getPropertyValue(name).trim();
-    setValues(next);
+
+    const keys = Object.keys(next);
+    const unchanged =
+      keys.length === Object.keys(values).length && keys.every((k) => values[k] === next[k]);
+    if (!unchanged) setValues(next);
   });
 
   return { ref, values };
