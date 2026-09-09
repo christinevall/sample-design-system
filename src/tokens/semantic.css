@@ -41,6 +41,7 @@
   --sds-color-border-success: var(--sds-color-success-600);
   --sds-color-border-warning: var(--sds-color-warning-600);
   --sds-elevation-raised: var(--sds-shadow-sm);
+  --sds-elevation-floating: var(--sds-shadow-md);
   --sds-elevation-overlay: var(--sds-shadow-lg);
   --sds-typography-heading-xl-font-family: var(--sds-font-sans);
   --sds-typography-heading-xl-font-size: var(--sds-font-size-xl);
@@ -121,6 +122,7 @@
   --sds-color-border-success: var(--sds-color-success-500);
   --sds-color-border-warning: var(--sds-color-warning-500);
   --sds-elevation-raised: 0 1px 2px rgb(0 0 0 / 0.4);
+  --sds-elevation-floating: 0 4px 12px rgb(0 0 0 / 0.5);
   --sds-elevation-overlay: 0 16px 40px rgb(0 0 0 / 0.6);
   --sds-typography-heading-xl-font-family: var(--sds-font-sans);
   --sds-typography-heading-xl-font-size: var(--sds-font-size-xl);

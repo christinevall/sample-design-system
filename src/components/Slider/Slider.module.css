@@ -82,7 +82,7 @@
 }
 
 .thumb[data-dragging] {
-  box-shadow: var(--sds-shadow-md);
+  box-shadow: var(--sds-elevation-floating);
 }
 
 /*

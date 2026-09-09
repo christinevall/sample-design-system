@@ -50,7 +50,7 @@
   height: 20px;
   background: var(--sds-color-background-on-accent);
   border-radius: var(--sds-radius-full);
-  box-shadow: var(--sds-shadow-sm);
+  box-shadow: var(--sds-elevation-raised);
   transition: transform var(--sds-duration-normal) var(--sds-easing-standard);
 }
 

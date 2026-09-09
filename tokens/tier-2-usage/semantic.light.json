@@ -120,6 +120,10 @@
     "raised": {
       "$value": "{shadow.sm}"
     },
+    "floating": {
+      "$value": "{shadow.md}",
+      "$description": "A control lifted while being interacted with, e.g. a slider thumb mid-drag. Between raised and overlay."
+    },
     "overlay": {
       "$value": "{shadow.lg}"
     }

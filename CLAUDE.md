@@ -41,8 +41,15 @@ Check the rendered result, not just the code:
 npm run build:tokens     # if you touched tokens/
 npx tsc -b --noEmit      # must be zero errors
 npm run lint
+npm run validate         # checks this file's rules; warn-only
 npm run build-storybook  # also regenerates the manifest
 ```
+
+`npm run validate` is the net under the rules above. It checks that every token
+referenced exists, that no component reaches past the semantic layer, that no
+raw colour is hard-coded, and that every component still resolves in the
+manifest. It warns and exits 0 so it never blocks a prototype; `-- --strict`
+makes it fail, which is what CI would use.
 
 Then look at the story in a browser. Markup that compiles and renders nothing still counts as broken.
 
