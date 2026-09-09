@@ -24,13 +24,13 @@
   font-size: var(--sds-font-size-sm);
   font-weight: var(--sds-font-weight-medium);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .value {
   font-family: var(--sds-font-mono);
   font-size: var(--sds-font-size-sm);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .control {
@@ -51,21 +51,21 @@
   position: relative;
   width: 100%;
   height: var(--sds-space-1);
-  background: var(--sds-color-surface-sunken);
-  border: 1px solid var(--sds-color-border);
+  background: var(--sds-color-background-sunken);
+  border: 1px solid var(--sds-color-border-default);
   border-radius: var(--sds-radius-full);
 }
 
 .indicator {
-  background: var(--sds-color-accent);
+  background: var(--sds-color-background-accent);
   border-radius: inherit;
 }
 
 .thumb {
   width: var(--sds-space-5);
   height: var(--sds-space-5);
-  background: var(--sds-color-surface);
-  border: 2px solid var(--sds-color-accent);
+  background: var(--sds-color-background-surface);
+  border: 2px solid var(--sds-color-border-accent);
   border-radius: var(--sds-radius-full);
   box-shadow: var(--sds-elevation-raised);
   transition: box-shadow var(--sds-duration-fast) var(--sds-easing-standard);
@@ -77,7 +77,7 @@
  * would never match.
  */
 .thumb:has(:focus-visible) {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 
@@ -121,10 +121,10 @@
 .description {
   font-size: var(--sds-font-size-xs);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .error {
   font-size: var(--sds-font-size-xs);
-  color: var(--sds-color-danger);
+  color: var(--sds-color-content-danger);
 }

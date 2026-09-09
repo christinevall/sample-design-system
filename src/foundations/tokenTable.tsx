@@ -28,7 +28,7 @@ export function Page({ title, intro, children }: { title: string; intro: string;
   return (
     <div style={{ fontFamily: 'var(--sds-font-sans)', maxWidth: 900 }}>
       <h1 style={{ fontSize: 'var(--sds-font-size-xl)', margin: '0 0 var(--sds-space-2)' }}>{title}</h1>
-      <p style={{ color: 'var(--sds-color-text-muted)', margin: '0 0 var(--sds-space-8)', maxWidth: '60ch' }}>
+      <p style={{ color: 'var(--sds-color-content-muted)', margin: '0 0 var(--sds-space-8)', maxWidth: '60ch' }}>
         {intro}
       </p>
       {children}
@@ -41,7 +41,7 @@ export function Group({ title, note, children }: { title: string; note?: string;
     <section style={{ marginBottom: 'var(--sds-space-10)' }}>
       <h2 style={{ fontSize: 'var(--sds-font-size-lg)', margin: '0 0 var(--sds-space-1)' }}>{title}</h2>
       {note ? (
-        <p style={{ color: 'var(--sds-color-text-muted)', fontSize: 'var(--sds-font-size-sm)', margin: '0 0 var(--sds-space-4)', maxWidth: '60ch' }}>
+        <p style={{ color: 'var(--sds-color-content-muted)', fontSize: 'var(--sds-font-size-sm)', margin: '0 0 var(--sds-space-4)', maxWidth: '60ch' }}>
           {note}
         </p>
       ) : (

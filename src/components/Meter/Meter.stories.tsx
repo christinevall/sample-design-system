@@ -52,7 +52,7 @@ export const NotProgress: Story = {
           margin: 0,
           fontFamily: 'var(--sds-font-sans)',
           fontSize: 'var(--sds-font-size-sm)',
-          color: 'var(--sds-color-text-muted)',
+          color: 'var(--sds-color-content-muted)',
         }}
       >
         Use Progress instead when a task is running and will reach 100% on its own.
@@ -63,7 +63,7 @@ export const NotProgress: Story = {
 
 /**
  * Threshold colour change. The same component crosses 85% and switches to
- * `--sds-color-danger`, so the colour says what the number says.
+ * `--sds-color-content-danger`, so the colour says what the number says.
  */
 export const Threshold: Story = {
   parameters: { controls: { disable: true } },

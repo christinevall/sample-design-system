@@ -1,7 +1,7 @@
 .root {
   flex: none;
   border: none;
-  background: var(--sds-color-border);
+  background: var(--sds-color-border-default);
 }
 
 .root[data-orientation='horizontal'] {

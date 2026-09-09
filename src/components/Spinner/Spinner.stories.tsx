@@ -46,7 +46,7 @@ export const InheritsColor: Story = {
         display: 'flex',
         gap: 'var(--sds-space-3)',
         alignItems: 'center',
-        color: 'var(--sds-color-text-muted)',
+        color: 'var(--sds-color-content-muted)',
         fontFamily: 'var(--sds-font-sans)',
         fontSize: 'var(--sds-font-size-sm)',
       }}

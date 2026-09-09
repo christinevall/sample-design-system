@@ -1,8 +1,8 @@
 .root {
   display: flex;
   flex-direction: column;
-  background: var(--sds-color-surface);
-  color: var(--sds-color-text);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
   font-family: var(--sds-font-sans);
   border: 1px solid transparent;
   border-radius: var(--sds-radius-lg);
@@ -11,7 +11,7 @@
 
 /* Variants */
 .outlined {
-  border-color: var(--sds-color-border);
+  border-color: var(--sds-color-border-default);
 }
 
 .elevated {
@@ -31,14 +31,14 @@
   font-size: var(--sds-font-size-lg);
   font-weight: var(--sds-font-weight-bold);
   line-height: var(--sds-line-height-tight);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .description {
   margin: 0;
   font-size: var(--sds-font-size-sm);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .body {

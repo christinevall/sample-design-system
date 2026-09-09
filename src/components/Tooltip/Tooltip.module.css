@@ -10,12 +10,12 @@
   /* `--available-width` accounts for collision padding; `100vw` does not. */
   max-width: min(16rem, var(--available-width));
   padding: var(--sds-space-2) var(--sds-space-3);
-  background: var(--sds-color-surface);
-  color: var(--sds-color-text);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
   font-family: var(--sds-font-sans);
   font-size: var(--sds-font-size-sm);
   line-height: var(--sds-line-height-normal);
-  border: 1px solid var(--sds-color-border);
+  border: 1px solid var(--sds-color-border-default);
   border-radius: var(--sds-radius-md);
   box-shadow: var(--sds-elevation-overlay);
   transform-origin: var(--transform-origin);
@@ -65,13 +65,13 @@
 }
 
 .arrowFill {
-  fill: var(--sds-color-surface);
+  fill: var(--sds-color-background-surface);
 }
 
 .arrowOuterStroke {
-  fill: var(--sds-color-border);
+  fill: var(--sds-color-border-default);
 }
 
 .arrowInnerStroke {
-  fill: var(--sds-color-surface);
+  fill: var(--sds-color-background-surface);
 }

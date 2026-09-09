@@ -19,7 +19,7 @@ const targetStyle = {
   padding: 'var(--sds-space-4)',
   border: '1px dashed var(--sds-color-border-strong)',
   borderRadius: 'var(--sds-radius-md)',
-  color: 'var(--sds-color-text-muted)',
+  color: 'var(--sds-color-content-muted)',
   fontFamily: 'var(--sds-font-sans)',
   fontSize: 'var(--sds-font-size-sm)',
   textAlign: 'center',

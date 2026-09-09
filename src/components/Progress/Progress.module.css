@@ -16,20 +16,20 @@
 .label {
   font-size: var(--sds-font-size-sm);
   font-weight: var(--sds-font-weight-medium);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .value {
   font-size: var(--sds-font-size-sm);
   font-variant-numeric: tabular-nums;
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .track {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: var(--sds-color-surface-sunken);
+  background: var(--sds-color-background-sunken);
   border-radius: var(--sds-radius-full);
 }
 
@@ -37,13 +37,13 @@
   position: absolute;
   top: 0;
   height: 100%;
-  background: var(--sds-color-accent);
+  background: var(--sds-color-background-accent);
   border-radius: inherit;
   transition: width var(--sds-duration-normal) var(--sds-easing-standard);
 }
 
 .indicator[data-complete] {
-  background: var(--sds-color-accent-active);
+  background: var(--sds-color-background-accent-active);
 }
 
 /* Unknown duration: Base UI leaves the width unset, so drive it here. */

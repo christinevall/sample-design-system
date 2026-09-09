@@ -31,11 +31,11 @@
 }
 
 .root[data-checked] {
-  background: var(--sds-color-accent);
+  background: var(--sds-color-background-accent);
 }
 
 .root:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 
@@ -48,7 +48,7 @@
   display: block;
   width: 20px;
   height: 20px;
-  background: var(--sds-color-on-accent);
+  background: var(--sds-color-background-on-accent);
   border-radius: var(--sds-radius-full);
   box-shadow: var(--sds-shadow-sm);
   transition: transform var(--sds-duration-normal) var(--sds-easing-standard);
@@ -60,7 +60,7 @@
 
 .label {
   font-size: var(--sds-font-size-sm);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
   cursor: pointer;
 }
 
@@ -68,5 +68,5 @@
   margin: 0;
   font-size: var(--sds-font-size-xs);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }

@@ -136,9 +136,9 @@ function MemberList(args: AlertDialogContentProps) {
             justifyContent: 'space-between',
             gap: 'var(--sds-space-3)',
             padding: 'var(--sds-space-2) var(--sds-space-3)',
-            border: '1px solid var(--sds-color-border)',
+            border: '1px solid var(--sds-color-border-default)',
             borderRadius: 'var(--sds-radius-md)',
-            background: 'var(--sds-color-surface)',
+            background: 'var(--sds-color-background-surface)',
             fontFamily: 'var(--sds-font-sans)',
             fontSize: 'var(--sds-font-size-sm)',
           }}
@@ -168,7 +168,7 @@ function MemberList(args: AlertDialogContentProps) {
       ))}
 
       {members.length === 0 ? (
-        <p style={{ fontFamily: 'var(--sds-font-sans)', color: 'var(--sds-color-text-muted)' }}>
+        <p style={{ fontFamily: 'var(--sds-font-sans)', color: 'var(--sds-color-content-muted)' }}>
           Everyone has been removed. Reload the story to start again.
         </p>
       ) : null}

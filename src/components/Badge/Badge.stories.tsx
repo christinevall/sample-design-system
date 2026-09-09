@@ -25,7 +25,7 @@ export const Small: Story = { args: { size: 'sm', children: '12' } };
 
 /**
  * There is no `success` variant. The semantic token layer has no
- * `--sds-color-success`, and components may not reference primitives or raw
+ * `--sds-color-content-success`, and components may not reference primitives or raw
  * colour values, so a green badge cannot be themed correctly yet.
  */
 export const Matrix: Story = {
@@ -52,7 +52,7 @@ export const InlineWithText: Story = {
     <p
       style={{
         fontFamily: 'var(--sds-font-sans)',
-        color: 'var(--sds-color-text)',
+        color: 'var(--sds-color-content-default)',
         maxWidth: '42ch',
       }}
     >

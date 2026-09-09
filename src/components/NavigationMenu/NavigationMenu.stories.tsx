@@ -21,7 +21,7 @@ const gridStyle = {
 } as const;
 
 const descriptionStyle = {
-  color: 'var(--sds-color-text-muted)',
+  color: 'var(--sds-color-content-muted)',
   fontSize: 'var(--sds-font-size-xs)',
   fontWeight: 'var(--sds-font-weight-regular)',
   lineHeight: 'var(--sds-line-height-normal)',

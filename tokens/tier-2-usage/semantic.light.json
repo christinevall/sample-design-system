@@ -1,42 +1,127 @@
 {
   "color": {
     "$type": "color",
-    "bg":             { "$value": "{neutral.50}" },
-    "surface":        { "$value": "{neutral.0}" },
-    "surface-sunken": { "$value": "{neutral.100}" },
-    "border":         { "$value": "{neutral.300}" },
-    "border-strong":  { "$value": "{neutral.400}" },
-    "text":           { "$value": "{neutral.900}" },
-    "text-muted":     { "$value": "{neutral.700}" },
-    "text-inverse":   { "$value": "{neutral.0}" },
-
-    "accent":         { "$value": "{brand.600}" },
-    "accent-hover":   { "$value": "{brand.700}" },
-    "accent-active":  { "$value": "{brand.800}" },
-    "accent-subtle":  { "$value": "{brand.50}" },
-    "on-accent":      { "$value": "{neutral.0}" },
-
-    "danger":         { "$value": "{danger.600}" },
-    "danger-hover":   { "$value": "{danger.700}" },
-    "danger-subtle":  { "$value": "{danger.100}" },
-    "on-danger":      { "$value": "{neutral.0}" },
-
-    "success":        { "$value": "{success.600}" },
-    "success-hover":  { "$value": "{success.700}" },
-    "success-subtle": { "$value": "{success.100}" },
-    "on-success":     { "$value": "{neutral.0}" },
-
-    "warning":        { "$value": "{warning.600}" },
-    "warning-hover":  { "$value": "{warning.700}" },
-    "warning-subtle": { "$value": "{warning.100}" },
-    "on-warning":     { "$value": "{neutral.950}" },
-
-    "focus-ring":     { "$value": "{brand.500}" },
-    "overlay":        { "$value": "rgb(0 0 0 / 0.4)" }
+    "background": {
+      "default": {
+        "$value": "{color.neutral.50}"
+      },
+      "surface": {
+        "$value": "{color.neutral.0}"
+      },
+      "sunken": {
+        "$value": "{color.neutral.100}"
+      },
+      "overlay": {
+        "$value": "rgb(0 0 0 / 0.4)"
+      },
+      "on-accent": {
+        "$value": "{color.neutral.0}",
+        "$description": "A surface sitting on an accent fill, e.g. a switch thumb or radio dot."
+      },
+      "accent": {
+        "$value": "{color.brand.600}"
+      },
+      "accent-hover": {
+        "$value": "{color.brand.700}"
+      },
+      "accent-active": {
+        "$value": "{color.brand.800}"
+      },
+      "accent-subtle": {
+        "$value": "{color.brand.50}"
+      },
+      "danger": {
+        "$value": "{color.danger.600}"
+      },
+      "danger-hover": {
+        "$value": "{color.danger.700}"
+      },
+      "danger-subtle": {
+        "$value": "{color.danger.100}"
+      },
+      "success": {
+        "$value": "{color.success.600}"
+      },
+      "success-subtle": {
+        "$value": "{color.success.100}"
+      },
+      "warning": {
+        "$value": "{color.warning.600}"
+      },
+      "warning-subtle": {
+        "$value": "{color.warning.100}"
+      }
+    },
+    "content": {
+      "default": {
+        "$value": "{color.neutral.900}"
+      },
+      "muted": {
+        "$value": "{color.neutral.700}"
+      },
+      "inverse": {
+        "$value": "{color.neutral.0}"
+      },
+      "accent": {
+        "$value": "{color.brand.600}"
+      },
+      "danger": {
+        "$value": "{color.danger.600}"
+      },
+      "success": {
+        "$value": "{color.success.600}"
+      },
+      "warning": {
+        "$value": "{color.warning.600}"
+      },
+      "on-accent": {
+        "$value": "{color.neutral.0}",
+        "$description": "Content placed ON an accent background. Contrast-paired, not the accent colour itself."
+      },
+      "on-danger": {
+        "$value": "{color.neutral.0}"
+      },
+      "on-success": {
+        "$value": "{color.neutral.0}"
+      },
+      "on-warning": {
+        "$value": "{color.neutral.950}"
+      }
+    },
+    "border": {
+      "default": {
+        "$value": "{color.neutral.300}"
+      },
+      "strong": {
+        "$value": "{color.neutral.400}"
+      },
+      "focus": {
+        "$value": "{color.brand.500}"
+      },
+      "accent": {
+        "$value": "{color.brand.600}"
+      },
+      "accent-hover": {
+        "$value": "{color.brand.700}"
+      },
+      "danger": {
+        "$value": "{color.danger.600}"
+      },
+      "success": {
+        "$value": "{color.success.600}"
+      },
+      "warning": {
+        "$value": "{color.warning.600}"
+      }
+    }
   },
   "elevation": {
     "$type": "shadow",
-    "raised":  { "$value": "{shadow.sm}" },
-    "overlay": { "$value": "{shadow.lg}" }
+    "raised": {
+      "$value": "{shadow.sm}"
+    },
+    "overlay": {
+      "$value": "{shadow.lg}"
+    }
   }
 }

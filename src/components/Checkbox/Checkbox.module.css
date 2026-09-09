@@ -12,8 +12,8 @@
   width: var(--sds-space-5);
   height: var(--sds-space-5);
   padding: 0;
-  background: var(--sds-color-surface);
-  color: var(--sds-color-on-accent);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-on-accent);
   border: 1px solid var(--sds-color-border-strong);
   border-radius: var(--sds-radius-sm);
   cursor: pointer;
@@ -23,22 +23,22 @@
 }
 
 .control:hover:not([data-disabled]) {
-  border-color: var(--sds-color-accent);
+  border-color: var(--sds-color-border-accent);
 }
 
 .control:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 
 .control[data-checked],
 .control[data-indeterminate] {
-  background: var(--sds-color-accent);
-  border-color: var(--sds-color-accent);
+  background: var(--sds-color-background-accent);
+  border-color: var(--sds-color-border-accent);
 }
 
 .control[data-invalid] {
-  border-color: var(--sds-color-danger);
+  border-color: var(--sds-color-border-danger);
 }
 
 .control[data-disabled] {
@@ -75,7 +75,7 @@
   font-family: var(--sds-font-sans);
   font-size: var(--sds-font-size-sm);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
   cursor: pointer;
 }
 
@@ -87,5 +87,5 @@
 .description {
   font-size: var(--sds-font-size-xs);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }

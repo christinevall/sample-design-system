@@ -53,9 +53,9 @@ docs/
 
 **Edit `tokens/**/*.json`, then run `npm run build:tokens`.** The CSS is output.
 
-Tier 1 is the raw material: `--sds-brand-600`, `--sds-space-4`. Nothing in a component may reference a tier-1 colour.
+Tier 1 is the raw material: `--sds-color-brand-600`, `--sds-space-4`. Nothing in a component may reference a tier-1 colour.
 
-Tier 2 is the contract: `--sds-color-accent`, `--sds-text-heading-lg-font-size`. Components use only these. Theming means redefining tier 2, never touching tier 1 or components.
+Tier 2 is the contract, organised into three categories — `--sds-color-background-*`, `--sds-color-content-*`, `--sds-color-border-*` — plus `--sds-typography-heading-lg-font-size` and friends. Components use only these. Theming means redefining tier 2, never touching tier 1 or components.
 
 That separation is also what makes the Figma sync work. Tier-2 names map one-to-one to Figma variables, the light and dark files map to Figma variable modes, and the `var()` references map to Figma variable aliases.
 

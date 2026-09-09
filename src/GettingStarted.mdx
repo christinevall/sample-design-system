@@ -22,11 +22,11 @@ Tokens are written as JSON in `tokens/`, and the CSS is generated from it by `np
 
 `tokens/tier-1-definitions/` holds raw material: colour ramps, the spacing scale, the type scale. The colour ramps are off-limits to components.
 
-`tokens/tier-2-usage/` holds roles: `--sds-color-accent`, `--sds-color-text-muted`, `--sds-color-danger-subtle`. Components use these and only these for colour. Theming means redefining one tier, split here into a light and a dark file.
+`tokens/tier-2-usage/` holds roles: `--sds-color-content-accent`, `--sds-color-content-muted`, `--sds-color-background-danger-subtle`. Colour is split into three categories — `background`, `content`, `border` — so the name says what the colour is *for*. Components use these and only these for colour. Theming means redefining one tier, split here into a light and a dark file.
 
-Why two tiers? Because `--sds-brand-600` tells you what a colour *is*, and `--sds-color-accent` tells you what it is *for*. Only the second survives a rebrand, and only the second maps cleanly onto a Figma variable.
+Why two tiers? Because `--sds-color-brand-600` tells you what a colour *is*, and `--sds-color-content-accent` tells you what it is *for*. Only the second survives a rebrand, and only the second maps cleanly onto a Figma variable.
 
-Tier 2 also holds **text styles** — `--sds-text-heading-lg-*` and friends, bundling family, size, weight, line height and letter spacing. That bundle is the unit that maps to a Figma text style.
+Tier 2 also holds **text styles** — `--sds-typography-heading-lg-*` and friends, bundling family, size, weight, line height and letter spacing. That bundle is the unit that maps to a Figma text style.
 
 **Breakpoints** sit in tier 1 but are emitted to TypeScript as well as CSS, because a CSS custom property cannot be used inside a media query. The viewport sizes in the toolbar above are generated from them.
 

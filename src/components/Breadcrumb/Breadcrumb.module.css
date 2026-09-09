@@ -29,18 +29,18 @@
   padding: var(--sds-space-0) var(--sds-space-1);
   margin: 0 calc(var(--sds-space-1) * -1);
   border-radius: var(--sds-radius-sm);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
   text-decoration: none;
   transition: color var(--sds-duration-fast) var(--sds-easing-standard);
 }
 
 .link:hover {
-  color: var(--sds-color-accent);
+  color: var(--sds-color-content-accent);
   text-decoration: underline;
 }
 
 .link:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 
@@ -56,6 +56,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
   font-weight: var(--sds-font-weight-medium);
 }

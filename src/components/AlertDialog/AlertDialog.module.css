@@ -3,7 +3,7 @@
   inset: 0;
   /* `inset: 0` only covers the small viewport while a mobile URL bar is shown. */
   min-height: 100dvh;
-  background: var(--sds-color-overlay);
+  background: var(--sds-color-background-overlay);
   transition: opacity var(--sds-duration-normal) var(--sds-easing-standard);
 }
 
@@ -19,10 +19,10 @@
   transform: translate(-50%, -50%);
   width: min(26rem, calc(100vw - var(--sds-space-8)));
   padding: var(--sds-space-6);
-  background: var(--sds-color-surface);
-  color: var(--sds-color-text);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
   font-family: var(--sds-font-sans);
-  border: 1px solid var(--sds-color-border);
+  border: 1px solid var(--sds-color-border-default);
   border-radius: var(--sds-radius-lg);
   box-shadow: var(--sds-elevation-overlay);
   transition:
@@ -49,7 +49,7 @@
 
 .description {
   margin: 0 0 var(--sds-space-6);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
   font-size: var(--sds-font-size-sm);
   line-height: var(--sds-line-height-normal);
 }

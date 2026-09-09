@@ -1,7 +1,7 @@
 .root {
   display: flex;
   font-family: var(--sds-font-sans);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .list {
@@ -26,7 +26,7 @@
   border: 1px solid transparent;
   border-radius: var(--sds-radius-md);
   background: transparent;
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
   font-family: inherit;
   font-size: var(--sds-font-size-sm);
   font-weight: var(--sds-font-weight-medium);
@@ -39,16 +39,16 @@
 }
 
 .trigger:hover:not([data-disabled]) {
-  background: var(--sds-color-surface-sunken);
+  background: var(--sds-color-background-sunken);
 }
 
 .trigger[data-popup-open] {
-  background: var(--sds-color-accent-subtle);
-  color: var(--sds-color-accent);
+  background: var(--sds-color-background-accent-subtle);
+  color: var(--sds-color-content-accent);
 }
 
 .trigger:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 
@@ -92,9 +92,9 @@
   width: var(--popup-width);
   height: var(--popup-height);
   overflow: hidden;
-  background: var(--sds-color-surface);
-  color: var(--sds-color-text);
-  border: 1px solid var(--sds-color-border);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  border: 1px solid var(--sds-color-border-default);
   border-radius: var(--sds-radius-md);
   box-shadow: var(--sds-elevation-overlay);
   transform-origin: var(--transform-origin);
@@ -159,7 +159,7 @@
   gap: var(--sds-space-1);
   padding: var(--sds-space-3);
   border-radius: var(--sds-radius-sm);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
   font-size: var(--sds-font-size-sm);
   font-weight: var(--sds-font-weight-medium);
   line-height: var(--sds-line-height-tight);
@@ -168,15 +168,15 @@
 }
 
 .link:hover {
-  background: var(--sds-color-surface-sunken);
+  background: var(--sds-color-background-sunken);
 }
 
 .link[data-active] {
-  background: var(--sds-color-accent-subtle);
-  color: var(--sds-color-accent);
+  background: var(--sds-color-background-accent-subtle);
+  color: var(--sds-color-content-accent);
 }
 
 .link:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }

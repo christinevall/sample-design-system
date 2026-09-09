@@ -20,7 +20,7 @@ If you cannot read those files, say so and stop. Do not fall back to writing fro
 
 ## The rules
 
-1. **Semantic tokens only.** Components may use `--sds-color-*`, `--sds-space-*`, `--sds-radius-*`, `--sds-font-*`, `--sds-text-*`, `--sds-shadow-*`, `--sds-elevation-*`, `--sds-duration-*`, `--sds-easing-*`. Never a primitive (`--sds-brand-600`), never a raw hex, never a magic pixel where a token exists.
+1. **Semantic tokens only.** Components may use `--sds-color-background-*`, `--sds-color-content-*`, `--sds-color-border-*`, `--sds-space-*`, `--sds-radius-*`, `--sds-font-*`, `--sds-typography-*`, `--sds-elevation-*`, `--sds-duration-*`, `--sds-easing-*`. Never a primitive (`--sds-color-brand-600`, `--sds-shadow-*`), never a raw hex, never a magic pixel where a token exists.
 2. **Wrap, do not rebuild.** If Base UI ships a primitive, wrap it. Never reimplement focus management, keyboard handling or ARIA.
 3. **Compose downward.** Reach for a pattern in `src/patterns/` first, then a component, then a primitive. Building a card out of divs when `Card` exists is the most common failure here.
 4. **Never edit generated files.** `src/tokens/primitives.css`, `src/tokens/semantic.css` and `src/tokens/breakpoints.ts` are build output. Edit `tokens/**/*.json` and run `npm run build:tokens`. Each generated file says so in its header.

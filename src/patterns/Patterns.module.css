@@ -17,7 +17,7 @@
   max-width: 62rem;
   margin: 0 auto;
   font-family: var(--sds-font-sans);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .pageHeader {
@@ -31,7 +31,7 @@
   font-size: var(--sds-font-size-xl);
   font-weight: var(--sds-font-weight-bold);
   line-height: var(--sds-line-height-tight);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .pageLead {
@@ -39,7 +39,7 @@
   max-width: 46rem;
   font-size: var(--sds-font-size-sm);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 /*
@@ -51,7 +51,7 @@
   font-size: var(--sds-font-size-lg);
   font-weight: var(--sds-font-weight-bold);
   line-height: var(--sds-line-height-tight);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .stack {
@@ -89,7 +89,7 @@
 }
 
 .settingRow + .settingRow {
-  border-top: 1px solid var(--sds-color-border);
+  border-top: 1px solid var(--sds-color-border-default);
 }
 
 .settingText {
@@ -102,7 +102,7 @@
   font-size: var(--sds-font-size-sm);
   font-weight: var(--sds-font-weight-medium);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
   cursor: pointer;
 }
 
@@ -111,7 +111,7 @@
   max-width: 36rem;
   font-size: var(--sds-font-size-xs);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .settingControl {
@@ -123,7 +123,7 @@
 .footerNote {
   margin: 0 auto 0 0;
   font-size: var(--sds-font-size-xs);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 /* --------------------------------------------------------------- List views */
@@ -154,13 +154,13 @@
 .personName {
   display: block;
   font-weight: var(--sds-font-weight-medium);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .personEmail {
   display: block;
   font-size: var(--sds-font-size-xs);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .rowActions {
@@ -177,19 +177,19 @@
   gap: var(--sds-space-4);
   padding: var(--sds-space-3) var(--sds-space-1) 0;
   font-size: var(--sds-font-size-sm);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .emptyCell {
   padding-block: var(--sds-space-10);
   text-align: center;
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .mono {
   font-family: var(--sds-font-mono);
   font-size: var(--sds-font-size-xs);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 /* ------------------------------------------------------------ Auth / centred */
@@ -211,24 +211,24 @@
   font-size: var(--sds-font-size-xl);
   font-weight: var(--sds-font-weight-bold);
   line-height: var(--sds-line-height-tight);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .authFooter {
   margin: 0;
   font-size: var(--sds-font-size-sm);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
   text-align: center;
 }
 
 .link {
-  color: var(--sds-color-accent);
+  color: var(--sds-color-content-accent);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .link:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
   border-radius: var(--sds-radius-sm);
 }
@@ -236,7 +236,7 @@
 .successNote {
   margin: 0;
   font-size: var(--sds-font-size-sm);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 /* --------------------------------------------------------------- App shell */
@@ -245,8 +245,8 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: var(--sds-color-bg);
-  color: var(--sds-color-text);
+  background: var(--sds-color-background-default);
+  color: var(--sds-color-content-default);
   font-family: var(--sds-font-sans);
 }
 
@@ -255,8 +255,8 @@
   align-items: center;
   gap: var(--sds-space-5);
   padding: var(--sds-space-3) var(--sds-space-6);
-  background: var(--sds-color-surface);
-  border-bottom: 1px solid var(--sds-color-border);
+  background: var(--sds-color-background-surface);
+  border-bottom: 1px solid var(--sds-color-border-default);
 }
 
 .wordmark {
@@ -266,7 +266,7 @@
   font-size: var(--sds-font-size-md);
   font-weight: var(--sds-font-weight-bold);
   line-height: var(--sds-line-height-tight);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
   white-space: nowrap;
 }
 
@@ -276,8 +276,8 @@
   width: var(--sds-space-6);
   height: var(--sds-space-6);
   border-radius: var(--sds-radius-sm);
-  background: var(--sds-color-accent);
-  color: var(--sds-color-on-accent);
+  background: var(--sds-color-background-accent);
+  color: var(--sds-color-content-on-accent);
 }
 
 .topBarSpacer {
@@ -305,11 +305,11 @@
 }
 
 .avatarTrigger:hover {
-  background: var(--sds-color-surface-sunken);
+  background: var(--sds-color-background-sunken);
 }
 
 .avatarTrigger:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 
@@ -338,13 +338,13 @@
   font-size: var(--sds-font-size-xl);
   font-weight: var(--sds-font-weight-bold);
   line-height: var(--sds-line-height-tight);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .metricCaption {
   margin: var(--sds-space-1) 0 0;
   font-size: var(--sds-font-size-xs);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .navPanelList {
@@ -361,7 +361,7 @@
   font-size: var(--sds-font-size-xs);
   font-weight: var(--sds-font-weight-regular);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .menuAccount {
@@ -374,12 +374,12 @@
 .menuAccountName {
   font-size: var(--sds-font-size-sm);
   font-weight: var(--sds-font-weight-medium);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .menuAccountEmail {
   font-size: var(--sds-font-size-xs);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .activityRow {
@@ -391,16 +391,16 @@
 }
 
 .activityRow + .activityRow {
-  border-top: 1px solid var(--sds-color-border);
+  border-top: 1px solid var(--sds-color-border-default);
 }
 
 .activityText {
   flex: 1 1 auto;
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .activityTime {
   flex: none;
   font-size: var(--sds-font-size-xs);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }

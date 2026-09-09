@@ -9,13 +9,13 @@
   font-size: var(--sds-font-size-sm);
   font-weight: var(--sds-font-weight-medium);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .description {
   font-size: var(--sds-font-size-xs);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .group {
@@ -45,7 +45,7 @@
   width: var(--sds-space-5);
   height: var(--sds-space-5);
   padding: 0;
-  background: var(--sds-color-surface);
+  background: var(--sds-color-background-surface);
   border: 1px solid var(--sds-color-border-strong);
   border-radius: var(--sds-radius-full);
   cursor: pointer;
@@ -55,21 +55,21 @@
 }
 
 .radio:hover:not([data-disabled]) {
-  border-color: var(--sds-color-accent);
+  border-color: var(--sds-color-border-accent);
 }
 
 .radio:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 
 .radio[data-checked] {
-  background: var(--sds-color-accent);
-  border-color: var(--sds-color-accent);
+  background: var(--sds-color-background-accent);
+  border-color: var(--sds-color-border-accent);
 }
 
 .radio[data-invalid] {
-  border-color: var(--sds-color-danger);
+  border-color: var(--sds-color-border-danger);
 }
 
 .radio[data-disabled] {
@@ -81,7 +81,7 @@
   display: block;
   width: var(--sds-space-2);
   height: var(--sds-space-2);
-  background: var(--sds-color-on-accent);
+  background: var(--sds-color-background-on-accent);
   border-radius: var(--sds-radius-full);
 }
 
@@ -95,7 +95,7 @@
   font-family: var(--sds-font-sans);
   font-size: var(--sds-font-size-sm);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
   cursor: pointer;
 }
 
@@ -107,10 +107,10 @@
 .itemDescription {
   font-size: var(--sds-font-size-xs);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .error {
   font-size: var(--sds-font-size-xs);
-  color: var(--sds-color-danger);
+  color: var(--sds-color-content-danger);
 }

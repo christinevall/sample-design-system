@@ -17,9 +17,9 @@ DTCG-format JSON, built by `scripts/build-tokens.mjs` (Style Dictionary 4) via `
 
 Two tiers, deliberately separated so the semantic tier can map one-to-one to Figma variables:
 
-`tokens/tier-1-definitions/` holds raw ramps and scales: `--sds-brand-600`, `--sds-space-4`. Referenced only by tier 2, never by a component. Emits `primitives.css`.
+`tokens/tier-1-definitions/` holds raw ramps and scales: `--sds-color-brand-600`, `--sds-space-4`. Referenced only by tier 2, never by a component. Emits `primitives.css`.
 
-`tokens/tier-2-usage/` holds the contract components use: `--sds-color-accent`, `--sds-text-heading-lg-font-size`. Split into `semantic.light.json` and `semantic.dark.json`, which become the two blocks in `semantic.css` and the two Figma variable modes. `text-style.json` holds composite text styles, the unit that maps to a Figma text style.
+`tokens/tier-2-usage/` holds the contract components use. Colour is split into three categories after Brad Frost's Eddie conventions — `background`, `content`, `border` — so a token names the role it plays, not just the hue: `--sds-color-background-accent` fills with the accent, `--sds-color-content-accent` renders text in it, `--sds-color-content-on-accent` is what stays readable on top of it. Typography composites live under `--sds-typography-*`. Split into `semantic.light.json` and `semantic.dark.json`, which become the two blocks in `semantic.css` and the two Figma variable modes. `text-style.json` holds composite text styles, the unit that maps to a Figma text style.
 
 References are emitted as `var()` rather than resolved values, so the tier-1 -> tier-2 indirection survives into the CSS. A Figma variable alias maps onto exactly that indirection.
 

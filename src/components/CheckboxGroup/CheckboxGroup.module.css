@@ -9,13 +9,13 @@
   font-size: var(--sds-font-size-sm);
   font-weight: var(--sds-font-weight-medium);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .description {
   font-size: var(--sds-font-size-xs);
   line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .group {
@@ -33,5 +33,5 @@
 
 .error {
   font-size: var(--sds-font-size-xs);
-  color: var(--sds-color-danger);
+  color: var(--sds-color-content-danger);
 }

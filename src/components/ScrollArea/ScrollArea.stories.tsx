@@ -17,9 +17,9 @@ const releases = [
 ];
 
 const panelStyle: React.CSSProperties = {
-  border: '1px solid var(--sds-color-border)',
+  border: '1px solid var(--sds-color-border-default)',
   borderRadius: 'var(--sds-radius-md)',
-  background: 'var(--sds-color-surface)',
+  background: 'var(--sds-color-background-surface)',
 };
 
 const meta = {
@@ -52,7 +52,7 @@ export const Default: Story = {
             </div>
             <div
               style={{
-                color: 'var(--sds-color-text-muted)',
+                color: 'var(--sds-color-content-muted)',
                 fontSize: 'var(--sds-font-size-sm)',
               }}
             >
@@ -83,7 +83,7 @@ export const Horizontal: Story = {
             key={version}
             style={{
               padding: 'var(--sds-space-2) var(--sds-space-3)',
-              border: '1px solid var(--sds-color-border)',
+              border: '1px solid var(--sds-color-border-default)',
               borderRadius: 'var(--sds-radius-full)',
               fontSize: 'var(--sds-font-size-sm)',
               whiteSpace: 'nowrap',

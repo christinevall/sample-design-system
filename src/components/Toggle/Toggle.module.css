@@ -18,7 +18,7 @@
 }
 
 .root:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 
@@ -59,34 +59,34 @@
 
 /* Variants: unpressed reads like the equivalent Button. */
 .secondary {
-  background: var(--sds-color-surface);
-  color: var(--sds-color-text);
-  border-color: var(--sds-color-border);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  border-color: var(--sds-color-border-default);
   box-shadow: var(--sds-elevation-raised);
 }
 .secondary:hover:not([data-disabled]) {
-  background: var(--sds-color-surface-sunken);
+  background: var(--sds-color-background-sunken);
   border-color: var(--sds-color-border-strong);
 }
 .secondary[data-pressed] {
-  background: var(--sds-color-accent);
-  color: var(--sds-color-on-accent);
-  border-color: var(--sds-color-accent);
+  background: var(--sds-color-background-accent);
+  color: var(--sds-color-content-on-accent);
+  border-color: var(--sds-color-border-accent);
 }
 .secondary[data-pressed]:hover:not([data-disabled]) {
-  background: var(--sds-color-accent-hover);
-  border-color: var(--sds-color-accent-hover);
+  background: var(--sds-color-background-accent-hover);
+  border-color: var(--sds-color-border-accent-hover);
 }
 
 .ghost {
   background: transparent;
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 .ghost:hover:not([data-disabled]) {
-  background: var(--sds-color-accent-subtle);
-  color: var(--sds-color-accent);
+  background: var(--sds-color-background-accent-subtle);
+  color: var(--sds-color-content-accent);
 }
 .ghost[data-pressed] {
-  background: var(--sds-color-accent-subtle);
-  color: var(--sds-color-accent);
+  background: var(--sds-color-background-accent-subtle);
+  color: var(--sds-color-content-accent);
 }

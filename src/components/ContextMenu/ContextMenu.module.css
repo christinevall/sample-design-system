@@ -8,10 +8,10 @@
 }
 
 .trigger[data-popup-open] {
-  background: var(--sds-color-surface-sunken);
+  background: var(--sds-color-background-sunken);
 }
 
 .trigger:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
