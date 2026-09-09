@@ -1,5 +1,17 @@
 # Working in this repo
 
+## What this project is
+
+A small, real design system used to test and teach **how designers and AI work
+together on a real codebase without drift**. Not a product — every decision
+optimises for legible and demonstrable over scale.
+
+**If the task is writing, explaining, planning or discussing this project
+rather than changing code, read `docs/project-brief.md` first.** It carries the
+decisions and why they were made, the findings worth writing about, what is
+still blocked, and the wider argument this work sits inside. Keep it current
+when a decision changes.
+
 ## STOP — ground yourself first
 
 **Before writing or changing any UI in this repo, check what actually exists. This session. Not from memory, not from an earlier session.**
@@ -59,6 +71,7 @@ Then look at the story in a browser. Markup that compiles and renders nothing st
 
 ## Further reading
 
+- `docs/project-brief.md` — what this project is for, decisions, findings, open questions
 - `docs/architecture.md` — why the repo is shaped this way
 - `docs/conventions.md` — how to add a component
 - `docs/branching.md` — the branch model
