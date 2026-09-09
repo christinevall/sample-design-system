@@ -7,7 +7,7 @@ import { breakpoints } from '../src/tokens/breakpoints';
 const viewports = Object.fromEntries(
   Object.entries(breakpoints).map(([name, width]) => [
     name,
-    { name: `${name} (${width})`, styles: { width: `calc(${width})`, height: '900px' }, type: 'desktop' as const },
+    { name: `${name} (${width})`, styles: { width, height: '900px' }, type: 'desktop' as const },
   ]),
 );
 
