@@ -4,6 +4,18 @@
   gap: var(--sds-space-3);
 }
 
+/* With helper text the control lines up with the first line of the label
+   instead of the middle of the two-line text block. */
+.wrapper:has(.description) {
+  align-items: flex-start;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+}
+
 .root {
   position: relative;
   display: inline-flex;
@@ -36,7 +48,7 @@
   display: block;
   width: 20px;
   height: 20px;
-  background: var(--sds-neutral-0);
+  background: var(--sds-color-on-accent);
   border-radius: var(--sds-radius-full);
   box-shadow: var(--sds-shadow-sm);
   transition: transform var(--sds-duration-normal) var(--sds-easing-standard);
@@ -50,4 +62,11 @@
   font-size: var(--sds-font-size-sm);
   color: var(--sds-color-text);
   cursor: pointer;
+}
+
+.description {
+  margin: 0;
+  font-size: var(--sds-font-size-xs);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-text-muted);
 }

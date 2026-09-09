@@ -1,0 +1,91 @@
+.root {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sds-space-3);
+}
+
+.control {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--sds-space-5);
+  height: var(--sds-space-5);
+  padding: 0;
+  background: var(--sds-color-surface);
+  color: var(--sds-color-on-accent);
+  border: 1px solid var(--sds-color-border-strong);
+  border-radius: var(--sds-radius-sm);
+  cursor: pointer;
+  transition:
+    background-color var(--sds-duration-fast) var(--sds-easing-standard),
+    border-color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.control:hover:not([data-disabled]) {
+  border-color: var(--sds-color-accent);
+}
+
+.control:focus-visible {
+  outline: 2px solid var(--sds-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.control[data-checked],
+.control[data-indeterminate] {
+  background: var(--sds-color-accent);
+  border-color: var(--sds-color-accent);
+}
+
+.control[data-invalid] {
+  border-color: var(--sds-color-danger);
+}
+
+.control[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: currentcolor;
+}
+
+.dash {
+  display: none;
+}
+
+.indicator[data-indeterminate] .tick {
+  display: none;
+}
+
+.indicator[data-indeterminate] .dash {
+  display: block;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+}
+
+.label {
+  font-family: var(--sds-font-sans);
+  font-size: var(--sds-font-size-sm);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-text);
+  cursor: pointer;
+}
+
+.root:has(.control[data-disabled]) .label {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.description {
+  font-size: var(--sds-font-size-xs);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-text-muted);
+}

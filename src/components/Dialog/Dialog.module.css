@@ -1,6 +1,8 @@
 .backdrop {
   position: fixed;
   inset: 0;
+  /* `inset: 0` only covers the small viewport while a mobile URL bar is shown. */
+  min-height: 100dvh;
   background: var(--sds-color-overlay);
   transition: opacity var(--sds-duration-normal) var(--sds-easing-standard);
 }

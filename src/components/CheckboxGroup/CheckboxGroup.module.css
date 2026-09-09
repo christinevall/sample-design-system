@@ -1,0 +1,37 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-2);
+}
+
+.label {
+  font-family: var(--sds-font-sans);
+  font-size: var(--sds-font-size-sm);
+  font-weight: var(--sds-font-weight-medium);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-text);
+}
+
+.description {
+  font-size: var(--sds-font-size-xs);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-text-muted);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-3);
+  margin-top: var(--sds-space-1);
+}
+
+.horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: var(--sds-space-5);
+}
+
+.error {
+  font-size: var(--sds-font-size-xs);
+  color: var(--sds-color-danger);
+}

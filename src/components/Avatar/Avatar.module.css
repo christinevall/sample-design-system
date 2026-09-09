@@ -1,0 +1,49 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  overflow: hidden;
+  border-radius: var(--sds-radius-full);
+  background: var(--sds-color-surface-sunken);
+  color: var(--sds-color-text-muted);
+  font-family: var(--sds-font-sans);
+  font-weight: var(--sds-font-weight-medium);
+  line-height: var(--sds-line-height-tight);
+  user-select: none;
+  vertical-align: middle;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+/* Sizes come off the space scale so avatars line up with other controls. */
+.sm {
+  width: var(--sds-space-6);
+  height: var(--sds-space-6);
+  font-size: var(--sds-font-size-xs);
+}
+.md {
+  width: var(--sds-space-8);
+  height: var(--sds-space-8);
+  font-size: var(--sds-font-size-sm);
+}
+.lg {
+  width: var(--sds-space-12);
+  height: var(--sds-space-12);
+  font-size: var(--sds-font-size-md);
+}

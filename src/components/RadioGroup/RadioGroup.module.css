@@ -1,0 +1,116 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-2);
+}
+
+.label {
+  font-family: var(--sds-font-sans);
+  font-size: var(--sds-font-size-sm);
+  font-weight: var(--sds-font-weight-medium);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-text);
+}
+
+.description {
+  font-size: var(--sds-font-size-xs);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-text-muted);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-3);
+  margin-top: var(--sds-space-1);
+}
+
+.horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: var(--sds-space-5);
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sds-space-3);
+}
+
+.radio {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--sds-space-5);
+  height: var(--sds-space-5);
+  padding: 0;
+  background: var(--sds-color-surface);
+  border: 1px solid var(--sds-color-border-strong);
+  border-radius: var(--sds-radius-full);
+  cursor: pointer;
+  transition:
+    background-color var(--sds-duration-fast) var(--sds-easing-standard),
+    border-color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.radio:hover:not([data-disabled]) {
+  border-color: var(--sds-color-accent);
+}
+
+.radio:focus-visible {
+  outline: 2px solid var(--sds-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.radio[data-checked] {
+  background: var(--sds-color-accent);
+  border-color: var(--sds-color-accent);
+}
+
+.radio[data-invalid] {
+  border-color: var(--sds-color-danger);
+}
+
+.radio[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dot {
+  display: block;
+  width: var(--sds-space-2);
+  height: var(--sds-space-2);
+  background: var(--sds-color-on-accent);
+  border-radius: var(--sds-radius-full);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+}
+
+.itemLabel {
+  font-family: var(--sds-font-sans);
+  font-size: var(--sds-font-size-sm);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-text);
+  cursor: pointer;
+}
+
+.item:has(.radio[data-disabled]) .itemLabel {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.itemDescription {
+  font-size: var(--sds-font-size-xs);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-text-muted);
+}
+
+.error {
+  font-size: var(--sds-font-size-xs);
+  color: var(--sds-color-danger);
+}

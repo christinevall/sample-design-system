@@ -1,13 +1,15 @@
 # Sample Design System
 
-A small, deliberately readable design system built on [Base UI](https://base-ui.com) primitives, documented in [Storybook](https://storybook.js.org), with a token layer designed to sync to Figma variables later.
+A design system built on [Base UI](https://base-ui.com) primitives, documented in [Storybook](https://storybook.js.org), with a token layer designed to sync to Figma variables.
+
+42 components, 4 foundations pages, 4 full-screen patterns.
 
 ## Stack
 
-- **Vite + React 19 + TypeScript** for the build
-- **Base UI 1.0** for unstyled, accessible primitives
+- **Vite 8 + React 19 + TypeScript** for the build
+- **`@base-ui/react` 1.8.0** for unstyled, accessible primitives
 - **CSS Modules + custom properties** for styling, so tokens stay inspectable in the browser and portable to Figma
-- **Storybook 10** for documentation, with the a11y and docs addons
+- **Storybook 10** for documentation, with the docs, a11y and MCP addons
 
 ## Getting started
 
@@ -19,53 +21,56 @@ npm run build       # typecheck + production build
 npm run build-storybook
 ```
 
+Open **Getting started** in the Storybook sidebar first.
+
 ## How it is organised
 
 ```
 src/
   tokens/
-    primitives.css   raw palette and scales, referenced by nothing but semantic.css
+    primitives.css   raw ramps and scales, referenced only by semantic.css
     semantic.css     the layer components use, redefined per theme
     base.css         imports both, plus a minimal reset
-  components/
-    Button/          Component.tsx, Component.module.css, Component.stories.tsx, index.ts
-    TextField/
-    Switch/
-    Dialog/
-  foundations/
-    Tokens.stories.tsx   renders the semantic layer as swatches
+  components/        42 components, one folder each
+  foundations/       Colour, Typography, Space and shape, Motion
+  patterns/          Settings page, Sign-up form, Data table, App shell
   index.ts           the public surface of the library
 docs/
+  architecture.md    why the repo is shaped this way
+  conventions.md     how to add a component
   branching.md       the Gitflow variant, including the design branch
 ```
 
 ### The two token layers
 
-Primitives are the raw material: `--sds-brand-600`, `--sds-space-4`. Nothing in a component may reference them.
+Primitives are the raw material: `--sds-brand-600`, `--sds-space-4`. Nothing in a component may reference a primitive colour.
 
 Semantic tokens are the contract: `--sds-color-accent`, `--sds-color-text-muted`. Components use only these. Theming means redefining semantic tokens, never touching primitives or components.
 
-That separation is also what makes the Figma sync work. Semantic token names map one-to-one to Figma variables, and the light/dark blocks map to Figma variable modes.
+That separation is also what makes the Figma sync work. Semantic token names map one-to-one to Figma variables, and the light and dark blocks map to Figma variable modes.
 
-Switch theme in the Storybook toolbar to see it.
+Flip the theme in the Storybook toolbar to see it.
 
 ## Adding a component
 
-1. Check Base UI has a primitive for it. If it does, wrap it rather than rebuilding the behaviour.
-2. `src/components/Thing/Thing.tsx` plus `Thing.module.css` using only semantic tokens.
-3. `Thing.stories.tsx` with `tags: ['autodocs']` and a story per meaningful state.
-4. Export from `src/index.ts`.
-5. Check the a11y panel is clean in both themes.
+See [docs/conventions.md](docs/conventions.md). The short version:
+
+1. If Base UI has a primitive, wrap it. Never rebuild focus management or ARIA.
+2. Read the primitive's types and Base UI's own reference demo before writing. Not from memory.
+3. Semantic tokens only. No raw hex, no primitive colours.
+4. Style from Base UI's `data-` state attributes, not from React state.
+5. A story per meaningful state, disabled included, and a clean a11y panel in both themes.
 
 ## Roadmap
 
-- [x] Base UI + Storybook, token layer, first four components
-- [ ] Push to GitHub, protect `main` and `develop`, create the `design` branch
-- [ ] Move tokens to a DTCG `tokens.json` source of truth with a generator that emits `primitives.css` and `semantic.css`
+- [x] Base UI + Storybook, token layer, 42 components, foundations and patterns
+- [x] On GitHub with the branch model documented
+- [ ] Semantic scale tokens for space, radius and type, so density theming is possible without editing primitives
+- [ ] Move tokens to a DTCG `tokens.json` source of truth with a generator emitting the CSS
 - [ ] Sync tokens to Figma variables over the Figma MCP
 - [ ] Code Connect mappings so Figma components point at these files
 - [ ] Publish Storybook per branch, including `design`
 
 ## Branching
 
-See [docs/branching.md](docs/branching.md). Short version: `main` is released, `develop` is integration, `design` is a designer playground whose accepted ideas come back through a normal feature branch rather than a merge.
+See [docs/branching.md](docs/branching.md). Everything currently sits on `main`. `design` exists as a long-lived branch for designers to prototype in real code, and accepted prototypes come back through a normal feature branch rather than merging `design` directly.

@@ -1,4 +1,4 @@
-import { Button as BaseButton } from '@base-ui-components/react/button';
+import { Button as BaseButton } from '@base-ui/react/button';
 import styles from './Button.module.css';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';

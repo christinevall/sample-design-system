@@ -30,6 +30,20 @@
   --sds-brand-800: #3730a3;
   --sds-brand-900: #312e81;
 
+  /* Success ramp */
+  --sds-success-100: #dcfce7;
+  --sds-success-300: #86efac;
+  --sds-success-500: #22c55e;
+  --sds-success-600: #16a34a;
+  --sds-success-700: #15803d;
+
+  /* Warning ramp */
+  --sds-warning-100: #fef3c7;
+  --sds-warning-300: #fcd34d;
+  --sds-warning-500: #f59e0b;
+  --sds-warning-600: #d97706;
+  --sds-warning-700: #b45309;
+
   /* Danger ramp */
   --sds-danger-100: #fee2e2;
   --sds-danger-300: #fca5a5;

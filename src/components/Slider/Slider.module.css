@@ -1,0 +1,130 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+  width: 100%;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-2);
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sds-space-3);
+}
+
+.label {
+  font-family: var(--sds-font-sans);
+  font-size: var(--sds-font-size-sm);
+  font-weight: var(--sds-font-weight-medium);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-text);
+}
+
+.value {
+  font-family: var(--sds-font-mono);
+  font-size: var(--sds-font-size-sm);
+  color: var(--sds-color-text-muted);
+}
+
+.control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--sds-space-5);
+  touch-action: none;
+  cursor: pointer;
+}
+
+.control[data-disabled] {
+  cursor: not-allowed;
+}
+
+.track {
+  position: relative;
+  width: 100%;
+  height: var(--sds-space-1);
+  background: var(--sds-color-surface-sunken);
+  border: 1px solid var(--sds-color-border);
+  border-radius: var(--sds-radius-full);
+}
+
+.indicator {
+  background: var(--sds-color-accent);
+  border-radius: inherit;
+}
+
+.thumb {
+  width: var(--sds-space-5);
+  height: var(--sds-space-5);
+  background: var(--sds-color-surface);
+  border: 2px solid var(--sds-color-accent);
+  border-radius: var(--sds-radius-full);
+  box-shadow: var(--sds-elevation-raised);
+  transition: box-shadow var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+/*
+ * `Slider.Thumb` renders a div wrapping a visually hidden `<input type="range">`;
+ * the input takes focus, never the div, so `:focus-visible` on the thumb itself
+ * would never match.
+ */
+.thumb:has(:focus-visible) {
+  outline: 2px solid var(--sds-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.thumb[data-dragging] {
+  box-shadow: var(--sds-shadow-md);
+}
+
+/*
+ * `Slider.Root` accepts `orientation="vertical"`; the primitive swaps the axis
+ * it reads, but the track still has to be turned on its side here.
+ */
+.slider[data-orientation='vertical'] {
+  width: max-content;
+}
+
+.control[data-orientation='vertical'] {
+  flex-direction: column;
+  justify-content: center;
+  width: var(--sds-space-5);
+  height: 100%;
+  min-height: 8rem;
+}
+
+.track[data-orientation='vertical'] {
+  width: var(--sds-space-1);
+  height: 100%;
+}
+
+.slider[data-disabled] .indicator {
+  background: var(--sds-color-border-strong);
+}
+
+.slider[data-disabled] .thumb {
+  border-color: var(--sds-color-border-strong);
+}
+
+.slider[data-disabled] {
+  opacity: 0.5;
+}
+
+.description {
+  font-size: var(--sds-font-size-xs);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-text-muted);
+}
+
+.error {
+  font-size: var(--sds-font-size-xs);
+  color: var(--sds-color-danger);
+}

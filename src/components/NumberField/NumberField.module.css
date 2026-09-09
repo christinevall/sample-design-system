@@ -1,0 +1,122 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+}
+
+.scrubArea {
+  align-self: flex-start;
+  cursor: ew-resize;
+  user-select: none;
+}
+
+/*
+ * Scrubbing takes a pointer lock, so the OS cursor is hidden for its duration.
+ * Base UI renders and positions this element in its place; without it the
+ * pointer simply disappears while the value is being dragged.
+ */
+.scrubAreaCursor svg {
+  display: block;
+  fill: currentcolor;
+  stroke: var(--sds-color-surface);
+}
+
+.label {
+  font-family: var(--sds-font-sans);
+  font-size: var(--sds-font-size-sm);
+  font-weight: var(--sds-font-weight-medium);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-text);
+}
+
+.group {
+  display: inline-flex;
+  align-items: stretch;
+  align-self: flex-start;
+  background: var(--sds-color-surface);
+  border: 1px solid var(--sds-color-border);
+  border-radius: var(--sds-radius-md);
+  overflow: hidden;
+  transition: border-color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.group:hover:not([data-disabled]) {
+  border-color: var(--sds-color-border-strong);
+}
+
+.group[data-invalid] {
+  border-color: var(--sds-color-danger);
+}
+
+.group[data-disabled] {
+  opacity: 0.5;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--sds-space-8);
+  height: var(--sds-space-10);
+  padding: 0;
+  background: var(--sds-color-surface-sunken);
+  color: var(--sds-color-text);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.button:hover:not([data-disabled]) {
+  background: var(--sds-color-accent-subtle);
+  color: var(--sds-color-accent);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--sds-color-focus-ring);
+  outline-offset: -2px;
+}
+
+.button[data-disabled] {
+  cursor: not-allowed;
+}
+
+.input {
+  width: var(--sds-space-12);
+  min-width: 0;
+  flex: 1;
+  height: var(--sds-space-10);
+  padding: 0 var(--sds-space-3);
+  background: var(--sds-color-surface);
+  color: var(--sds-color-text);
+  border: none;
+  border-inline: 1px solid var(--sds-color-border);
+  font-family: var(--sds-font-sans);
+  font-size: var(--sds-font-size-md);
+  text-align: center;
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--sds-color-focus-ring);
+  outline-offset: -2px;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.description {
+  font-size: var(--sds-font-size-xs);
+  line-height: var(--sds-line-height-normal);
+  color: var(--sds-color-text-muted);
+}
+
+.error {
+  font-size: var(--sds-font-size-xs);
+  color: var(--sds-color-danger);
+}

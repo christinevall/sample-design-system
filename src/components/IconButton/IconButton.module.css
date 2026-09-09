@@ -1,0 +1,86 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  padding: var(--sds-space-0);
+  border: 1px solid transparent;
+  border-radius: var(--sds-radius-md);
+  font-family: var(--sds-font-sans);
+  line-height: var(--sds-line-height-tight);
+  cursor: pointer;
+  transition:
+    background-color var(--sds-duration-fast) var(--sds-easing-standard),
+    border-color var(--sds-duration-fast) var(--sds-easing-standard),
+    color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--sds-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.root[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.root svg {
+  display: block;
+}
+
+/* Sizes: square, matching the Button heights. */
+.sm {
+  width: 32px;
+  height: 32px;
+}
+
+.md {
+  width: 40px;
+  height: 40px;
+}
+
+.lg {
+  width: 48px;
+  height: 48px;
+}
+
+/* Variants, mirroring Button. */
+.primary {
+  background: var(--sds-color-accent);
+  color: var(--sds-color-on-accent);
+}
+.primary:hover:not([data-disabled]) {
+  background: var(--sds-color-accent-hover);
+}
+.primary:active:not([data-disabled]) {
+  background: var(--sds-color-accent-active);
+}
+
+.secondary {
+  background: var(--sds-color-surface);
+  color: var(--sds-color-text);
+  border-color: var(--sds-color-border);
+  box-shadow: var(--sds-elevation-raised);
+}
+.secondary:hover:not([data-disabled]) {
+  background: var(--sds-color-surface-sunken);
+  border-color: var(--sds-color-border-strong);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--sds-color-text-muted);
+}
+.ghost:hover:not([data-disabled]) {
+  background: var(--sds-color-accent-subtle);
+  color: var(--sds-color-accent);
+}
+
+.danger {
+  background: var(--sds-color-danger);
+  color: var(--sds-color-on-danger);
+}
+.danger:hover:not([data-disabled]) {
+  background: var(--sds-color-danger-hover);
+}

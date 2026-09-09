@@ -1,0 +1,93 @@
+.positioner {
+  /* Base UI writes position and transform inline; nothing else belongs here. */
+  outline: none;
+}
+
+.popup {
+  box-sizing: border-box;
+  /* Containing block for the arrow, which Base UI positions absolutely. */
+  position: relative;
+  /* `--available-width` accounts for collision padding; `100vw` does not. */
+  max-width: min(20rem, var(--available-width));
+  padding: var(--sds-space-4);
+  background: var(--sds-color-surface);
+  color: var(--sds-color-text);
+  font-family: var(--sds-font-sans);
+  font-size: var(--sds-font-size-sm);
+  line-height: var(--sds-line-height-normal);
+  border: 1px solid var(--sds-color-border);
+  border-radius: var(--sds-radius-md);
+  box-shadow: var(--sds-elevation-overlay);
+  transform-origin: var(--transform-origin);
+  transition:
+    opacity var(--sds-duration-fast) var(--sds-easing-standard),
+    transform var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.popup[data-starting-style],
+.popup[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.popup:focus-visible {
+  outline: 2px solid var(--sds-color-focus-ring);
+  outline-offset: 2px;
+}
+
+/*
+ * Arrow placement. The offsets are the geometry of the 20x10 SVG, not spacing
+ * decisions, so there is no token that fits: the arrow is pulled out by its own
+ * height less the 2px it overlaps the popup border by, and by half its width on
+ * the cross axis once rotated.
+ */
+.arrow {
+  display: flex;
+}
+
+.arrow[data-side='top'] {
+  bottom: -8px;
+  rotate: 180deg;
+}
+
+.arrow[data-side='bottom'] {
+  top: -8px;
+}
+
+.arrow[data-side='left'] {
+  right: -13px;
+  rotate: 90deg;
+}
+
+.arrow[data-side='right'] {
+  left: -13px;
+  rotate: -90deg;
+}
+
+.arrowFill {
+  fill: var(--sds-color-surface);
+}
+
+.arrowOuterStroke {
+  fill: var(--sds-color-border);
+}
+
+.arrowInnerStroke {
+  fill: var(--sds-color-surface);
+}
+
+.title {
+  margin: 0 0 var(--sds-space-1);
+  font-size: var(--sds-font-size-md);
+  font-weight: var(--sds-font-weight-bold);
+  line-height: var(--sds-line-height-tight);
+}
+
+.description {
+  margin: 0;
+  color: var(--sds-color-text-muted);
+}
+
+.description:not(:last-child) {
+  margin-bottom: var(--sds-space-4);
+}

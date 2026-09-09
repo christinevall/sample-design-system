@@ -1,0 +1,83 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: var(--sds-font-sans);
+  color: var(--sds-color-text);
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sds-space-2);
+  padding: var(--sds-space-2) var(--sds-space-3);
+  background: transparent;
+  border: 1px solid var(--sds-color-border);
+  border-radius: var(--sds-radius-md);
+  color: inherit;
+  font-family: inherit;
+  font-size: var(--sds-font-size-sm);
+  font-weight: var(--sds-font-weight-medium);
+  line-height: var(--sds-line-height-tight);
+  text-align: start;
+  cursor: pointer;
+  transition:
+    background-color var(--sds-duration-fast) var(--sds-easing-standard),
+    border-color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.trigger:hover:not([data-disabled]) {
+  background: var(--sds-color-surface-sunken);
+  border-color: var(--sds-color-border-strong);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--sds-color-focus-ring);
+  outline-offset: 2px;
+}
+
+.trigger[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.label {
+  min-width: 0;
+}
+
+.chevron {
+  flex: none;
+  color: var(--sds-color-text-muted);
+  transition: transform var(--sds-duration-normal) var(--sds-easing-standard);
+}
+
+.trigger[data-panel-open] .chevron {
+  transform: rotate(90deg);
+}
+
+/* Height animation driven by Base UI's --collapsible-panel-height. */
+.panel {
+  overflow: hidden;
+  height: var(--collapsible-panel-height);
+  color: var(--sds-color-text-muted);
+  font-size: var(--sds-font-size-sm);
+  line-height: var(--sds-line-height-normal);
+  transition: height var(--sds-duration-normal) var(--sds-easing-standard);
+}
+
+.panel[data-starting-style],
+.panel[data-ending-style] {
+  height: 0;
+}
+
+.content {
+  padding-top: var(--sds-space-3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .chevron,
+  .trigger {
+    transition-duration: 1ms;
+  }
+}

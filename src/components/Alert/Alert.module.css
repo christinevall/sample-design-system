@@ -1,0 +1,103 @@
+.root {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sds-space-3);
+  padding: var(--sds-space-3) var(--sds-space-4);
+  border: 1px solid transparent;
+  border-radius: var(--sds-radius-md);
+  font-family: var(--sds-font-sans);
+  font-size: var(--sds-font-size-sm);
+  line-height: var(--sds-line-height-normal);
+}
+
+.icon {
+  display: flex;
+  flex: none;
+  /* Optically centres the 16px icon on the first line of the title. */
+  margin-top: 2px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-1);
+  min-width: 0;
+  flex: 1;
+}
+
+.title {
+  margin: 0;
+  font-weight: var(--sds-font-weight-bold);
+  line-height: var(--sds-line-height-tight);
+}
+
+.body {
+  color: var(--sds-color-text-muted);
+}
+
+.dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  padding: var(--sds-space-0);
+  margin: -2px calc(var(--sds-space-1) * -1) 0 0;
+  border: none;
+  border-radius: var(--sds-radius-sm);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background-color var(--sds-duration-fast) var(--sds-easing-standard);
+}
+
+.dismiss:hover {
+  background: var(--sds-color-surface-sunken);
+}
+
+.dismiss:focus-visible {
+  outline: 2px solid var(--sds-color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Variants */
+.info {
+  background: var(--sds-color-accent-subtle);
+  border-color: var(--sds-color-accent);
+  color: var(--sds-color-text);
+}
+
+.info .icon {
+  color: var(--sds-color-accent);
+}
+
+.success {
+  background: var(--sds-color-success-subtle);
+  border-color: var(--sds-color-success);
+  color: var(--sds-color-text);
+}
+
+.success .icon {
+  color: var(--sds-color-success);
+}
+
+.warning {
+  background: var(--sds-color-warning-subtle);
+  border-color: var(--sds-color-warning);
+  color: var(--sds-color-text);
+}
+
+.warning .icon {
+  color: var(--sds-color-warning);
+}
+
+.danger {
+  background: var(--sds-color-danger-subtle);
+  border-color: var(--sds-color-danger);
+  color: var(--sds-color-text);
+}
+
+.danger .icon {
+  color: var(--sds-color-danger);
+}

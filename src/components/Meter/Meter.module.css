@@ -1,0 +1,69 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sds-space-2);
+  width: 100%;
+  font-family: var(--sds-font-sans);
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sds-space-3);
+}
+
+.label {
+  font-size: var(--sds-font-size-sm);
+  font-weight: var(--sds-font-weight-medium);
+  color: var(--sds-color-text);
+}
+
+.value {
+  font-size: var(--sds-font-size-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--sds-color-text-muted);
+}
+
+.track {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--sds-color-surface-sunken);
+  border-radius: var(--sds-radius-full);
+}
+
+.indicator {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--sds-color-accent);
+  transition: width var(--sds-duration-normal) var(--sds-easing-standard);
+}
+
+/* Tones */
+.accent .indicator {
+  background: var(--sds-color-accent);
+}
+
+.danger .indicator {
+  background: var(--sds-color-danger);
+}
+
+.danger .track {
+  background: var(--sds-color-danger-subtle);
+}
+
+.danger .value {
+  color: var(--sds-color-danger);
+  font-weight: var(--sds-font-weight-medium);
+}
+
+/* Sizes */
+.sm .track {
+  height: var(--sds-space-1);
+}
+.md .track {
+  height: var(--sds-space-2);
+}

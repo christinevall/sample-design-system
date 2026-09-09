@@ -5,7 +5,7 @@ Why this repo is shaped the way it is. Start here before adding anything.
 ## Stack
 
 - **Vite 8 + React 19 + TypeScript** for the build
-- **Base UI `1.0.0-rc.0`** (`@base-ui-components/react`) for unstyled, accessible primitives
+- **Base UI `1.0.0-rc.0`** (`@base-ui/react`) for unstyled, accessible primitives
 - **Storybook `10.6.0`** with `@storybook/react-vite`, `addon-docs`, `addon-a11y`, `addon-mcp`
 - **CSS Modules + CSS custom properties** for styling. No CSS-in-JS, no Tailwind. Tokens stay inspectable in devtools and portable to Figma.
 
@@ -23,13 +23,15 @@ The rule that makes the whole thing work: components reference semantic tokens o
 
 ## Components
 
-`Button`, `TextField` (Base UI `Field` + `Input`), `Switch`, and `Dialog` (compound: `Root`, `Trigger`, `Close`, `Content`, `Actions`).
+42 components across Actions, Forms, Navigation, Overlays, Content, Layout, Display and Feedback. Most wrap a Base UI primitive; Card, Badge, Alert, Table, Spinner and Breadcrumb have no primitive to wrap because they carry no interaction logic.
 
 Each lives in its own folder with `Component.tsx`, `Component.module.css`, `Component.stories.tsx` and `index.ts`. The public surface of the library is `src/index.ts`.
 
 `src/foundations/Tokens.stories.tsx` renders the semantic layer as swatches, so the tokens have a page rather than only a file.
 
 ## Gotchas
+
+**The package moved orgs.** `@base-ui-components/react` was abandoned at `1.0.0-rc.0`; the maintained package is `@base-ui/react`, now at 1.8.0. The old name still resolves on npm and looks current, which is a trap. Check the org before trusting a version number.
 
 **Base UI's `ButtonProps` is a union type** (`nativeButton` true and false branches), so `interface X extends React.ComponentPropsWithoutRef<typeof BaseButton>` fails with TS2312. Type the wrapper as `React.ComponentProps<'button'> & { ... }` and pull `render` off the Base UI type separately.
 
