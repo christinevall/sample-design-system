@@ -5,19 +5,29 @@ Why this repo is shaped the way it is. Start here before adding anything.
 ## Stack
 
 - **Vite 8 + React 19 + TypeScript** for the build
-- **Base UI `1.0.0-rc.0`** (`@base-ui/react`) for unstyled, accessible primitives
+- **Base UI `1.8.0`** (`@base-ui/react`) for unstyled, accessible primitives
 - **Storybook `10.6.0`** with `@storybook/react-vite`, `addon-docs`, `addon-a11y`, `addon-mcp`
 - **CSS Modules + CSS custom properties** for styling. No CSS-in-JS, no Tailwind. Tokens stay inspectable in devtools and portable to Figma.
 
 ## Token architecture
 
-Two layers, deliberately separated so the semantic layer can map one-to-one to Figma variables.
+**`tokens/` is the source of truth. `src/tokens/*.css` is generated — never edit it.**
 
-`src/tokens/primitives.css` holds raw ramps and scales: `--sds-brand-600`, `--sds-space-4`. Referenced only by `semantic.css`, never by a component.
+DTCG-format JSON, built by `scripts/build-tokens.mjs` (Style Dictionary 4) via `npm run build:tokens`. One file describes each design decision, and that same file is what maps to Figma variables.
 
-`src/tokens/semantic.css` holds the contract components use: `--sds-color-accent`, `--sds-color-text-muted`. The light block sits on `:root` and `[data-theme="light"]`, the dark block on `[data-theme="dark"]`. Those two blocks become Figma variable modes.
+Two tiers, deliberately separated so the semantic tier can map one-to-one to Figma variables:
 
-`src/tokens/base.css` imports both plus a minimal reset.
+`tokens/tier-1-definitions/` holds raw ramps and scales: `--sds-brand-600`, `--sds-space-4`. Referenced only by tier 2, never by a component. Emits `primitives.css`.
+
+`tokens/tier-2-usage/` holds the contract components use: `--sds-color-accent`, `--sds-text-heading-lg-font-size`. Split into `semantic.light.json` and `semantic.dark.json`, which become the two blocks in `semantic.css` and the two Figma variable modes. `text-style.json` holds composite text styles, the unit that maps to a Figma text style.
+
+References are emitted as `var()` rather than resolved values, so the tier-1 -> tier-2 indirection survives into the CSS. A Figma variable alias maps onto exactly that indirection.
+
+Brad Frost's `eddie-design-tokens` adds a third tier for component-level tokens. We have no need for one yet; that is the extension point if we do.
+
+**Breakpoints are the exception.** They live in tier 1 but are emitted to `src/tokens/breakpoints.ts` as well as CSS, because a CSS custom property cannot be used inside a media query — `@media (min-width: var(--x))` is not valid CSS. Storybook viewports are generated from them.
+
+`src/tokens/base.css` imports the generated CSS plus a minimal reset.
 
 The rule that makes the whole thing work: components reference semantic tokens only. Never a primitive, never a raw hex value. Theming then means redefining one file, and the Figma sync becomes a name-for-name translation rather than a negotiation.
 
@@ -27,9 +37,11 @@ The rule that makes the whole thing work: components reference semantic tokens o
 
 Each lives in its own folder with `Component.tsx`, `Component.module.css`, `Component.stories.tsx` and `index.ts`. The public surface of the library is `src/index.ts`.
 
-`src/foundations/Tokens.stories.tsx` renders the semantic layer as swatches, so the tokens have a page rather than only a file.
+`src/foundations/` renders the token layers as four pages — Colour, Typography, Space and shape, Motion — so the tokens have a page rather than only a file. They read *computed* values, so they show what the browser resolved for the theme selected in the toolbar.
 
 ## Gotchas
+
+**Storybook's manifest needs a real component reference.** `storybook-static/manifests/components.json` is the catalog an agent grounds itself against. Storybook cannot resolve `component: X.Root` through a plain object namespace, so compound components are exported as `Object.assign(Root, { Root, ... })` — a real component that is also the namespace. Exporting a plain object silently drops the component from the manifest.
 
 **The package moved orgs.** `@base-ui-components/react` was abandoned at `1.0.0-rc.0`; the maintained package is `@base-ui/react`, now at 1.8.0. The old name still resolves on npm and looks current, which is a trap. Check the org before trusting a version number.
 
@@ -42,7 +54,9 @@ Each lives in its own folder with `Component.tsx`, `Component.module.css`, `Comp
 ## Roadmap
 
 1. Protect `main` and `develop` on GitHub.
-2. Move tokens to a DTCG `tokens.json` source of truth with a generator emitting `primitives.css` and `semantic.css`.
-3. Sync tokens to Figma variables over the Figma MCP.
-4. Code Connect mappings so Figma components point at these files.
-5. Per-branch Storybook deploys, including `design`.
+2. ~~Move tokens to a DTCG source of truth with a generator.~~ Done.
+3. Publish Storybook, so the manifest and the docs have a stable URL.
+4. Sync tokens to Figma variables over the Figma MCP.
+5. A naming contract between semantic tokens and Figma variables, checked both ways. Nothing catches that drift today.
+6. Code Connect mappings so Figma components point at these files.
+7. Per-branch Storybook deploys, including `design`.
