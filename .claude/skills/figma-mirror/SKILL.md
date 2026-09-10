@@ -35,11 +35,11 @@ style preferences. Break one and a frame coming back from Figma stops resolving.
 | Component and part names are the code's: `Card`, `Card.Header`, `NavigationMenu.Link` | The manifest resolves names, not intentions |
 | Variant **properties and values are the code's props, verbatim**: `variant=primary`, `size=md`, `disabled=false` — never `Size=Medium` | A frame coming back must name a real prop and a real value |
 | Text content is `children`, or the prop that carries it (`title`, `fallback`), or the part it fills (`title` → `Card.Title`) | Same reason |
-| Optional code parts are BOOLEAN properties named after the part: `Card.Header`, `Card.Footer` | The instance says which parts to render |
+| Optional code parts are BOOLEAN properties named after the part: `Card.Header`, `Card.Footer` — or, for an optional prop, after the Base UI part it renders: Checkbox's `description` renders `Field.Description` | The instance says which parts to render |
 | The **top-left variant is the default**, and it must be the code's default. Order the grid from the defaults: Button's rows start at `md` | Figma ignores layer order when choosing the default |
 | **Type is a text style, applied whole** — the one the CSS rule names in its six `--sds-typography-<style>-*` declarations | In code, type comes from one text style (CLAUDE.md rule 1) |
 | Every fill, stroke, padding, gap, radius is **bound to a variable**; shadows are **effect styles** | `audit.figma.js` must return nothing |
-| Values the CSS has raw stay raw in Figma — `min-height: 32px`, `opacity: 0.5`, `transparent` — never promoted to a token | Inventing a token is drift in the other direction |
+| Values the CSS has raw stay raw in Figma — `min-height: 32px`, `opacity: 0.5`, `transparent` — never promoted to a token. When one lands in a field the audit checks (Alert's `margin-top: 2px` is drawn as padding), mark it: `node.setSharedPluginData('sds', 'raw', 'paddingTop')` | Inventing a token is drift in the other direction; the mark tells the audit it is deliberate |
 | A CSS border counts toward size: `strokeAlign = 'INSIDE'` **and** `strokesIncludedInLayout = true`; `1px solid transparent` is an invisible stroke | Otherwise every bordered component is 2px narrow |
 | Nested components are **instances** of the library's own components, exposed with `isExposedInstance = true` | Card's footer holds real Buttons, editable from the Card |
 | The component set's description starts `Contract — src/components/<Name>/<Name>.tsx: …` and names every prop with its values and default | `snapshot.figma.js` reads the source path from it |
@@ -142,6 +142,7 @@ not a thing you draw), **ContextMenu** (the same popup as `Menu`).
 | --- | --- | --- |
 | `scripts/figma/tokens-to-figma.mjs` | Node | tokens → Figma variables and styles; imported by `validate` |
 | `scripts/figma/css-to-spec.mjs` | Node | a component's CSS → bindings, text styles, gaps |
+| `scripts/figma/icons.mjs` | Node | every inline SVG in components and stories → the icon list; imported by `validate` |
 | `scripts/figma/snapshot.figma.js` | Figma MCP | what the library contains → `figma/manifest.json` |
 | `scripts/figma/audit.figma.js` | Figma MCP | every hand-set value in a component |
 

@@ -275,7 +275,10 @@ if (existsSync(FIGMA_MANIFEST)) {
     const doc = docgen.find((d) => d.reactDocgen?.displayName === component)?.reactDocgen?.props ?? {};
     for (const p of c.props) {
       if (p.type === 'BOOLEAN' && p.name.includes('.')) {
-        if (!parts.has(p.name.split('.').pop())) report(F, 0, 'figma-unknown-prop', `${c.name}: ${p.name} is not a part of ${component}`);
+        // A part the component defines (Card.Header), or a Base UI part it
+        // renders for an optional prop (Checkbox's description → Field.Description).
+        const renders = new RegExp(`<${p.name.replace('.', '\\.')}[\\s>/]`).test(src);
+        if (!parts.has(p.name.split('.').pop()) && !renders) report(F, 0, 'figma-unknown-prop', `${c.name}: ${p.name} is not a part of ${component}`);
       } else if (p.type === 'TEXT') {
         if (!(p.name === 'children' || isProp(p.name) || parts.has(capitalised(p.name)))) {
           report(F, 0, 'figma-unknown-prop', `${c.name}: text property "${p.name}" is not children, a prop or a part of ${component}`);

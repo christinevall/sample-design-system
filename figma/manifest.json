@@ -241,69 +241,59 @@
       ]
     },
     {
-      "name": "NavigationMenu",
-      "page": "NavigationMenu",
-      "kind": "component",
-      "variants": 1,
-      "defaultVariant": null,
-      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
-      "props": []
-    },
-    {
-      "name": "NavigationMenu.Link",
-      "page": "NavigationMenu",
+      "name": "Checkbox",
+      "page": "Checkbox",
       "kind": "set",
-      "variants": 2,
-      "defaultVariant": "active=false",
-      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
+      "variants": 8,
+      "defaultVariant": "checked=false, indeterminate=false, disabled=false",
+      "source": "src/components/Checkbox/Checkbox.tsx",
       "props": [
         {
-          "name": "children",
+          "name": "label",
           "type": "TEXT",
-          "default": "Components"
+          "default": "Email me about product updates"
         },
         {
-          "name": "active",
+          "name": "description",
+          "type": "TEXT",
+          "default": "One email every Monday summarising what changed."
+        },
+        {
+          "name": "Field.Label",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "checked",
           "type": "VARIANT",
           "values": [
             "false",
             "true"
           ],
           "default": "false"
-        }
-      ]
-    },
-    {
-      "name": "NavigationMenu.Trigger",
-      "page": "NavigationMenu",
-      "kind": "component",
-      "variants": 1,
-      "defaultVariant": null,
-      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
-      "props": [
+        },
         {
-          "name": "children",
-          "type": "TEXT",
-          "default": "Product"
-        }
-      ]
-    },
-    {
-      "name": "Separator",
-      "page": "Separator",
-      "kind": "set",
-      "variants": 2,
-      "defaultVariant": "orientation=horizontal",
-      "source": "src/components/Separator/Separator.tsx",
-      "props": [
-        {
-          "name": "orientation",
+          "name": "indeterminate",
           "type": "VARIANT",
           "values": [
-            "horizontal",
-            "vertical"
+            "false",
+            "true"
           ],
-          "default": "horizontal"
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
         }
       ]
     },
@@ -558,6 +548,73 @@
       "defaultVariant": null,
       "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
       "props": []
+    },
+    {
+      "name": "NavigationMenu",
+      "page": "NavigationMenu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
+      "props": []
+    },
+    {
+      "name": "NavigationMenu.Link",
+      "page": "NavigationMenu",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "active=false",
+      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Components"
+        },
+        {
+          "name": "active",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "NavigationMenu.Trigger",
+      "page": "NavigationMenu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Product"
+        }
+      ]
+    },
+    {
+      "name": "Separator",
+      "page": "Separator",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=horizontal",
+      "source": "src/components/Separator/Separator.tsx",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        }
+      ]
     }
   ],
   "variables": {
