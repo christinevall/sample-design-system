@@ -1,6 +1,7 @@
 import type { Preview, Decorator } from '@storybook/react-vite';
 import '../src/tokens/base.css';
 import { breakpoints } from '../src/tokens/breakpoints';
+import { ComponentDocsPage } from './ComponentDocsPage';
 
 /** Viewports come from the breakpoint tokens, so the sizes designers test at
  *  and the sizes the CSS is written against cannot drift apart. */
@@ -23,8 +24,8 @@ const withTheme: Decorator = (Story, context) => {
     <div
       data-theme={theme}
       style={{
-        background: 'var(--sds-color-bg)',
-        color: 'var(--sds-color-text)',
+        background: 'var(--sds-color-background-default)',
+        color: 'var(--sds-color-content-default)',
         padding: fullscreen ? 0 : 'var(--sds-space-6)',
         minHeight: '100%',
       }}
@@ -52,6 +53,8 @@ const preview: Preview = {
     },
   },
   parameters: {
+    // Default Docs page + the component's own stylesheet at the end.
+    docs: { page: ComponentDocsPage },
     layout: 'centered',
     viewport: { options: viewports },
     controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },
