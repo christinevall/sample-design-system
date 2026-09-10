@@ -3,7 +3,7 @@ import { Meter } from './Meter';
 
 /** Storage is fine until it is nearly gone; past 85% the reading turns red. */
 const DANGER_THRESHOLD = 85;
-const toneFor = (value: number) => (value >= DANGER_THRESHOLD ? 'danger' : 'accent');
+const variantFor = (value: number) => (value >= DANGER_THRESHOLD ? 'danger' : 'accent');
 
 const meta = {
   title: 'Components/Display/Meter',
@@ -12,7 +12,7 @@ const meta = {
   argTypes: {
     value: { control: { type: 'range', min: 0, max: 100, step: 1 } },
     size: { control: 'inline-radio', options: ['sm', 'md'] },
-    tone: { control: 'inline-radio', options: ['accent', 'danger'] },
+    variant: { control: 'inline-radio', options: ['accent', 'danger'] },
     showValue: { control: 'boolean' },
   },
   args: {
@@ -20,7 +20,7 @@ const meta = {
     value: 42,
     showValue: true,
     size: 'md',
-    tone: 'accent',
+    variant: 'accent',
   },
   decorators: [
     (Story) => (
@@ -74,7 +74,7 @@ export const Threshold: Story = {
           key={value}
           label={`Storage used — ${value < DANGER_THRESHOLD ? 'plenty of room' : 'nearly full'}`}
           value={value}
-          tone={toneFor(value)}
+          variant={variantFor(value)}
           showValue
         />
       ))}
@@ -82,9 +82,9 @@ export const Threshold: Story = {
   ),
 };
 
-/** Explicitly forcing the danger tone. */
+/** Explicitly forcing the danger variant. */
 export const Danger: Story = {
-  args: { value: 96, tone: 'danger', label: 'Storage used' },
+  args: { value: 96, variant: 'danger', label: 'Storage used' },
 };
 
 /** Empty and full, the two ends of the range. */
@@ -93,7 +93,7 @@ export const Extremes: Story = {
   render: () => (
     <div style={{ display: 'grid', gap: 'var(--sds-space-5)' }}>
       <Meter label="Empty" value={0} showValue />
-      <Meter label="Full" value={100} tone="danger" showValue />
+      <Meter label="Full" value={100} variant="danger" showValue />
     </div>
   ),
 };
@@ -109,7 +109,7 @@ export const CustomRange: Story = {
     max: 1000,
     showValue: true,
     format: { style: 'unit', unit: 'gigabyte', unitDisplay: 'short' },
-    tone: 'accent',
+    variant: 'accent',
   },
 };
 

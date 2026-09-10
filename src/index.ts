@@ -221,7 +221,7 @@ export { Progress } from './components/Progress';
 export type { ProgressProps, ProgressSize } from './components/Progress';
 
 export { Meter } from './components/Meter';
-export type { MeterProps, MeterTone, MeterSize } from './components/Meter';
+export type { MeterProps, MeterVariant, MeterSize } from './components/Meter';
 
 export { Spinner } from './components/Spinner';
 export type { SpinnerProps, SpinnerSize } from './components/Spinner';

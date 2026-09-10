@@ -1,7 +1,7 @@
 import { Meter as BaseMeter } from '@base-ui/react/meter';
 import styles from './Meter.module.css';
 
-export type MeterTone = 'accent' | 'danger';
+export type MeterVariant = 'accent' | 'danger';
 export type MeterSize = 'sm' | 'md';
 
 type BaseMeterRootProps = React.ComponentPropsWithoutRef<typeof BaseMeter.Root>;
@@ -16,9 +16,10 @@ export type MeterProps = Omit<BaseMeterRootProps, 'className' | 'children'> & {
   /**
    * Colour of the fill. Switch to `danger` once the reading crosses whatever
    * threshold matters for the measurement (disk nearly full, quota nearly
-   * spent), so the colour carries the same news as the number.
+   * spent), so the colour carries the same news as the number. Named
+   * `variant` like every other component's colour choice.
    */
-  tone?: MeterTone;
+  variant?: MeterVariant;
   className?: string;
 };
 
@@ -29,7 +30,7 @@ export type MeterProps = Omit<BaseMeterRootProps, 'className' | 'children'> & {
  * This is deliberately not `Progress`. `Progress` says "this job is running
  * and will finish"; `Meter` says "this is how full the thing is right now".
  * A meter has no notion of completion, cannot be indeterminate, and a high
- * value is often bad news rather than good — which is why `tone` exists.
+ * value is often bad news rather than good — which is why `variant` exists.
  * If the bar would ever go backwards, you want a `Meter`.
  *
  * Rendered with `role="meter"` by Base UI, so screen readers announce it as
@@ -39,11 +40,11 @@ export function Meter({
   label,
   showValue = false,
   size = 'md',
-  tone = 'accent',
+  variant = 'accent',
   className,
   ...props
 }: MeterProps) {
-  const classes = [styles.root, styles[size], styles[tone], className ?? '']
+  const classes = [styles.root, styles[size], styles[variant], className ?? '']
     .filter(Boolean)
     .join(' ');
   const hasHeader = Boolean(label) || showValue;

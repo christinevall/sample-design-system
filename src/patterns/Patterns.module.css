@@ -88,10 +88,6 @@
   padding-block: var(--sds-space-4);
 }
 
-.settingRow + .settingRow {
-  border-top: 1px solid var(--sds-color-border-default);
-}
-
 .settingText {
   display: flex;
   flex-direction: column;
@@ -228,6 +224,7 @@
 }
 
 .link:focus-visible {
+  /* validate-allow: surface — focus ring for a plain text link; there is no Link component. */
   outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
   border-radius: var(--sds-radius-sm);
@@ -242,6 +239,7 @@
 /* --------------------------------------------------------------- App shell */
 
 .shell {
+  /* validate-allow: surface — the page itself: the one background every screen needs. */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -251,6 +249,7 @@
 }
 
 .topBar {
+  /* validate-allow: surface — gap: there is no top bar component, so the shell draws its own bar. */
   display: flex;
   align-items: center;
   gap: var(--sds-space-5);
@@ -271,6 +270,7 @@
 }
 
 .wordmarkGlyph {
+  /* validate-allow: surface — gap: a brand mark, which no component covers. */
   display: inline-grid;
   place-items: center;
   width: var(--sds-space-6);
@@ -295,6 +295,7 @@
  * and focus ring here rather than inheriting one from a styled component.
  */
 .avatarTrigger {
+  /* validate-allow: surface — Menu.Trigger renders a bare button; see the note above. */
   display: inline-flex;
   align-items: center;
   padding: var(--sds-space-1);
@@ -305,6 +306,7 @@
 }
 
 .avatarTrigger:hover {
+  /* validate-allow: surface — hover state for the same bare trigger. */
   background: var(--sds-color-background-sunken);
 }
 
@@ -388,10 +390,6 @@
   gap: var(--sds-space-3);
   padding-block: var(--sds-space-2);
   font-size: var(--sds-font-size-sm);
-}
-
-.activityRow + .activityRow {
-  border-top: 1px solid var(--sds-color-border-default);
 }
 
 .activityText {
