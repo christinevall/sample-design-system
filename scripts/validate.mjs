@@ -288,7 +288,9 @@ if (existsSync(FIGMA_MANIFEST)) {
         if (!parts.has(p.name.split('.').pop()) && !renders) report(F, 0, 'figma-unknown-prop', `${c.name}: ${p.name} is not a part of ${component}`);
       } else if (p.type === 'TEXT') {
         // aria-* attributes pass through to every component's element (an icon-only Toggle's aria-label)
-        if (!(p.name === 'children' || p.name.startsWith('aria-') || HTML_ATTRS.has(p.name) || isProp(p.name) || parts.has(capitalised(p.name)))) {
+        // …or the part it fills, defined here (title → Card.Title) or rendered by Base UI's name (action → <BaseToast.Action>)
+        const fillsPart = parts.has(capitalised(p.name)) || new RegExp(`<Base${component}\\.${capitalised(p.name)}[\\s>/]`).test(src);
+        if (!(p.name === 'children' || p.name.startsWith('aria-') || HTML_ATTRS.has(p.name) || isProp(p.name) || fillsPart)) {
           report(F, 0, 'figma-unknown-prop', `${c.name}: text property "${p.name}" is not children, a prop or a part of ${component}`);
         }
       } else if (p.name !== 'children' && !HTML_ATTRS.has(p.name) && !isProp(p.name)) { // children: an icon swap (IconButton, Toggle)

@@ -876,6 +876,58 @@
       ]
     },
     {
+      "name": "Menubar",
+      "page": "Menubar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=horizontal",
+      "source": "src/components/Menubar/Menubar.tsx",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        }
+      ]
+    },
+    {
+      "name": "Menubar.Trigger",
+      "page": "Menubar",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "open=false, disabled=false",
+      "source": "src/components/Menubar/Menubar.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "File"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
       "name": "Meter",
       "page": "Meter",
       "kind": "set",

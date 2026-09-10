@@ -55,6 +55,9 @@ export function specFor(component) {
   });
 
   const mapValue = (value) => {
+    // A computed value is raw as a whole, whatever tokens it uses:
+    // Dialog's width is min(28rem, calc(100vw - var(--sds-space-8))), not space/8.
+    if (/\b(?:min|max|calc|clamp)\(/.test(value)) return [{ raw: value }];
     const refs = [...value.matchAll(/var\((--[\w-]+)\)/g)].map((m) => m[1]);
     if (!refs.length) return [{ raw: value }];
     return refs.map((ref) => {
