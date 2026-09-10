@@ -306,6 +306,258 @@
           "default": "horizontal"
         }
       ]
+    },
+    {
+      "name": "icon/alert-octagon",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/alert-triangle",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/align-center",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/align-left",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/align-right",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/bold",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Toggle/Toggle.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/caret-down",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/caret-up",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/check",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Combobox/Combobox.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/check-checkbox",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Checkbox/Checkbox.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/check-circle",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/chevron-down",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/chevron-down-accordion",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Accordion/Accordion.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/chevron-right",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/chevron-right-collapsible",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Collapsible/Collapsible.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/close",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/dash",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Checkbox/Checkbox.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/edit",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/IconButton/IconButton.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/info-circle",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/italic",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/minus",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NumberField/NumberField.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/more-vertical",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/AlertDialog/AlertDialog.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/person",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Avatar/Avatar.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/plus",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NumberField/NumberField.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/scrub-cursor",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NumberField/NumberField.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/star",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Toggle/Toggle.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/trash",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/IconButton/IconButton.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/underline",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "props": []
     }
   ],
   "variables": {

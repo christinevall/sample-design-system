@@ -237,6 +237,18 @@ if (existsSync(FIGMA_MANIFEST)) {
     if (!fm.effectStyles.includes(s.name)) report(F, 0, 'figma-missing', `${s.name} — an elevation token with no effect style`);
   }
 
+  // Icons: every drawing the code has exists in Figma, and every Figma icon is
+  // still drawn somewhere. scripts/figma/icons.mjs names them by shape.
+  const { buildIcons } = await import('./figma/icons.mjs');
+  const { icons } = buildIcons();
+  const figmaIcons = new Set(fm.components.filter((c) => c.name.startsWith('icon/')).map((c) => c.name));
+  for (const icon of icons) {
+    if (!figmaIcons.has(icon.name)) report(F, 0, 'figma-missing', `${icon.name} — drawn in ${icon.source}, with no Figma icon`);
+  }
+  for (const name of figmaIcons) {
+    if (!icons.some((i) => i.name === name)) report(F, 0, 'figma-drift', `${name} exists in Figma but no component or story draws it`);
+  }
+
   // Components: every property is a real prop, part or content of the code
   // component — or of the Base UI part it wraps. Values and defaults are checked
   // against the Storybook manifest when it has been built (locally; CI validates

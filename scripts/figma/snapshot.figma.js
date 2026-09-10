@@ -18,7 +18,7 @@ for (const page of figma.root.children) {
       kind: isSet ? 'set' : 'component',
       variants: isSet ? n.children.length : 1,
       defaultVariant: isSet ? (n.defaultVariant?.name ?? null) : null,
-      source: (n.description.match(/src\/components\/[\w/]+\.tsx/) || [null])[0],
+      source: (n.description.match(/src\/components\/[\w/]+?(?:\.stories)?\.tsx/) || [null])[0], // example icons cite their story
       props: Object.entries(n.componentPropertyDefinitions).map(([k, d]) => ({
         name: k.split('#')[0],
         type: d.type,
