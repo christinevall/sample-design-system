@@ -70,9 +70,19 @@ Then look at the story in a browser. Markup that compiles and renders nothing st
 
 `docs/branching.md` is authoritative. Short version: `feature/*` off `main`, merged back into `main` by pull request with CI green. There is no `develop`. `design` is the designer playground and is a source of decisions, not a source of merges — accepted prototypes get rebuilt on a `feature/*` branch.
 
+## Figma
+
+The Figma library mirrors the code; it is never the source. To add or change
+anything in it — a component, a variable, a text style — use the
+`figma-mirror` skill (`.claude/skills/figma-mirror/`). `figma/manifest.json`
+records what the library contains and `npm run validate` checks it against the
+tokens and the components, so a Figma name that drifts from its token or its
+prop fails CI. What cannot be mirrored exactly, and why, is in `figma/GAPS.md`.
+
 ## Further reading
 
 - `docs/project-brief.md` — what this project is for, decisions, findings, open questions
 - `docs/architecture.md` — why the repo is shaped this way
 - `docs/conventions.md` — how to add a component
 - `docs/branching.md` — the branch model
+- `figma/GAPS.md` — where Figma cannot match the code, and why

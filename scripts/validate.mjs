@@ -10,7 +10,7 @@
  * The point is not to be clever. Every rule here is one an agent has already
  * been told in CLAUDE.md, restated somewhere that actually checks.
  */
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 
 const STRICT = process.argv.includes('--strict');
@@ -185,6 +185,102 @@ if (existsSync(MANIFEST)) {
   }
 } else {
   console.log(`note: ${MANIFEST} not found — run \`npm run build-storybook\` to check manifest coverage\n`);
+}
+
+// --------------------------------------------- the Figma library mirrors the code
+// figma/manifest.json records what the Figma library contains. It is written by
+// scripts/figma/snapshot.figma.js through the Figma MCP, and checked here
+// against the tokens and the components, so a Figma name that drifts from its
+// token or its prop fails CI like any other rule. This is the contract a frame
+// coming back from Figma resolves through. Values are not compared here: the
+// figma-mirror skill's token sync does that against the live file.
+const FIGMA_MANIFEST = 'figma/manifest.json';
+if (existsSync(FIGMA_MANIFEST)) {
+  const F = FIGMA_MANIFEST;
+  const fm = JSON.parse(readFileSync(F, 'utf8'));
+  const { buildPayload } = await import('./figma/tokens-to-figma.mjs');
+  const expected = buildPayload();
+
+  // Variables: every token has one, in the right collection, and nothing in
+  // Figma is unaccounted for.
+  const figmaVars = new Map(Object.entries(fm.variables).flatMap(([coll, { names }]) => names.map((n) => [n, coll])));
+  const expectedVars = new Map(expected.variables.map((v) => [v.name, v]));
+  for (const [name, v] of expectedVars) {
+    if (!figmaVars.has(name)) report(F, 0, 'figma-missing', `${name} — a token with no Figma variable (${v.collection})`);
+    else if (figmaVars.get(name) !== v.collection) report(F, 0, 'figma-drift', `${name} is in ${figmaVars.get(name)}, expected ${v.collection}`);
+  }
+  for (const name of figmaVars.keys()) {
+    if (!expectedVars.has(name)) report(F, 0, 'figma-drift', `${name} exists in Figma but no token produces it`);
+  }
+
+  // Code syntax: exactly the CSS variable the token generates, and it exists.
+  for (const [name, v] of expectedVars) {
+    if (!figmaVars.has(name)) continue;
+    const actual = name in fm.codeSyntaxExceptions ? fm.codeSyntaxExceptions[name] : `var(--sds-${name.replace(/\//g, '-')})`;
+    if (actual !== v.web) report(F, 0, 'figma-code-syntax', `${name} points at ${actual}, expected ${v.web}`);
+    else if (v.web && !defined.has(v.web.slice(4, -1))) report(F, 0, 'figma-code-syntax', `${name} → ${v.web} is not defined in the token layer`);
+  }
+
+  // Styles
+  const figmaText = new Map(fm.textStyles.map((s) => [s.name, s]));
+  for (const s of expected.textStyles) {
+    const f = figmaText.get(s.name);
+    if (!f) { report(F, 0, 'figma-missing', `${s.name} — a text style with no Figma text style`); continue; }
+    if (f.textCase !== s.textCase) report(F, 0, 'figma-drift', `${s.name} has case ${f.textCase}, the token says ${s.textCase}`);
+    const unbound = Object.keys(s.bind).filter((field) => !f.bound.includes(field));
+    if (unbound.length) report(F, 0, 'figma-unbound', `${s.name} does not bind ${unbound.join(', ')} to its typography/* variables`);
+  }
+  for (const name of figmaText.keys()) {
+    if (!expected.textStyles.some((s) => s.name === name)) report(F, 0, 'figma-drift', `text style ${name} exists in Figma but not in tokens/tier-2-usage/text-style.json`);
+  }
+  for (const s of expected.effectStyles) {
+    if (!fm.effectStyles.includes(s.name)) report(F, 0, 'figma-missing', `${s.name} — an elevation token with no effect style`);
+  }
+
+  // Components: every property is a real prop, part or content of the code
+  // component — or of the Base UI part it wraps. Values and defaults are checked
+  // against the Storybook manifest when it has been built (locally; CI validates
+  // before building Storybook).
+  const docgen = existsSync(MANIFEST) ? Object.values(JSON.parse(readFileSync(MANIFEST, 'utf8')).components) : [];
+  const kebab = (s) => s.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+  const baseUiTypes = (component) => {
+    const dir = `node_modules/@base-ui/react/${kebab(component)}`;
+    if (!existsSync(dir)) return '';
+    return readdirSync(dir, { recursive: true }).filter((f) => String(f).endsWith('.d.ts')).map((f) => readFileSync(`${dir}/${f}`, 'utf8')).join('\n');
+  };
+  const unquote = (v) => String(v).replace(/^'|'$/g, '');
+  for (const c of fm.components) {
+    if (!c.source || !existsSync(c.source)) {
+      report(F, 0, 'figma-orphan', `${c.name} — its description names no existing source file ("Contract — src/components/…")`);
+      continue;
+    }
+    const component = c.source.split('/').at(-2);
+    const src = readFileSync(c.source, 'utf8');
+    const baseUi = baseUiTypes(component);
+    const parts = new Set([...src.matchAll(/^(?:export )?function (\w+)\(/gm)].map((m) => m[1]));
+    const isProp = (p) => new RegExp(`\\b${p}\\??\\s*:`).test(src) || new RegExp(`\\b${p}\\??\\s*:`).test(baseUi);
+    const capitalised = (s) => s[0].toUpperCase() + s.slice(1);
+    const doc = docgen.find((d) => d.reactDocgen?.displayName === component)?.reactDocgen?.props ?? {};
+    for (const p of c.props) {
+      if (p.type === 'BOOLEAN' && p.name.includes('.')) {
+        if (!parts.has(p.name.split('.').pop())) report(F, 0, 'figma-unknown-prop', `${c.name}: ${p.name} is not a part of ${component}`);
+      } else if (p.type === 'TEXT') {
+        if (!(p.name === 'children' || isProp(p.name) || parts.has(capitalised(p.name)))) {
+          report(F, 0, 'figma-unknown-prop', `${c.name}: text property "${p.name}" is not children, a prop or a part of ${component}`);
+        }
+      } else if (!isProp(p.name)) {
+        report(F, 0, 'figma-unknown-prop', `${c.name}: "${p.name}" is not a prop of ${component} or of the Base UI part it wraps`);
+      } else if (p.type === 'VARIANT' && doc[p.name]?.tsType?.name === 'union') {
+        const allowed = doc[p.name].tsType.elements.map((e) => unquote(e.value));
+        const extra = p.values.filter((v) => !allowed.includes(v));
+        if (extra.length) report(F, 0, 'figma-drift', `${c.name}: ${p.name}=${extra.join('|')} is not a value of ${component}.${p.name} (${allowed.join(' | ')})`);
+        const codeDefault = doc[p.name].defaultValue?.value;
+        if (codeDefault && p.default !== unquote(codeDefault)) {
+          report(F, 0, 'figma-drift', `${c.name}: default ${p.name}=${p.default}, but the code default is ${unquote(codeDefault)} — put it top-left`);
+        }
+      }
+    }
+  }
 }
 
 // ------------------------------------------------------------------- report

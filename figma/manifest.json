@@ -1,0 +1,691 @@
+{
+  "file": "sample-design-system",
+  "components": [
+    {
+      "name": "Alert",
+      "page": "Alert",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "variant=info",
+      "source": "src/components/Alert/Alert.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Scheduled maintenance"
+        },
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Exports are paused on Sunday from 02:00 to 04:00 UTC."
+        },
+        {
+          "name": "onDismiss",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "info",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "default": "info"
+        }
+      ]
+    },
+    {
+      "name": "Avatar",
+      "page": "Avatar",
+      "kind": "set",
+      "variants": 3,
+      "defaultVariant": "size=md",
+      "source": "src/components/Avatar/Avatar.tsx",
+      "props": [
+        {
+          "name": "fallback",
+          "type": "TEXT",
+          "default": "DW"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "Badge",
+      "page": "Badge",
+      "kind": "set",
+      "variants": 10,
+      "defaultVariant": "variant=neutral, size=md",
+      "source": "src/components/Badge/Badge.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Badge"
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "neutral",
+            "accent",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "default": "neutral"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "sm",
+            "md"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumb",
+      "page": "Breadcrumb",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "props": []
+    },
+    {
+      "name": "Breadcrumb.Current",
+      "page": "Breadcrumb",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Northwind rebrand"
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumb.Link",
+      "page": "Breadcrumb",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Projects"
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumb.Separator",
+      "page": "Breadcrumb",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "props": []
+    },
+    {
+      "name": "Button",
+      "page": "Button",
+      "kind": "set",
+      "variants": 24,
+      "defaultVariant": "variant=primary, size=md, disabled=false",
+      "source": "src/components/Button/Button.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Button"
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "primary",
+            "secondary",
+            "ghost",
+            "danger"
+          ],
+          "default": "primary"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Card",
+      "page": "Card",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "variant=outlined",
+      "source": "src/components/Card/Card.tsx",
+      "props": [
+        {
+          "name": "Card.Header",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Card.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Card.Footer",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Invite your team"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Team members can view dashboards and comment, but cannot change billing."
+        },
+        {
+          "name": "body",
+          "type": "TEXT",
+          "default": "Seats are billed per active member. You currently have 3 of 10 seats in use."
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "outlined",
+            "elevated"
+          ],
+          "default": "outlined"
+        }
+      ]
+    },
+    {
+      "name": "NavigationMenu",
+      "page": "NavigationMenu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
+      "props": []
+    },
+    {
+      "name": "NavigationMenu.Link",
+      "page": "NavigationMenu",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "active=false",
+      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Components"
+        },
+        {
+          "name": "active",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "NavigationMenu.Trigger",
+      "page": "NavigationMenu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Product"
+        }
+      ]
+    },
+    {
+      "name": "Separator",
+      "page": "Separator",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=horizontal",
+      "source": "src/components/Separator/Separator.tsx",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "Color Primitives": {
+      "modes": [
+        "Value"
+      ],
+      "names": [
+        "color/neutral/0",
+        "color/neutral/50",
+        "color/neutral/100",
+        "color/neutral/200",
+        "color/neutral/300",
+        "color/neutral/400",
+        "color/neutral/500",
+        "color/neutral/600",
+        "color/neutral/700",
+        "color/neutral/800",
+        "color/neutral/900",
+        "color/neutral/950",
+        "color/brand/50",
+        "color/brand/100",
+        "color/brand/200",
+        "color/brand/300",
+        "color/brand/400",
+        "color/brand/500",
+        "color/brand/600",
+        "color/brand/700",
+        "color/brand/800",
+        "color/brand/900",
+        "color/success/100",
+        "color/success/300",
+        "color/success/500",
+        "color/success/600",
+        "color/success/700",
+        "color/warning/100",
+        "color/warning/300",
+        "color/warning/500",
+        "color/warning/600",
+        "color/warning/700",
+        "color/danger/100",
+        "color/danger/300",
+        "color/danger/500",
+        "color/danger/600",
+        "color/danger/700"
+      ]
+    },
+    "Color": {
+      "modes": [
+        "Light",
+        "Dark"
+      ],
+      "names": [
+        "color/background/default",
+        "color/background/surface",
+        "color/background/sunken",
+        "color/background/overlay",
+        "color/background/on-accent",
+        "color/background/accent",
+        "color/background/accent-hover",
+        "color/background/accent-active",
+        "color/background/accent-subtle",
+        "color/background/danger",
+        "color/background/danger-hover",
+        "color/background/danger-subtle",
+        "color/background/success",
+        "color/background/success-subtle",
+        "color/background/warning",
+        "color/background/warning-subtle",
+        "color/content/default",
+        "color/content/muted",
+        "color/content/inverse",
+        "color/content/accent",
+        "color/content/danger",
+        "color/content/success",
+        "color/content/warning",
+        "color/content/on-accent",
+        "color/content/on-danger",
+        "color/content/on-success",
+        "color/content/on-warning",
+        "color/border/default",
+        "color/border/strong",
+        "color/border/focus",
+        "color/border/accent",
+        "color/border/accent-hover",
+        "color/border/danger",
+        "color/border/success",
+        "color/border/warning",
+        "elevation/raised/color",
+        "elevation/floating/color",
+        "elevation/overlay/color"
+      ]
+    },
+    "Size": {
+      "modes": [
+        "Value"
+      ],
+      "names": [
+        "space/0",
+        "space/1",
+        "space/2",
+        "space/3",
+        "space/4",
+        "space/5",
+        "space/6",
+        "space/8",
+        "space/10",
+        "space/12",
+        "radius/sm",
+        "radius/md",
+        "radius/lg",
+        "radius/full",
+        "breakpoint/sm",
+        "breakpoint/md",
+        "breakpoint/lg",
+        "breakpoint/xl"
+      ]
+    },
+    "Typography": {
+      "modes": [
+        "Value"
+      ],
+      "names": [
+        "font/size/xs",
+        "font/size/sm",
+        "font/size/md",
+        "font/size/lg",
+        "font/size/xl",
+        "font/weight/regular",
+        "font/weight/medium",
+        "font/weight/bold",
+        "font/sans",
+        "font/mono",
+        "typography/heading-xl/font-family",
+        "typography/heading-xl/font-size",
+        "typography/heading-xl/font-weight",
+        "typography/heading-xl/line-height",
+        "typography/heading-xl/letter-spacing",
+        "typography/heading-lg/font-family",
+        "typography/heading-lg/font-size",
+        "typography/heading-lg/font-weight",
+        "typography/heading-lg/line-height",
+        "typography/heading-lg/letter-spacing",
+        "typography/heading-md/font-family",
+        "typography/heading-md/font-size",
+        "typography/heading-md/font-weight",
+        "typography/heading-md/line-height",
+        "typography/heading-md/letter-spacing",
+        "typography/body-md/font-family",
+        "typography/body-md/font-size",
+        "typography/body-md/font-weight",
+        "typography/body-md/line-height",
+        "typography/body-md/letter-spacing",
+        "typography/body-sm/font-family",
+        "typography/body-sm/font-size",
+        "typography/body-sm/font-weight",
+        "typography/body-sm/line-height",
+        "typography/body-sm/letter-spacing",
+        "typography/label-md/font-family",
+        "typography/label-md/font-size",
+        "typography/label-md/font-weight",
+        "typography/label-md/line-height",
+        "typography/label-md/letter-spacing",
+        "typography/label-sm/font-family",
+        "typography/label-sm/font-size",
+        "typography/label-sm/font-weight",
+        "typography/label-sm/line-height",
+        "typography/label-sm/letter-spacing",
+        "typography/code-sm/font-family",
+        "typography/code-sm/font-size",
+        "typography/code-sm/font-weight",
+        "typography/code-sm/line-height",
+        "typography/code-sm/letter-spacing",
+        "typography/title-md/font-family",
+        "typography/title-md/font-size",
+        "typography/title-md/font-weight",
+        "typography/title-md/line-height",
+        "typography/title-md/letter-spacing",
+        "typography/title-sm/font-family",
+        "typography/title-sm/font-size",
+        "typography/title-sm/font-weight",
+        "typography/title-sm/line-height",
+        "typography/title-sm/letter-spacing",
+        "typography/label-xl/font-family",
+        "typography/label-xl/font-size",
+        "typography/label-xl/font-weight",
+        "typography/label-xl/line-height",
+        "typography/label-xl/letter-spacing",
+        "typography/label-lg/font-family",
+        "typography/label-lg/font-size",
+        "typography/label-lg/font-weight",
+        "typography/label-lg/line-height",
+        "typography/label-lg/letter-spacing",
+        "typography/overline/font-family",
+        "typography/overline/font-size",
+        "typography/overline/font-weight",
+        "typography/overline/line-height",
+        "typography/overline/letter-spacing",
+        "typography/caption/font-family",
+        "typography/caption/font-size",
+        "typography/caption/font-weight",
+        "typography/caption/line-height",
+        "typography/caption/letter-spacing"
+      ]
+    },
+    "Motion": {
+      "modes": [
+        "Value"
+      ],
+      "names": [
+        "duration/fast",
+        "duration/normal",
+        "easing/standard"
+      ]
+    }
+  },
+  "codeSyntaxExceptions": {
+    "elevation/raised/color": null,
+    "elevation/floating/color": null,
+    "elevation/overlay/color": null
+  },
+  "textStyles": [
+    {
+      "name": "typography/heading-xl",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/heading-lg",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/heading-md",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/title-md",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/title-sm",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/body-md",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/body-sm",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/label-xl",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/label-lg",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/label-md",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/label-sm",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/overline",
+      "textCase": "UPPER",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/caption",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/code-sm",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    }
+  ],
+  "effectStyles": [
+    "elevation/raised",
+    "elevation/floating",
+    "elevation/overlay"
+  ]
+}
