@@ -696,6 +696,45 @@
       ]
     },
     {
+      "name": "NumberField",
+      "page": "NumberField",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "disabled=false",
+      "source": "src/components/NumberField/NumberField.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Seats"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "3"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Drag the label sideways to change the value quickly."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
       "name": "Progress",
       "page": "Progress",
       "kind": "set",
@@ -974,6 +1013,59 @@
       ]
     },
     {
+      "name": "Slider",
+      "page": "Slider",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "orientation=horizontal, disabled=false",
+      "source": "src/components/Slider/Slider.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Volume"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "40"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Applies to notification sounds only."
+        },
+        {
+          "name": "showValue",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
       "name": "Spinner",
       "page": "Spinner",
       "kind": "set",
@@ -1094,6 +1186,112 @@
         },
         {
           "name": "active",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Textarea",
+      "page": "Textarea",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "filled=false, disabled=false",
+      "source": "src/components/Textarea/Textarea.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Release notes"
+        },
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "What changed in this version?"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "Fixed a crash when opening a project with no members.\nSpeeded up the first paint by roughly 200ms."
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Markdown is supported. Keep it under 500 characters."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "filled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "TextField",
+      "page": "TextField",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "filled=false, disabled=false",
+      "source": "src/components/TextField/TextField.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Email address"
+        },
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "you@example.com"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "christine@example.com"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "We only use this to send receipts."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "filled",
           "type": "VARIANT",
           "values": [
             "false",
