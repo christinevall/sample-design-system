@@ -776,6 +776,106 @@
       ]
     },
     {
+      "name": "Menu.Content",
+      "page": "Menu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Menu/Menu.tsx",
+      "props": []
+    },
+    {
+      "name": "Menu.GroupLabel",
+      "page": "Menu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Menu/Menu.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Edit"
+        }
+      ]
+    },
+    {
+      "name": "Menu.Item",
+      "page": "Menu",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "highlighted=false, disabled=false",
+      "source": "src/components/Menu/Menu.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Rename project"
+        },
+        {
+          "name": "itemShortcut",
+          "type": "TEXT",
+          "default": "Cmd Z"
+        },
+        {
+          "name": "Menu.ItemShortcut",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "highlighted",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Menu.Separator",
+      "page": "Menu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Menu/Menu.tsx",
+      "props": []
+    },
+    {
+      "name": "Menu.SubmenuTrigger",
+      "page": "Menu",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "open=false",
+      "source": "src/components/Menu/Menu.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Send to"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
       "name": "Meter",
       "page": "Meter",
       "kind": "set",
@@ -907,6 +1007,68 @@
             "true"
           ],
           "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Popover.Content",
+      "page": "Popover",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "side=bottom",
+      "source": "src/components/Popover/Popover.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Notifications"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Choose how this project reaches you."
+        },
+        {
+          "name": "Popover.Title",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Popover.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "side",
+          "type": "VARIANT",
+          "values": [
+            "bottom",
+            "top",
+            "left",
+            "right"
+          ],
+          "default": "bottom"
+        }
+      ]
+    },
+    {
+      "name": "PreviewCard.Content",
+      "page": "PreviewCard",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "side=bottom",
+      "source": "src/components/PreviewCard/PreviewCard.tsx",
+      "props": [
+        {
+          "name": "side",
+          "type": "VARIANT",
+          "values": [
+            "bottom",
+            "top",
+            "left",
+            "right"
+          ],
+          "default": "bottom"
         }
       ]
     },
@@ -1782,6 +1944,32 @@
             "horizontal"
           ],
           "default": "vertical"
+        }
+      ]
+    },
+    {
+      "name": "Tooltip.Content",
+      "page": "Tooltip",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "side=top",
+      "source": "src/components/Tooltip/Tooltip.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Saves without publishing"
+        },
+        {
+          "name": "side",
+          "type": "VARIANT",
+          "values": [
+            "top",
+            "bottom",
+            "left",
+            "right"
+          ],
+          "default": "top"
         }
       ]
     }

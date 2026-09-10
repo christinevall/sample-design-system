@@ -41,7 +41,7 @@ style preferences. Break one and a frame coming back from Figma stops resolving.
 | Every fill, stroke, padding, gap, radius is **bound to a variable**; shadows are **effect styles** | `audit.figma.js` must return nothing |
 | Values the CSS has raw stay raw in Figma — `min-height: 32px`, `opacity: 0.5`, `transparent` — never promoted to a token. When one lands in a field the audit checks (Alert's `margin-top: 2px` is drawn as padding), mark it: `node.setSharedPluginData('sds', 'raw', 'paddingTop')` | Inventing a token is drift in the other direction; the mark tells the audit it is deliberate |
 | A CSS border counts toward size: `strokeAlign = 'INSIDE'` **and** `strokesIncludedInLayout = true`; `1px solid transparent` is an invisible stroke | Otherwise every bordered component is 2px narrow |
-| Nested components are **instances** of the library's own components, exposed with `isExposedInstance = true` | Card's footer holds real Buttons, editable from the Card |
+| Nested components are **instances** of the library's own components, exposed with `isExposedInstance = true` — Figma exposes only instances that have properties, so a `Menu.Separator` stays unexposed | Card's footer holds real Buttons, editable from the Card |
 | The component set's description starts `Contract — src/components/<Name>/<Name>.tsx: …` and names every prop with its values and default | `snapshot.figma.js` reads the source path from it |
 
 ### Base UI state → variant properties
