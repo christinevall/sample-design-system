@@ -298,6 +298,64 @@
       ]
     },
     {
+      "name": "CheckboxGroup",
+      "page": "CheckboxGroup",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=vertical",
+      "source": "src/components/CheckboxGroup/CheckboxGroup.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Notify me about"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "You can change this at any time in settings."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "vertical",
+            "horizontal"
+          ],
+          "default": "vertical"
+        }
+      ]
+    },
+    {
+      "name": "Fieldset",
+      "page": "Fieldset",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "disabled=false",
+      "source": "src/components/Fieldset/Fieldset.tsx",
+      "props": [
+        {
+          "name": "legend",
+          "type": "TEXT",
+          "default": "Billing address"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
       "name": "icon/alert-octagon",
       "page": "Icons",
       "kind": "component",
@@ -1134,6 +1192,96 @@
       ]
     },
     {
+      "name": "Table",
+      "page": "Table",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "striped=false, hideCaption=false",
+      "source": "src/components/Table/Table.tsx",
+      "props": [
+        {
+          "name": "caption",
+          "type": "TEXT",
+          "default": "Invoices issued in the last quarter"
+        },
+        {
+          "name": "striped",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "hideCaption",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Table.Cell",
+      "page": "Table",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "numeric=false",
+      "source": "src/components/Table/Table.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Northwind Trading"
+        },
+        {
+          "name": "numeric",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Table.HeaderCell",
+      "page": "Table",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "scope=col, numeric=false",
+      "source": "src/components/Table/Table.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Reference"
+        },
+        {
+          "name": "scope",
+          "type": "VARIANT",
+          "values": [
+            "col",
+            "row"
+          ],
+          "default": "col"
+        },
+        {
+          "name": "numeric",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
       "name": "Tabs",
       "page": "Tabs",
       "kind": "set",
@@ -1367,6 +1515,43 @@
         },
         {
           "name": "iconOnly",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "ToggleGroup",
+      "page": "ToggleGroup",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "segmented=false, orientation=horizontal, disabled=false",
+      "source": "src/components/ToggleGroup/ToggleGroup.tsx",
+      "props": [
+        {
+          "name": "segmented",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        },
+        {
+          "name": "disabled",
           "type": "VARIANT",
           "values": [
             "false",

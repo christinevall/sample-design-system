@@ -51,6 +51,14 @@ for (const page of figma.root.children) {
         if (n.type === 'TEXT' && raw.has('textStyle')) {
           for (const f of ['fontFamily', 'fontSize', 'fontWeight', 'lineHeight', 'letterSpacing']) if (!n.boundVariables?.[f]) issues.add(`${n.name} › ${f}`);
         } else if (n.type === 'TEXT' && !(typeof n.textStyleId === 'string' && n.textStyleId)) issues.add(`${n.name} › text style`);
+        // A component with a fixed height stops hugging its content: switch a
+        // description on and it overflows. A height the CSS sets on purpose is
+        // either bound to its token (Avatar's space/8) or, if raw, marked
+        // 'height' (IconButton's 32/40/48px).
+        if (n.type === 'COMPONENT' && n.layoutMode && n.layoutMode !== 'NONE' && !raw.has('height') && !n.boundVariables?.height) {
+          const fixedHeight = n.layoutMode === 'VERTICAL' ? n.primaryAxisSizingMode === 'FIXED' : n.counterAxisSizingMode === 'FIXED';
+          if (fixedHeight) issues.add(`${n.name} › fixed height`);
+        }
       }
       if ('children' in n) for (const c of n.children) walk(c, skip);
     };

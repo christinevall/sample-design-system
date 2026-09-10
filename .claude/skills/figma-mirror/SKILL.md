@@ -83,6 +83,13 @@ commit that with the component.
   carries it back.
 - A TEXT property's default applies to every variant, so variant-specific
   sample text is lost. The labels beside the set carry it instead.
+- `resize()` pins an auto-layout frame's size. Set the sizing modes (`AUTO`
+  to hug) **after** calling it, or the component keeps a fixed height and
+  overflows once a description is switched on. The audit flags any component
+  with a fixed height unless its node is marked `height` (a raw CSS size).
+- Parent selectors (`.segmented > button`) have no Figma equivalent: the child
+  instances carry the look as overrides, and Figma keeps overrides across a
+  variant change. Log it; a code-side option is usually the real fix.
 - Property names are unique across types: a second `children` is silently
   renamed `children2`. Where `children` is text in some variants and an icon in
   others (Toggle), the text keeps the property and the icon is swapped on its

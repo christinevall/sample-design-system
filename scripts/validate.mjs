@@ -275,6 +275,9 @@ if (existsSync(FIGMA_MANIFEST)) {
     const parts = new Set([...src.matchAll(/^(?:export )?function (\w+)\(/gm)].map((m) => m[1]));
     const isProp = (p) => new RegExp(`\\b${p}\\??\\s*:`).test(src) || new RegExp(`\\b${p}\\??\\s*:`).test(baseUi);
     const capitalised = (s) => s[0].toUpperCase() + s.slice(1);
+    // HTML attributes a component forwards to its element, inherited by its types
+    // rather than declared: a field's placeholder, a header cell's scope
+    const HTML_ATTRS = new Set(['placeholder', 'scope']);
     const doc = docgen.find((d) => d.reactDocgen?.displayName === component)?.reactDocgen?.props ?? {};
     for (const p of c.props) {
       if (p.type === 'BOOLEAN' && p.name.includes('.')) {
@@ -284,12 +287,11 @@ if (existsSync(FIGMA_MANIFEST)) {
         const renders = new RegExp(`<(?:Base)?${p.name.replace('.', '\\.')}[\\s>/]`).test(src);
         if (!parts.has(p.name.split('.').pop()) && !renders) report(F, 0, 'figma-unknown-prop', `${c.name}: ${p.name} is not a part of ${component}`);
       } else if (p.type === 'TEXT') {
-        // aria-* attributes pass through to every component's element (an icon-only Toggle's aria-label),
-        // and placeholder to the <input> or <textarea> a field renders — HTML attributes the types inherit
-        if (!(p.name === 'children' || p.name.startsWith('aria-') || p.name === 'placeholder' || isProp(p.name) || parts.has(capitalised(p.name)))) {
+        // aria-* attributes pass through to every component's element (an icon-only Toggle's aria-label)
+        if (!(p.name === 'children' || p.name.startsWith('aria-') || HTML_ATTRS.has(p.name) || isProp(p.name) || parts.has(capitalised(p.name)))) {
           report(F, 0, 'figma-unknown-prop', `${c.name}: text property "${p.name}" is not children, a prop or a part of ${component}`);
         }
-      } else if (p.name !== 'children' && !isProp(p.name)) { // children: an icon swap (IconButton, Toggle)
+      } else if (p.name !== 'children' && !HTML_ATTRS.has(p.name) && !isProp(p.name)) { // children: an icon swap (IconButton, Toggle)
         report(F, 0, 'figma-unknown-prop', `${c.name}: "${p.name}" is not a prop of ${component} or of the Base UI part it wraps`);
       } else if (p.type === 'VARIANT' && doc[p.name]?.tsType?.name === 'union') {
         const allowed = doc[p.name].tsType.elements.map((e) => unquote(e.value));
