@@ -45,7 +45,12 @@ for (const page of figma.root.children) {
         if (n.type !== 'COMPONENT_SET' && typeof n.cornerRadius === 'number' && n.cornerRadius > 0 && !n.boundVariables?.topLeftRadius && !raw.has('cornerRadius')) {
           issues.add(`${n.name} › cornerRadius`);
         }
-        if (n.type === 'TEXT' && !(typeof n.textStyleId === 'string' && n.textStyleId)) issues.add(`${n.name} › text style`);
+        // A text marked 'textStyle' carries a style with one field overridden, as
+        // the CSS does (Select.Item: body-md, font-weight medium). Figma cannot
+        // override one field of a style, so every field must be bound instead.
+        if (n.type === 'TEXT' && raw.has('textStyle')) {
+          for (const f of ['fontFamily', 'fontSize', 'fontWeight', 'lineHeight', 'letterSpacing']) if (!n.boundVariables?.[f]) issues.add(`${n.name} › ${f}`);
+        } else if (n.type === 'TEXT' && !(typeof n.textStyleId === 'string' && n.textStyleId)) issues.add(`${n.name} › text style`);
       }
       if ('children' in n) for (const c of n.children) walk(c, skip);
     };

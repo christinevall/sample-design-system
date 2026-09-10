@@ -598,6 +598,139 @@
       ]
     },
     {
+      "name": "Select",
+      "page": "Select",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Font family"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Applies to every document in this workspace."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "Select.Content",
+      "page": "Select",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "props": []
+    },
+    {
+      "name": "Select.GroupLabel",
+      "page": "Select",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Production"
+        }
+      ]
+    },
+    {
+      "name": "Select.Item",
+      "page": "Select",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "highlighted=false, selected=false, disabled=false",
+      "source": "src/components/Select/Select.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Sans-serif"
+        },
+        {
+          "name": "highlighted",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "selected",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Select.Trigger",
+      "page": "Select",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "placeholder=true, open=false, disabled=false",
+      "source": "src/components/Select/Select.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "Choose a font"
+        },
+        {
+          "name": "placeholder",
+          "type": "VARIANT",
+          "values": [
+            "true",
+            "false"
+          ],
+          "default": "true"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
       "name": "Separator",
       "page": "Separator",
       "kind": "set",

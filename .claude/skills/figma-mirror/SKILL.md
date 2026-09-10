@@ -34,10 +34,10 @@ style preferences. Break one and a frame coming back from Figma stops resolving.
 | --- | --- |
 | Component and part names are the code's: `Card`, `Card.Header`, `NavigationMenu.Link` | The manifest resolves names, not intentions |
 | Variant **properties and values are the code's props, verbatim**: `variant=primary`, `size=md`, `disabled=false` — never `Size=Medium` | A frame coming back must name a real prop and a real value |
-| Text content is `children`, or the prop that carries it (`title`, `fallback`), or the part it fills (`title` → `Card.Title`) | Same reason |
+| Text content is `children`, or the prop that carries it (`title`, `fallback`), or the part it fills (`title` → `Card.Title`, `value` → `Select.Value`). When a state and a prop share a name — Select's `placeholder` is both — the text is named after the part | Same reason |
 | Optional code parts are BOOLEAN properties named after the part: `Card.Header`, `Card.Footer` — or, for an optional prop, after the Base UI part it renders: Checkbox's `description` renders `Field.Description` | The instance says which parts to render |
 | The **top-left variant is the default**, and it must be the code's default. Order the grid from the defaults: Button's rows start at `md` | Figma ignores layer order when choosing the default |
-| **Type is a text style, applied whole** — the one the CSS rule names in its six `--sds-typography-<style>-*` declarations | In code, type comes from one text style (CLAUDE.md rule 1) |
+| **Type is a text style, applied whole** — the one the CSS rule names in its six `--sds-typography-<style>-*` declarations. If a state rule overrides one field (Select's selected item: body-md at medium weight), bind every field to its variable instead and mark the node `textStyle` | In code, type comes from one text style (CLAUDE.md rule 1). Figma cannot override one field of a style: changing it detaches the style, and a bound weight on a styled text is ignored |
 | Every fill, stroke, padding, gap, radius is **bound to a variable**; shadows are **effect styles** | `audit.figma.js` must return nothing |
 | Values the CSS has raw stay raw in Figma — `min-height: 32px`, `opacity: 0.5`, `transparent` — never promoted to a token. When one lands in a field the audit checks (Alert's `margin-top: 2px` is drawn as padding), mark it: `node.setSharedPluginData('sds', 'raw', 'paddingTop')` | Inventing a token is drift in the other direction; the mark tells the audit it is deliberate |
 | A CSS border counts toward size: `strokeAlign = 'INSIDE'` **and** `strokesIncludedInLayout = true`; `1px solid transparent` is an invisible stroke | Otherwise every bordered component is 2px narrow |
@@ -55,9 +55,30 @@ Base UI styles state through data attributes. `css-to-spec` classifies each one:
 | Produced by the browser | `starting-style`, `ending-style`, `side`, `align`, `swiping`, `dragging`, `scrolling`, `instant`, `activation-direction` | Nothing. A designer cannot choose it |
 | `:hover`, `:active`, `:focus-visible` | pseudo-classes | Not in the contract yet — they are not props. Log them in `figma/GAPS.md` |
 
+State the Root decides for a part — `Tabs.Tab`'s `active`, `Select.Trigger`'s
+`placeholder`, `Select.Item`'s `selected` and `highlighted` — is named as Base
+UI's `*State` interface names it (validate reads those types). Say in the
+description how it maps back: the active tab's `value` is the Root's
+`defaultValue`.
+
+Values Base UI computes at runtime are drawn **where they land**: Tabs'
+indicator sits inside the active tab, so it follows whichever tab a designer
+marks active.
+
 If `css-to-spec` lists an **unclassified state**, decide which kind it is, add
 it to `STATE_ATTRS` or `RUNTIME_ATTRS` in `scripts/figma/css-to-spec.mjs`, and
 commit that with the component.
+
+### Figma behaviours that bite
+
+- An inner shadow on a frame **with no fill** is applied to its children (it
+  blurred Tabs' labels), and a frame's stroke draws **over** its children. For
+  a `box-shadow: inset` border, draw a 1px rectangle as the frame's first child.
+- A TEXT property's default applies to every variant, so variant-specific
+  sample text is lost. The labels beside the set carry it instead.
+- `search_design_system` answers one query per call; batching is clamped.
+- A story can be broken. Standalone `Checkbox` crashes (`Field.Item` outside a
+  `Field.Root`); compare against a story that renders and flag the crash.
 
 Stay under ~30 variants per set. If the matrix is bigger, split a repeating
 sub-element into its own component (`Select.Item`, `Tabs.Tab`) and compose it.

@@ -5,7 +5,9 @@
 // Records what the Figma library contains, in the shape scripts/validate.mjs
 // checks against the code. No timestamps and a stable order, so a diff of
 // figma/manifest.json shows only real changes to the library.
-const snap = { file: figma.root.name, components: [], variables: {}, codeSyntaxExceptions: {}, textStyles: [], effectStyles: [] };
+// The file is named, not read: figma.root.name is "Document" through use_figma
+// and the file's title through the console bridge, which would churn the diff.
+const snap = { file: 'sample-design-system', components: [], variables: {}, codeSyntaxExceptions: {}, textStyles: [], effectStyles: [] };
 for (const page of figma.root.children) {
   await page.loadAsync();
   const sets = page.findAllWithCriteria({ types: ['COMPONENT_SET'] });
