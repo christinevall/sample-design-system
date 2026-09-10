@@ -1,4 +1,5 @@
 .root {
+  /* validate-allow: type — layout, not type: an icon-only button holds no text; the line height only stops inline-flex growing to the font's default height. */
   display: inline-flex;
   align-items: center;
   justify-content: center;

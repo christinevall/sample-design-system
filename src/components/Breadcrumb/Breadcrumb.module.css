@@ -1,7 +1,10 @@
 .root {
-  font-family: var(--sds-font-sans);
-  font-size: var(--sds-font-size-sm);
-  line-height: var(--sds-line-height-normal);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
 }
 
 .list {
@@ -57,5 +60,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   color: var(--sds-color-content-default);
-  font-weight: var(--sds-font-weight-medium);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
 }

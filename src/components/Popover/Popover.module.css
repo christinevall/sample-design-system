@@ -12,9 +12,12 @@
   padding: var(--sds-space-4);
   background: var(--sds-color-background-surface);
   color: var(--sds-color-content-default);
-  font-family: var(--sds-font-sans);
-  font-size: var(--sds-font-size-sm);
-  line-height: var(--sds-line-height-normal);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
   border: 1px solid var(--sds-color-border-default);
   border-radius: var(--sds-radius-md);
   box-shadow: var(--sds-elevation-overlay);
@@ -78,9 +81,12 @@
 
 .title {
   margin: 0 0 var(--sds-space-1);
-  font-size: var(--sds-font-size-md);
-  font-weight: var(--sds-font-weight-bold);
-  line-height: var(--sds-line-height-tight);
+  font-family: var(--sds-typography-title-md-font-family);
+  font-size: var(--sds-typography-title-md-font-size);
+  font-weight: var(--sds-typography-title-md-font-weight);
+  line-height: var(--sds-typography-title-md-line-height);
+  letter-spacing: var(--sds-typography-title-md-letter-spacing);
+  text-transform: var(--sds-typography-title-md-text-transform);
 }
 
 .description {

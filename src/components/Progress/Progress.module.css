@@ -14,13 +14,22 @@
 }
 
 .label {
-  font-size: var(--sds-font-size-sm);
-  font-weight: var(--sds-font-weight-medium);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
   color: var(--sds-color-content-default);
 }
 
 .value {
-  font-size: var(--sds-font-size-sm);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
   font-variant-numeric: tabular-nums;
   color: var(--sds-color-content-muted);
 }

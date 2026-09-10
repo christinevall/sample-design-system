@@ -5,21 +5,29 @@
   border: 1px solid transparent;
   border-radius: var(--sds-radius-full);
   font-family: var(--sds-font-sans);
-  font-weight: var(--sds-font-weight-medium);
-  line-height: var(--sds-line-height-tight);
   white-space: nowrap;
 }
 
 /* Sizes */
 .sm {
   padding: var(--sds-space-0) var(--sds-space-2);
-  font-size: var(--sds-font-size-xs);
+  font-family: var(--sds-typography-label-sm-font-family);
+  font-size: var(--sds-typography-label-sm-font-size);
+  font-weight: var(--sds-typography-label-sm-font-weight);
+  line-height: var(--sds-typography-label-sm-line-height);
+  letter-spacing: var(--sds-typography-label-sm-letter-spacing);
+  text-transform: var(--sds-typography-label-sm-text-transform);
   min-height: 20px;
 }
 
 .md {
   padding: var(--sds-space-1) var(--sds-space-3);
-  font-size: var(--sds-font-size-sm);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
   min-height: 24px;
 }
 

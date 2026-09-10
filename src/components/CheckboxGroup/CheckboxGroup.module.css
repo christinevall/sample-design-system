@@ -5,16 +5,22 @@
 }
 
 .label {
-  font-family: var(--sds-font-sans);
-  font-size: var(--sds-font-size-sm);
-  font-weight: var(--sds-font-weight-medium);
-  line-height: var(--sds-line-height-normal);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
   color: var(--sds-color-content-default);
 }
 
 .description {
-  font-size: var(--sds-font-size-xs);
-  line-height: var(--sds-line-height-normal);
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
   color: var(--sds-color-content-muted);
 }
 
@@ -32,6 +38,11 @@
 }
 
 .error {
-  font-size: var(--sds-font-size-xs);
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
   color: var(--sds-color-content-danger);
 }

@@ -37,5 +37,12 @@
       "normal": { "$value": "0" },
       "wide":   { "$value": "0.02em" }
     }
+  },
+  "text": {
+    "transform": {
+      "$description": "Letter case, the sixth property of a text style. Maps to Case on a Figma text style.",
+      "none":      { "$value": "none" },
+      "uppercase": { "$value": "uppercase" }
+    }
   }
 }

@@ -9,8 +9,6 @@
   background: var(--sds-color-background-sunken);
   color: var(--sds-color-content-muted);
   font-family: var(--sds-font-sans);
-  font-weight: var(--sds-font-weight-medium);
-  line-height: var(--sds-line-height-tight);
   user-select: none;
   vertical-align: middle;
 }
@@ -35,15 +33,30 @@
 .sm {
   width: var(--sds-space-6);
   height: var(--sds-space-6);
-  font-size: var(--sds-font-size-xs);
+  font-family: var(--sds-typography-label-sm-font-family);
+  font-size: var(--sds-typography-label-sm-font-size);
+  font-weight: var(--sds-typography-label-sm-font-weight);
+  line-height: var(--sds-typography-label-sm-line-height);
+  letter-spacing: var(--sds-typography-label-sm-letter-spacing);
+  text-transform: var(--sds-typography-label-sm-text-transform);
 }
 .md {
   width: var(--sds-space-8);
   height: var(--sds-space-8);
-  font-size: var(--sds-font-size-sm);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
 }
 .lg {
   width: var(--sds-space-12);
   height: var(--sds-space-12);
-  font-size: var(--sds-font-size-md);
+  font-family: var(--sds-typography-label-lg-font-family);
+  font-size: var(--sds-typography-label-lg-font-size);
+  font-weight: var(--sds-typography-label-lg-font-weight);
+  line-height: var(--sds-typography-label-lg-line-height);
+  letter-spacing: var(--sds-typography-label-lg-letter-spacing);
+  text-transform: var(--sds-typography-label-lg-text-transform);
 }

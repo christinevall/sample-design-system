@@ -80,4 +80,6 @@
   --sds-letter-spacing-tight: -0.01em;
   --sds-letter-spacing-normal: 0;
   --sds-letter-spacing-wide: 0.02em;
+  --sds-text-transform-none: none;
+  --sds-text-transform-uppercase: uppercase;
 }
