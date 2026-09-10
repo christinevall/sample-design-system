@@ -49,6 +49,12 @@ fed by code — a sketchpad that speaks the system's vocabulary.
 | **Figma properties use the code's names** | `variant=primary`, `size=md`, `disabled=false`, text property `children` — not Figma's usual `Size=Medium`. A frame coming back resolves to the component that already exists |
 | **Code parts become boolean properties named after them** | `Card.Header`, `Card.Description`, `Card.Footer`, so a Figma instance says which parts to render |
 | **Components are built from the stylesheet** | A parser maps each declaration in `*.module.css` through the naming contract to a variable, or flags it as raw. Nothing is transcribed by hand |
+| **Prototype docs are generated from their own source** | A real `Card` and a hand-rolled `<div>` render identically, so a designer cannot audit composition in the browser. Each prototype story reads its own file (`?raw`) and derives "Show code" and a *Components used* table from it (`src/patterns/prototypeDocs.ts`) |
+| **Components take type from text styles** (2026-09-10) | 55 of 102 component text rules matched no text style. Added five roles that already existed in practice — `caption`, `label-lg`, `label-xl`, `title-sm`, `title-md` (8 → 13 styles) — and snapped 24 near-misses to existing styles (form labels to `label-md`, dialog titles to `heading-xl`, small badge/avatar and group labels to `label-sm`). `validate` rule `raw-type-in-component` now flags a hand-set size, line height or letter spacing. This is what lets Figma bind text styles instead of loose variables |
+| **Text-style structure follows Eddie; names and sizes stay ours** (2026-09-10) | Compared against Brad's `eddie-design-tokens`. Adopted: a style carries six properties including `text-transform` (maps to Case in Figma), so the uppercase group labels became a style (`overline`) instead of a one-off rule; a style is applied whole (`validate` rule `text-style-split`, the no-SCSS equivalent of his mixin); every style has a when-to-use `$description`; breakpoints are named and described by width, not device. Kept ours: t-shirt scale names, ratio line heights, breakpoints as tokens, two tiers |
+| **One name per concept, before Figma** (2026-09-10) | Names cross into Figma as property names, so they are fixed while nothing consumes them. Meter's `tone` became `variant`, like every other colour choice. Kept apart on purpose: Alert's `info` is a *status*, Badge's `accent` is *emphasis* — merging them loses the meaning. Toggle's `iconOnly` and `IconButton` stay separate components, because a Toggle holds a pressed state |
+| **Two long-lived branches, not three** (2026-09-10) | `main` is the system, `design` the playground, `feature/*` in between. `develop` was a team-sized layer that a solo maintainer and a class of students do not need. The repo becomes a GitHub template so each student gets both branches. `design` stays one-way — that rule is the lesson |
+| **Page CSS lays out; it does not draw** | `validate` rule `surface-in-page`: a background, border, shadow or radius in pattern CSS is usually a component rebuilt from divs. Known gaps opt out in place with `/* validate-allow: surface — reason */`, so every exception carries its reason |
 
 ## Findings worth writing about
 
@@ -158,6 +164,25 @@ found zero unbound fills, strokes, paddings, radii or type properties across
 Badge (21 layers) and Button (49 layers). The only raw values are the ones the
 CSS itself has raw: min-heights, the 1px border, disabled opacity.
 
+**16. A designer cannot see component usage in the browser.**
+Reviewing the first code prototype, the designer concluded it "used tokens,
+not components" and had reinvented the Card. It had not — the card carried
+Card's own classes — but nothing in Storybook could show that: "Show code"
+printed `<BlogIndex />`. The complaint was right about the tooling even where
+it was wrong about the code. Fixed by generating the composition from source.
+
+**17. The checker never looked where the drift was.**
+`validate` scanned `src/` only. The Storybook preview wrapper still referenced
+`--sds-color-bg` and `--sds-color-text`, deleted in the colour rename, so every
+story rendered un-themed. Widening the scan to `.storybook/` caught both on its
+first run. A guardrail is only as good as its file list.
+
+**18. Figma was faithful to a gap in code.**
+The designer asked why library components use type *variables* rather than
+text styles. Because the code does: 0 of 43 component stylesheets use
+`--sds-typography-*`; all set size, weight and line height separately. The text
+styles were defined and never adopted. Mirroring was correct; the fix is in code.
+
 ## Brad Frost's model, and what we took
 
 Source: "Keep AI on the Rails of Your Design System", part of
@@ -204,7 +229,8 @@ it is an adoption argument, not a technical one, and reads as inertia.
 
 ## Where we are
 
-Branch `feature/ai-foundation`, off `develop`, pushed. Not yet merged.
+Branch `feature/ai-foundation`, off `main` (identical to the retired `develop`),
+pushed. Merging into `main` by pull request.
 
 Done: render-loop fix, manifest fix (29→8 errors), DTCG token pipeline, text
 styles, breakpoints, Brad-standard colour naming, `CLAUDE.md` grounding rules,
@@ -222,8 +248,11 @@ Next: publish to Chromatic → Foundations page for text styles and breakpoints 
 Figma library from the manifest → name check in
 `validate.mjs` → first round-trip test.
 
-**Blocked:** the Figma MCP server is not authenticated. Nothing in the Figma
-half can run until it is connected in claude.ai connector settings.
+**Figma (2026-09-10):** connected through the Figma Console bridge. The library
+now has 8 components — Alert, Avatar, Badge, Breadcrumb, Button, Card,
+NavigationMenu, Separator — each built from its stylesheet, with property
+names taken from the code. Publishing the library is manual: the plugin API
+cannot publish.
 
 **Still missing from Base UI 1.8.0:** Drawer and OTP Field.
 

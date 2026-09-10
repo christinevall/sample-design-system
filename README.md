@@ -78,11 +78,11 @@ See [docs/conventions.md](docs/conventions.md). The short version:
 - [x] Base UI + Storybook, token layer, 42 components, foundations and patterns
 - [x] On GitHub with the branch model documented
 - [ ] Semantic scale tokens for space, radius and type, so density theming is possible without editing primitives
-- [ ] Move tokens to a DTCG `tokens.json` source of truth with a generator emitting the CSS
-- [ ] Sync tokens to Figma variables over the Figma MCP
+- [x] Move tokens to a DTCG source of truth (`tokens/**/*.json`) with a generator emitting the CSS
+- [x] Sync tokens to Figma variables (mirrored 2026-09-10 through the Figma Console bridge)
 - [ ] Code Connect mappings so Figma components point at these files
 - [ ] Publish Storybook per branch, including `design`
 
 ## Branching
 
-See [docs/branching.md](docs/branching.md). Everything currently sits on `main`. `design` exists as a long-lived branch for designers to prototype in real code, and accepted prototypes come back through a normal feature branch rather than merging `design` directly.
+See [docs/branching.md](docs/branching.md). `main` is the design system; changes land on it through `feature/*` pull requests. `design` exists as a long-lived branch for designers to prototype in real code, and accepted prototypes come back through a normal feature branch rather than merging `design` directly.

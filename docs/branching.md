@@ -1,56 +1,55 @@
 # Branching model
 
-A Gitflow variant with one extra long-lived branch for design prototyping.
+Two long-lived branches and short feature branches. Deliberately small: this
+repo is worked on by one person and copied by students, so a separate
+integration branch would only be one more thing to explain.
 
 ## Branches
 
 | Branch | Lives | Purpose |
 | --- | --- | --- |
-| `main` | forever | Released, tagged versions. The published Storybook and any npm release come from here. Protected. |
-| `develop` | forever | Integration branch. Everything lands here first. Protected. |
-| `design` | forever | Designer playground. Prototypes, token experiments, new component sketches. Deployed as its own Storybook preview. Not protected. |
-| `feature/*` | short | One component or change. Branches from `develop`, merges back to `develop`. |
-| `fix/*` | short | Bug fix off `develop`. |
-| `release/*` | short | Version bump, changelog, final checks. Branches from `develop`, merges to `main` and back to `develop`. |
-| `hotfix/*` | short | Urgent fix off `main`, merges to `main` and back to `develop`. |
+| `main` | forever | The design system. Always working, always the latest, and what students get. Changes arrive through `feature/*` pull requests with CI green. |
+| `design` | forever | The playground. Starts as a copy of `main`. Prototypes live here, and this is where work moves between Figma and code. Never merged into `main`. |
+| `feature/*`, `fix/*` | short | One change to the system. Branch from `main`, open a pull request into `main`. |
 
-## Why `design` is separate
+Releases are tags on `main` (`v0.1.0`), not branches.
 
-Designers need somewhere to try things in real code without blocking or being blocked by the engineering queue. `design` is that place:
+## Why `design` is one-way
 
-- It always has a live Storybook, so a prototype has a URL to share, not a screenshot.
+Designers need somewhere to try things in real code without blocking or being blocked by the system. `design` is that place:
+
 - Nothing on it is a commitment. Broken states are fine.
-- When a prototype is accepted, it does not merge directly. Someone opens a `feature/*` branch off `develop` and brings the accepted parts across properly, with stories, docs and accessibility checks.
+- When a prototype is accepted, it does not merge. Someone opens a `feature/*` branch off `main` and rebuilds the accepted parts properly, with stories, docs and accessibility checks, out of components that already exist.
 
-That last rule is the important one. `design` is a source of decisions, not a source of merges. Keeping it one-way stops half-finished experiments leaking into the library.
+That last rule is the important one, and the lesson this repo teaches. `design` is a source of decisions, not a source of merges. Keeping it one-way stops half-finished experiments leaking into the system.
 
 ## Keeping `design` current
 
-Pull `develop` into `design` regularly so designers prototype against the current tokens and components:
+Pull `main` into `design` whenever the system changes, so prototypes are built from the current tokens and components:
 
 ```bash
 git checkout design
-git merge develop
+git merge main
 git push
 ```
 
-Do this at least once per release. If `design` drifts too far, delete it and branch a fresh one from `develop`.
+## For students
+
+The repository is a GitHub template: **Use this template** gives you your own copy with both branches. Work on `design` — prototype in code, push it to Figma, design freely there, and bring it back as a composition of components that already exist. `main` stays the reference you compare against.
 
 ## Everyday flow
 
 ```bash
-# start work
-git checkout develop && git pull
+# a change to the system
+git checkout main && git pull
 git checkout -b feature/tooltip
 
 # ... commit ...
 git push -u origin feature/tooltip
-# open a PR into develop
+# open a pull request into main; merge when CI is green
 
-# cut a release
-git checkout -b release/0.2.0 develop
-# bump version, update CHANGELOG
-# PR into main, tag v0.2.0, then merge main back into develop
+# a release
+git tag v0.1.0 && git push --tags
 ```
 
 ## Commit messages
@@ -66,9 +65,9 @@ chore(deps): bump storybook to 10.6
 
 ## Branch protection to set on GitHub
 
-On `main` and `develop`:
+On `main`:
 
-- Require a pull request before merging, one approval.
+- Require a pull request before merging. No approval needed while one person maintains it.
 - Require the `ci` status check to pass.
 - Do not allow force pushes.
 

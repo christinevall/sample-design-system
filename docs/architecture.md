@@ -53,10 +53,10 @@ Each lives in its own folder with `Component.tsx`, `Component.module.css`, `Comp
 
 ## Roadmap
 
-1. Protect `main` and `develop` on GitHub.
+1. Protect `main` on GitHub (pull request plus the `ci` check).
 2. ~~Move tokens to a DTCG source of truth with a generator.~~ Done.
 3. Publish Storybook, so the manifest and the docs have a stable URL.
-4. Sync tokens to Figma variables over the Figma MCP.
+4. ~~Sync tokens to Figma variables.~~ Done 2026-09-10, through the Figma Console bridge.
 5. A naming contract between semantic tokens and Figma variables, checked both ways. Nothing catches that drift today.
 6. Code Connect mappings so Figma components point at these files.
 7. Per-branch Storybook deploys, including `design`.
