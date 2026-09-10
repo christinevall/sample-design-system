@@ -255,10 +255,13 @@ if (existsSync(FIGMA_MANIFEST)) {
   // before building Storybook).
   const docgen = existsSync(MANIFEST) ? Object.values(JSON.parse(readFileSync(MANIFEST, 'utf8')).components) : [];
   const kebab = (s) => s.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-  const baseUiTypes = (component) => {
-    const dir = `node_modules/@base-ui/react/${kebab(component)}`;
-    if (!existsSync(dir)) return '';
-    return readdirSync(dir, { recursive: true }).filter((f) => String(f).endsWith('.d.ts')).map((f) => readFileSync(`${dir}/${f}`, 'utf8')).join('\n');
+  // The Base UI parts a component wraps: the one it is named after, plus every
+  // one its source imports (IconButton wraps Base UI's Button).
+  const baseUiTypes = (component, src) => {
+    const parts = new Set([kebab(component), ...[...src.matchAll(/from '@base-ui\/react\/([\w-]+)'/g)].map((m) => m[1])]);
+    return [...parts].map((part) => `node_modules/@base-ui/react/${part}`).filter((dir) => existsSync(dir))
+      .flatMap((dir) => readdirSync(dir, { recursive: true }).filter((f) => String(f).endsWith('.d.ts')).map((f) => readFileSync(`${dir}/${f}`, 'utf8')))
+      .join('\n');
   };
   const unquote = (v) => String(v).replace(/^'|'$/g, '');
   for (const c of fm.components) {
@@ -268,7 +271,7 @@ if (existsSync(FIGMA_MANIFEST)) {
     }
     const component = c.source.split('/').at(-2);
     const src = readFileSync(c.source, 'utf8');
-    const baseUi = baseUiTypes(component);
+    const baseUi = baseUiTypes(component, src);
     const parts = new Set([...src.matchAll(/^(?:export )?function (\w+)\(/gm)].map((m) => m[1]));
     const isProp = (p) => new RegExp(`\\b${p}\\??\\s*:`).test(src) || new RegExp(`\\b${p}\\??\\s*:`).test(baseUi);
     const capitalised = (s) => s[0].toUpperCase() + s.slice(1);
@@ -276,14 +279,16 @@ if (existsSync(FIGMA_MANIFEST)) {
     for (const p of c.props) {
       if (p.type === 'BOOLEAN' && p.name.includes('.')) {
         // A part the component defines (Card.Header), or a Base UI part it
-        // renders for an optional prop (Checkbox's description → Field.Description).
-        const renders = new RegExp(`<${p.name.replace('.', '\\.')}[\\s>/]`).test(src);
+        // renders for an optional prop, by Base UI's name: Checkbox's description
+        // → <Field.Description>, Progress's label → <BaseProgress.Label>.
+        const renders = new RegExp(`<(?:Base)?${p.name.replace('.', '\\.')}[\\s>/]`).test(src);
         if (!parts.has(p.name.split('.').pop()) && !renders) report(F, 0, 'figma-unknown-prop', `${c.name}: ${p.name} is not a part of ${component}`);
       } else if (p.type === 'TEXT') {
-        if (!(p.name === 'children' || isProp(p.name) || parts.has(capitalised(p.name)))) {
+        // aria-* attributes pass through to every component's element (an icon-only Toggle's aria-label)
+        if (!(p.name === 'children' || p.name.startsWith('aria-') || isProp(p.name) || parts.has(capitalised(p.name)))) {
           report(F, 0, 'figma-unknown-prop', `${c.name}: text property "${p.name}" is not children, a prop or a part of ${component}`);
         }
-      } else if (!isProp(p.name)) {
+      } else if (p.name !== 'children' && !isProp(p.name)) { // children: an icon swap (IconButton, Toggle)
         report(F, 0, 'figma-unknown-prop', `${c.name}: "${p.name}" is not a prop of ${component} or of the Base UI part it wraps`);
       } else if (p.type === 'VARIANT' && doc[p.name]?.tsType?.name === 'union') {
         const allowed = doc[p.name].tsType.elements.map((e) => unquote(e.value));

@@ -550,6 +550,104 @@
       "props": []
     },
     {
+      "name": "IconButton",
+      "page": "IconButton",
+      "kind": "set",
+      "variants": 24,
+      "defaultVariant": "variant=ghost, size=md, disabled=false",
+      "source": "src/components/IconButton/IconButton.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "INSTANCE_SWAP",
+          "default": "38:159"
+        },
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Edit"
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "ghost",
+            "primary",
+            "secondary",
+            "danger"
+          ],
+          "default": "ghost"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Meter",
+      "page": "Meter",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "variant=accent, size=md",
+      "source": "src/components/Meter/Meter.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Storage used"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "42%"
+        },
+        {
+          "name": "Meter.Label",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "showValue",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "accent",
+            "danger"
+          ],
+          "default": "accent"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
       "name": "NavigationMenu",
       "page": "NavigationMenu",
       "kind": "component",
@@ -594,6 +692,55 @@
           "name": "children",
           "type": "TEXT",
           "default": "Product"
+        }
+      ]
+    },
+    {
+      "name": "Progress",
+      "page": "Progress",
+      "kind": "set",
+      "variants": 6,
+      "defaultVariant": "size=md, status=progressing",
+      "source": "src/components/Progress/Progress.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Uploading assets"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "40%"
+        },
+        {
+          "name": "Progress.Label",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "showValue",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "status",
+          "type": "VARIANT",
+          "values": [
+            "progressing",
+            "complete",
+            "indeterminate"
+          ],
+          "default": "progressing"
         }
       ]
     },
@@ -746,6 +893,26 @@
             "vertical"
           ],
           "default": "horizontal"
+        }
+      ]
+    },
+    {
+      "name": "Spinner",
+      "page": "Spinner",
+      "kind": "set",
+      "variants": 3,
+      "defaultVariant": "size=md",
+      "source": "src/components/Spinner/Spinner.tsx",
+      "props": [
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
         }
       ]
     },

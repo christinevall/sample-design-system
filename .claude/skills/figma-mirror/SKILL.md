@@ -74,6 +74,13 @@ commit that with the component.
 - An inner shadow on a frame **with no fill** is applied to its children (it
   blurred Tabs' labels), and a frame's stroke draws **over** its children. For
   a `box-shadow: inset` border, draw a 1px rectangle as the frame's first child.
+- A dash pattern restarts at every segment of a path (an imported circle has
+  four). Draw the arc a `stroke-dasharray` produces as a path instead.
+- An instance swap carries overrides layer by layer. A swappable icon must be
+  one `Vector`, or the ink survives on its first paths only.
+- A prop that renders nothing visible but is required (IconButton's `label` →
+  `aria-label`) goes on a hidden text layer with a TEXT property, so the frame
+  carries it back.
 - A TEXT property's default applies to every variant, so variant-specific
   sample text is lost. The labels beside the set carry it instead.
 - `search_design_system` answers one query per call; batching is clamped.
