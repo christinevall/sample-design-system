@@ -42,6 +42,13 @@ fed by code — a sketchpad that speaks the system's vocabulary.
 | **No Steel Curtain** (Brad's station 8) | Explicitly out of scope. This is a teaching instrument, not a team shipping to production |
 | **Chromatic for publishing** | Per-branch deploys, which is what `docs/branching.md` already promises for `design` |
 | **`design` is one-way** | A source of decisions, not a source of merges. Accepted prototypes get rebuilt on `feature/*` |
+| **Figma name = token path**, `.` → `/` | One rule, no exceptions: `color.background.accent` is `color/background/accent`. It is what the round-trip name check will test |
+| **WEB code syntax on every variable** | Dev Mode shows `var(--sds-…)`, not hex, so a Figma selection points straight back at code |
+| **Inter + Roboto Mono in Figma** | Code names no font — a system stack. CLAUDE.md forbids new dependencies, so code keeps the stack and Figma uses stand-ins, documented on each variable |
+| **Composite type as resolved-px variables** | `typography/<style>/line-height` holds pixels (24 × 1.2 = 28.8) with code syntax pointing at the real CSS variable, so all five properties of every text style are bound. Renders identically; does not follow a font-size change on its own |
+| **Figma properties use the code's names** | `variant=primary`, `size=md`, `disabled=false`, text property `children` — not Figma's usual `Size=Medium`. A frame coming back resolves to the component that already exists |
+| **Code parts become boolean properties named after them** | `Card.Header`, `Card.Description`, `Card.Footer`, so a Figma instance says which parts to render |
+| **Components are built from the stylesheet** | A parser maps each declaration in `*.module.css` through the naming contract to a variable, or flags it as raw. Nothing is transcribed by hand |
 
 ## Findings worth writing about
 
@@ -103,6 +110,54 @@ catalog and it is not an `eddie-brain` equivalent. It also serves from the dev
 server, so a published static build does not provide it. The catalog value is
 in `manifests/components.json`, which a static build *does* contain.
 
+**9. Figma reads a bound line-height variable as pixels.**
+Tested rather than assumed: a line-height variable of `150` bound to a 20px
+text layer turned its line height into 150px and grew the layer from 24px to
+150px tall. Letter-spacing `2` became 2px. Code expresses both relatively (`1.2`, `-0.01em`), so
+they cannot be Figma variables without silently changing meaning. They are the
+one part of the type system that can be mirrored by value but not by binding.
+
+**10. A font stack cannot be mirrored.**
+The code names no font — `ui-sans-serif, system-ui, …` — which is a deliberate
+"whatever the OS has". Figma needs one family. Any choice is a stand-in, and on
+a Mac Storybook renders SF Pro while Figma shows Inter, so text widths differ
+slightly across the round trip. Naming a real font in code would close this,
+at the cost of a font dependency.
+
+**11. Effect styles have no modes, but their colours can.**
+Shadows are composite, so they cannot be variables, and effect styles cannot
+switch between Light and Dark. The geometry of each shadow is identical in both
+themes in code; only the alpha changes. So each effect style's colour is bound
+to a Light/Dark colour variable, and the shadow follows the theme. Those three
+colour variables are Figma-only, and deliberately carry no code syntax, since
+there is no CSS variable for a shadow's colour alone.
+
+**12. Figma's default variant is the top-left one, not the first layer.**
+Moving the intended default to the first or last layer changed nothing. Figma
+takes the variant at the top-left of the grid. So the grid itself has to start
+at the code's defaults — Button's rows begin at `md`, not `sm` — which reads
+oddly until you know why.
+
+**13. CSS `border-box` and Figma strokes disagree by 2px.**
+In CSS a 1px border counts toward the element's size; a Figma stroke drawn
+inside does not, by default. Every bordered component came out 2px narrower
+than in Storybook. "Include stroke in layout" (`strokesIncludedInLayout`)
+makes them match — including Button's `1px solid transparent` border, which
+has to exist in Figma as an invisible stroke to keep the widths honest.
+
+**14. CSS sibling selectors have no Figma equivalent.**
+`.header + .body` gives the card body 8px of top padding only when a header
+precedes it. Figma cannot express "depends on the previous sibling", so the
+default composition is exact and the header-hidden case is 4px tighter than
+code. Documented on the component rather than hidden.
+
+**15. Built from the stylesheet, the audit came back clean.**
+Badge, Button and Card were built by parsing their CSS modules through the
+naming contract, not by reading them and retyping. An audit of the live file
+found zero unbound fills, strokes, paddings, radii or type properties across
+Badge (21 layers) and Button (49 layers). The only raw values are the ones the
+CSS itself has raw: min-heights, the 1px border, disabled opacity.
+
 ## Brad Frost's model, and what we took
 
 Source: "Keep AI on the Rails of Your Design System", part of
@@ -155,8 +210,16 @@ Done: render-loop fix, manifest fix (29→8 errors), DTCG token pipeline, text
 styles, breakpoints, Brad-standard colour naming, `CLAUDE.md` grounding rules,
 `validate.mjs` (reports clean), docs corrected.
 
+Figma foundations mirrored (2026-09-10), file
+[sample-design-system](https://www.figma.com/design/PvLNUW3xI3A9kTumVi7O3d/sample-design-system):
+5 collections — Color Primitives, Color (Light/Dark), Size, Typography, Motion —
+plus 8 text styles and 3 effect styles. Built from `tokens/*.json` by a
+generator, not retyped by hand. Pages: Cover, Foundations (every swatch, bar
+and specimen bound), then Badge (10 variants), Button (24) and Card (2, with
+real Button instances in its footer).
+
 Next: publish to Chromatic → Foundations page for text styles and breakpoints →
-tokens to Figma variables → Figma library from the manifest → name check in
+Figma library from the manifest → name check in
 `validate.mjs` → first round-trip test.
 
 **Blocked:** the Figma MCP server is not authenticated. Nothing in the Figma
