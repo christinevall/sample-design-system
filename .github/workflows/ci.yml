@@ -2,9 +2,9 @@ name: ci
 
 on:
   push:
-    branches: [main, develop, design]
+    branches: [main, design]
   pull_request:
-    branches: [main, develop]
+    branches: [main]
 
 jobs:
   build:
@@ -17,5 +17,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
+      # The CLAUDE.md rules, enforced. Warn-only locally so it never blocks a
+      # prototype; strict here, so nothing reaches main with findings.
+      - run: npm run validate -- --strict
       - run: npm run build
       - run: npm run build-storybook
