@@ -615,6 +615,77 @@
           "default": "horizontal"
         }
       ]
+    },
+    {
+      "name": "Tabs",
+      "page": "Tabs",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=horizontal",
+      "source": "src/components/Tabs/Tabs.tsx",
+      "props": [
+        {
+          "name": "panel",
+          "type": "TEXT",
+          "default": "A summary of the project, its owners and the current release."
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        }
+      ]
+    },
+    {
+      "name": "Tabs.Tab",
+      "page": "Tabs",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "orientation=horizontal, active=false, disabled=false",
+      "source": "src/components/Tabs/Tabs.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Overview"
+        },
+        {
+          "name": "Tabs.Indicator",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        },
+        {
+          "name": "active",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
     }
   ],
   "variables": {
