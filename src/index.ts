@@ -221,7 +221,13 @@ export { Progress } from './components/Progress';
 export type { ProgressProps, ProgressSize } from './components/Progress';
 
 export { Meter } from './components/Meter';
-export type { MeterProps, MeterTone, MeterSize } from './components/Meter';
+export type { MeterProps, MeterVariant, MeterSize } from './components/Meter';
 
 export { Spinner } from './components/Spinner';
 export type { SpinnerProps, SpinnerSize } from './components/Spinner';
+
+/** Breakpoints are generated from tokens/tier-1-definitions/breakpoint.json.
+ *  They are exported as values because a CSS custom property cannot be used
+ *  inside a media query. */
+export { breakpoints } from './tokens/breakpoints';
+export type { Breakpoint } from './tokens/breakpoints';

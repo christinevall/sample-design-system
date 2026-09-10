@@ -122,10 +122,10 @@ function Panel({ className, children, ...props }: AccordionPanelProps) {
   );
 }
 
-export const Accordion = {
+export const Accordion = Object.assign(Root, {
   Root,
   Item,
   Header,
   Trigger,
   Panel,
-};
+});

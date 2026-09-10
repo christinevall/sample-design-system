@@ -24,7 +24,7 @@ const countries = [
 
 const meta = {
   title: 'Components/Forms/Combobox',
-  component: Combobox.Field,
+  component: Combobox,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
   args: {
@@ -49,7 +49,7 @@ const meta = {
       )}
     </Combobox.Field>
   ),
-} satisfies Meta<typeof Combobox.Field>;
+} satisfies Meta<typeof Combobox>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

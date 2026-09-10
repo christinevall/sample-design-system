@@ -20,13 +20,13 @@ function Demo() {
       </div>
       {(['fast', 'normal'] as const).map((speed) => (
         <div key={speed}>
-          <div style={{ ...mono, color: 'var(--sds-color-text-muted)', marginBottom: 'var(--sds-space-2)' }}>
+          <div style={{ ...mono, color: 'var(--sds-color-content-muted)', marginBottom: 'var(--sds-space-2)' }}>
             --sds-duration-{speed}
           </div>
           <div
             style={{
               height: 44,
-              background: 'var(--sds-color-surface-sunken)',
+              background: 'var(--sds-color-background-sunken)',
               borderRadius: 'var(--sds-radius-md)',
               position: 'relative',
               maxWidth: 480,
@@ -40,7 +40,7 @@ function Demo() {
                 width: 32,
                 height: 32,
                 borderRadius: 'var(--sds-radius-md)',
-                background: 'var(--sds-color-accent)',
+                background: 'var(--sds-color-background-accent)',
                 transform: on ? 'translateX(420px)' : 'translateX(0)',
                 transition: `transform var(--sds-duration-${speed}) var(--sds-easing-standard)`,
               }}

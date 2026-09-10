@@ -18,7 +18,7 @@ function Scale() {
     <div ref={ref} style={{ display: 'grid', gap: 'var(--sds-space-5)' }}>
       {[...SIZES].reverse().map((size) => (
         <div key={size} style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--sds-space-6)' }}>
-          <div style={{ ...mono, width: 200, flexShrink: 0, color: 'var(--sds-color-text-muted)' }}>
+          <div style={{ ...mono, width: 200, flexShrink: 0, color: 'var(--sds-color-content-muted)' }}>
             --sds-font-size-{size}
             <br />
             {values[`--sds-font-size-${size}`]}
@@ -46,7 +46,7 @@ export const Scales: Story = {
         <div style={{ display: 'grid', gap: 'var(--sds-space-3)' }}>
           {WEIGHTS.map((w) => (
             <div key={w} style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--sds-space-6)' }}>
-              <div style={{ ...mono, width: 200, flexShrink: 0, color: 'var(--sds-color-text-muted)' }}>
+              <div style={{ ...mono, width: 200, flexShrink: 0, color: 'var(--sds-color-content-muted)' }}>
                 --sds-font-weight-{w}
               </div>
               <div style={{ fontSize: 'var(--sds-font-size-lg)', fontWeight: `var(--sds-font-weight-${w})` }}>
@@ -61,7 +61,7 @@ export const Scales: Story = {
         <div style={{ display: 'grid', gap: 'var(--sds-space-6)', maxWidth: '52ch' }}>
           {(['tight', 'normal'] as const).map((lh) => (
             <div key={lh}>
-              <div style={{ ...mono, color: 'var(--sds-color-text-muted)', marginBottom: 'var(--sds-space-2)' }}>
+              <div style={{ ...mono, color: 'var(--sds-color-content-muted)', marginBottom: 'var(--sds-space-2)' }}>
                 --sds-line-height-{lh}
               </div>
               <p style={{ margin: 0, lineHeight: `var(--sds-line-height-${lh})` }}>

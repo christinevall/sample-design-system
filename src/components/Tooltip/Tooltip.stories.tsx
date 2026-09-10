@@ -4,7 +4,7 @@ import { Button } from '../Button';
 
 const meta = {
   title: 'Components/Overlays/Tooltip',
-  component: Tooltip.Content,
+  component: Tooltip,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
   argTypes: {
@@ -18,7 +18,7 @@ const meta = {
       </Tooltip.Provider>
     ),
   ],
-} satisfies Meta<typeof Tooltip.Content>;
+} satisfies Meta<typeof Tooltip>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

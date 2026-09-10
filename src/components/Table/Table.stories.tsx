@@ -3,7 +3,7 @@ import { Table } from './Table';
 
 const meta = {
   title: 'Components/Layout/Table',
-  component: Table.Root,
+  component: Table,
   tags: ['autodocs'],
   argTypes: {
     striped: { control: 'boolean' },
@@ -11,7 +11,7 @@ const meta = {
     caption: { control: 'text' },
   },
   args: { striped: false, hideCaption: false, caption: 'Invoices issued in the last quarter' },
-} satisfies Meta<typeof Table.Root>;
+} satisfies Meta<typeof Table>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -236,7 +236,7 @@ function AutocompleteField({
   );
 }
 
-export const Autocomplete = {
+export const Autocomplete = Object.assign(AutocompleteField, {
   Root: BaseAutocomplete.Root,
   Control,
   Input: BaseAutocomplete.Input,
@@ -252,4 +252,4 @@ export const Autocomplete = {
   Separator: BaseAutocomplete.Separator,
   Status: BaseAutocomplete.Status,
   Field: AutocompleteField,
-};
+});

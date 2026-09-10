@@ -19,8 +19,8 @@
 .segmented {
   gap: 0;
   padding: var(--sds-space-1);
-  background: var(--sds-color-surface-sunken);
-  border: 1px solid var(--sds-color-border);
+  background: var(--sds-color-background-sunken);
+  border: 1px solid var(--sds-color-border-default);
   border-radius: var(--sds-radius-md);
 }
 
@@ -28,7 +28,7 @@
   background: transparent;
   border-color: transparent;
   box-shadow: none;
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
   border-radius: var(--sds-radius-sm);
   flex: 1;
 }
@@ -36,20 +36,20 @@
 .segmented > button:hover:not([data-disabled]) {
   background: transparent;
   border-color: transparent;
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .segmented > button[data-pressed] {
-  background: var(--sds-color-surface);
-  border-color: var(--sds-color-border);
-  color: var(--sds-color-text);
+  background: var(--sds-color-background-surface);
+  border-color: var(--sds-color-border-default);
+  color: var(--sds-color-content-default);
   box-shadow: var(--sds-elevation-raised);
 }
 
 .segmented > button[data-pressed]:hover:not([data-disabled]) {
-  background: var(--sds-color-surface);
+  background: var(--sds-color-background-surface);
   border-color: var(--sds-color-border-strong);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .segmented[data-orientation='vertical'] > button {

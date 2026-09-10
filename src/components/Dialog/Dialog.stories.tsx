@@ -4,9 +4,9 @@ import { Button } from '../Button';
 
 const meta = {
   title: 'Components/Dialog',
-  component: Dialog.Content,
+  component: Dialog,
   tags: ['autodocs'],
-} satisfies Meta<typeof Dialog.Content>;
+} satisfies Meta<typeof Dialog>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

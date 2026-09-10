@@ -5,7 +5,7 @@ import { Switch } from '../Switch';
 
 const meta = {
   title: 'Components/Forms/Fieldset',
-  component: Fieldset.Root,
+  component: Fieldset,
   tags: ['autodocs'],
   decorators: [
     (Story) => (
@@ -22,7 +22,7 @@ const meta = {
       <TextField label="Postcode" name="postcode" placeholder="75001" />
     </Fieldset.Root>
   ),
-} satisfies Meta<typeof Fieldset.Root>;
+} satisfies Meta<typeof Fieldset>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

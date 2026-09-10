@@ -3,10 +3,10 @@ import { NavigationMenu } from './NavigationMenu';
 
 const meta = {
   title: 'Components/Navigation/NavigationMenu',
-  component: NavigationMenu.Root,
+  component: NavigationMenu,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
-} satisfies Meta<typeof NavigationMenu.Root>;
+} satisfies Meta<typeof NavigationMenu>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -21,7 +21,7 @@ const gridStyle = {
 } as const;
 
 const descriptionStyle = {
-  color: 'var(--sds-color-text-muted)',
+  color: 'var(--sds-color-content-muted)',
   fontSize: 'var(--sds-font-size-xs)',
   fontWeight: 'var(--sds-font-weight-regular)',
   lineHeight: 'var(--sds-line-height-normal)',

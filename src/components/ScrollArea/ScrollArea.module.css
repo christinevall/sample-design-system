@@ -1,7 +1,7 @@
 .root {
   max-width: 100%;
   font-family: var(--sds-font-sans);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
 }
 
 .viewport {
@@ -11,7 +11,7 @@
 }
 
 .viewport:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 
@@ -42,7 +42,7 @@
 
 .scrollbar[data-hovering],
 .scrollbar[data-scrolling] {
-  background: var(--sds-color-surface-sunken);
+  background: var(--sds-color-background-sunken);
   opacity: 1;
 }
 
@@ -54,7 +54,7 @@
 
 .thumb:hover,
 .thumb:active {
-  background: var(--sds-color-text-muted);
+  background: var(--sds-color-content-muted);
 }
 
 .thumb[data-orientation='vertical'] {

@@ -1,0 +1,206 @@
+/**
+ * Checks generated and hand-written UI against the rules in CLAUDE.md.
+ *
+ * Warn-only by default: it reports and exits 0, so it never blocks a designer
+ * mid-prototype. Pass --strict to exit 1, which is what CI would use.
+ *
+ *   npm run validate
+ *   npm run validate -- --strict
+ *
+ * The point is not to be clever. Every rule here is one an agent has already
+ * been told in CLAUDE.md, restated somewhere that actually checks.
+ */
+import { readFileSync, existsSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+
+const STRICT = process.argv.includes('--strict');
+const findings = [];
+const report = (file, line, rule, message) => findings.push({ file, line, rule, message });
+
+// `.storybook` and `base.css` too: both reference tokens outside any component,
+// and a renamed token there silently un-themes every page and every story.
+const files = execSync(
+  "find src .storybook -type f \\( -name '*.module.css' -o -name '*.tsx' -o -name 'base.css' \\) -not -path '*/node_modules/*'",
+  { encoding: 'utf8' },
+).trim().split('\n').filter(Boolean);
+
+// ---------------------------------------------------------------- token names
+const TOKENS_CSS = ['src/tokens/primitives.css', 'src/tokens/semantic.css'];
+const defined = new Set();
+for (const f of TOKENS_CSS) {
+  if (!existsSync(f)) continue;
+  for (const m of readFileSync(f, 'utf8').matchAll(/^\s*(--sds-[\w-]+)\s*:/gm)) defined.add(m[1]);
+}
+
+/**
+ * Tier-1 tokens are plumbing for tier 2. A component using one has reached past
+ * the semantic layer, which is what breaks theming.
+ *
+ * Deliberately narrow: only where a semantic replacement actually exists. The
+ * raw type scale is tier 1 too, but it has its own rule below
+ * (raw-type-in-component): components now take their type from text styles,
+ * so size, line height and letter spacing are checked there instead.
+ */
+const isPrimitive = (t) =>
+  /^--sds-color-(neutral|brand|success|warning|danger)-\d+$/.test(t) ||
+  /^--sds-shadow-/.test(t);
+
+for (const file of files) {
+  if (/^src\/tokens\/(primitives|semantic|\.semantic\.[\w-]+)\.css$/.test(file)) continue; // generated
+  const isFoundation = file.startsWith('src/foundations/'); // documents primitives on purpose
+  const src = readFileSync(file, 'utf8');
+  const lines = src.split('\n');
+  let surfaceAllowed = false;
+  let typeAllowed = false;
+
+  lines.forEach((line, i) => {
+    const n = i + 1;
+
+    // 1. every token referenced must exist
+    for (const m of line.matchAll(/var\((--sds-[\w-]+)\)/g)) {
+      if (!defined.has(m[1])) report(file, n, 'unknown-token', `${m[1]} is not defined in the token layer`);
+    }
+
+    // 2. components may not reach past the semantic layer
+    if (!isFoundation) {
+      for (const m of line.matchAll(/var\((--sds-[\w-]+)\)/g)) {
+        if (isPrimitive(m[1])) {
+          report(file, n, 'primitive-in-component',
+            `${m[1]} is a tier-1 token; use a semantic one (e.g. --sds-elevation-* instead of --sds-shadow-*)`);
+        }
+      }
+    }
+
+    // 3. no raw colour where a token exists.
+    //    Only in stylesheets, and only in the value half of a declaration —
+    //    `'Build #482'` and `href="#ada"` are not colours, and matching them
+    //    is how this rule loses its credibility.
+    if (!isFoundation && file.endsWith('.module.css')) {
+      const decl = line.replace(/\/\*.*?\*\//g, '').match(/^\s*[a-z-]+\s*:\s*(.+?);/);
+      const value = decl?.[1];
+      if (value && !/url\(|data:/.test(value)) {
+        if (/#[0-9a-fA-F]{3,8}\b/.test(value)) {
+          report(file, n, 'raw-colour', 'hard-coded hex — use a --sds-color-* token');
+        }
+        if (/\b(rgb|rgba|hsl|hsla)\(/.test(value) && !/var\(--sds-/.test(value)) {
+          report(file, n, 'raw-colour', 'hard-coded colour function — use a --sds-color-* token');
+        }
+      }
+    }
+
+    // 5. component type comes from a text style, never the raw scale.
+    //    One text style is one decision shared by code, the Figma text style
+    //    and the type ramp. Setting size or line height by hand is how a label
+    //    quietly becomes 14/1.5 in one component and 14/1.2 in the next.
+    //    Weight stays allowed on its own: bolding a word inside inherited text
+    //    is emphasis, not a new style. A rule that genuinely is not type (or
+    //    is an open decision) opts out with `/* validate-allow: type — why */`
+    //    as its first line, like the surface rule below.
+    if (file.startsWith('src/components/') && file.endsWith('.module.css')) {
+      if (line.includes('{')) typeAllowed = false;
+      if (line.includes('validate-allow: type')) typeAllowed = true;
+      for (const m of typeAllowed ? [] : line.matchAll(/var\((--sds-(?:font-size|line-height|letter-spacing)-[\w-]+)\)/g)) {
+        report(file, n, 'raw-type-in-component',
+          `${m[1]} — use a text style (--sds-typography-<style>-*), so code and the Figma text styles stay one decision`);
+      }
+    }
+
+    // 4. page CSS lays components out; it does not draw its own surfaces.
+    //    A pattern or prototype that paints a background, border, shadow or
+    //    radius is usually rebuilding a component (Card, Separator) out of
+    //    divs — the drift a designer cannot see in the browser, because a real
+    //    Card and a hand-rolled one render the same. Known gaps opt out with
+    //    `/* validate-allow: surface — why */` as the first line of the rule,
+    //    so the reason sits next to the exception instead of in someone's head.
+    if (file.startsWith('src/patterns/') && file.endsWith('.module.css')) {
+      if (line.includes('{')) surfaceAllowed = false;
+      if (line.includes('validate-allow: surface')) surfaceAllowed = true;
+      const decl = line
+        .replace(/\/\*.*?\*\//g, '')
+        .match(/^\s*(background(?:-color)?|border(?:-(?:top|right|bottom|left|color|radius))?|box-shadow)\s*:\s*(.+?);/);
+      if (decl && !surfaceAllowed && !/^(none|0|transparent)$/.test(decl[2].trim())) {
+        report(file, n, 'surface-in-page',
+          `${decl[1]} — page CSS should only lay components out. Use a component (Card, Separator, …) or mark a known gap with /* validate-allow: surface — reason */`);
+      }
+    }
+  });
+}
+
+// ------------------------------------------------ text styles travel together
+// Eddie applies a text style as one unit (a SCSS mixin), so its properties
+// cannot come apart. Without SCSS the unit is six declarations; this checks
+// they stay six, all from the same style — a rule that takes label-md's size
+// but someone's hand-picked line height is a new, unnamed style.
+const TEXT_STYLE_PROPS = ['font-family', 'font-size', 'font-weight', 'line-height', 'letter-spacing', 'text-transform'];
+for (const file of files.filter((f) => f.startsWith('src/components/') && f.endsWith('.module.css'))) {
+  const src = readFileSync(file, 'utf8');
+  for (const m of src.matchAll(/([^{}]+)\{([^}]*)\}/g)) {
+    const used = [...m[2].matchAll(/([a-z-]+)\s*:\s*var\(--sds-typography-([a-z0-9-]+?)-(font-family|font-size|font-weight|line-height|letter-spacing|text-transform)\)/g)];
+    if (!used.length) continue;
+    const selector = m[1].replace(/\/\*[\s\S]*?\*\//g, '').trim().replace(/\s+/g, ' ');
+    const line = src.slice(0, m.index + m[1].length).split('\n').length;
+    const styleNames = [...new Set(used.map((u) => u[2]))];
+    if (styleNames.length > 1) {
+      report(file, line, 'text-style-split', `${selector} mixes text styles: ${styleNames.join(', ')}`);
+    }
+    const missing = TEXT_STYLE_PROPS.filter((p) => !used.some((u) => u[1] === p));
+    if (missing.length) {
+      report(file, line, 'text-style-split',
+        `${selector} takes ${styleNames[0]} but not its ${missing.join(', ')} — a text style is applied whole`);
+    }
+  }
+}
+
+// ------------------------------------------------------ token names in docs
+// Prose names tokens without `var()`. A renamed token left in a doc teaches the
+// next reader — and the next agent — a name that no longer exists, which is how
+// `--sds-color-focus-ring` survived the colour rename. Wildcards and patterns
+// (`--sds-space-*`, `--sds-typography-<style>-*`) are skipped: the character
+// after the name is `-`. project-brief.md is history and quotes deleted names
+// on purpose, so it is left out.
+const DOCS = [
+  'CLAUDE.md', 'CONTRIBUTING.md', 'README.md',
+  ...execSync("find docs src -name '*.md' -o -name '*.mdx'", { encoding: 'utf8' }).trim().split('\n'),
+].filter((f) => f && existsSync(f) && !f.endsWith('project-brief.md'));
+for (const file of DOCS) {
+  readFileSync(file, 'utf8').split('\n').forEach((line, i) => {
+    for (const m of line.matchAll(/--sds-[a-z0-9]+(?:-[a-z0-9]+)*/g)) {
+      if (line[m.index + m[0].length] === '-') continue;
+      if (!defined.has(m[0])) report(file, i + 1, 'unknown-token-in-docs', `${m[0]} is not defined in the token layer`);
+    }
+  });
+}
+
+// ------------------------------------------------- components exist as claimed
+const MANIFEST = 'storybook-static/manifests/components.json';
+if (existsSync(MANIFEST)) {
+  const manifest = JSON.parse(readFileSync(MANIFEST, 'utf8'));
+  const broken = Object.values(manifest.components).filter(
+    // Foundations, patterns and prototypes are compositions, not components.
+    (c) => c.error && !/^(foundations|patterns|prototypes)-/.test(c.id),
+  );
+  for (const c of broken) {
+    report(c.path ?? MANIFEST, 0, 'manifest-gap',
+      `${c.id} has no resolvable component, so agents cannot ground against it`);
+  }
+} else {
+  console.log(`note: ${MANIFEST} not found — run \`npm run build-storybook\` to check manifest coverage\n`);
+}
+
+// ------------------------------------------------------------------- report
+const byRule = findings.reduce((a, f) => ((a[f.rule] ??= []).push(f), a), {});
+if (!findings.length) {
+  console.log('validate: no findings.');
+  process.exit(0);
+}
+for (const [rule, list] of Object.entries(byRule)) {
+  console.log(`\n${rule}  (${list.length})`);
+  for (const f of list.slice(0, 20)) console.log(`  ${f.file}:${f.line}  ${f.message}`);
+  if (list.length > 20) console.log(`  ... and ${list.length - 20} more`);
+}
+console.log(`\n${findings.length} finding(s).`);
+if (STRICT) {
+  console.log('--strict: failing.');
+  process.exit(1);
+}
+console.log('warn-only: not failing. Pass --strict to make these block.');

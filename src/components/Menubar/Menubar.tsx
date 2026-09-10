@@ -41,7 +41,7 @@ function Trigger({ className, ...props }: MenubarTriggerProps) {
   );
 }
 
-export const Menubar = {
+export const Menubar = Object.assign(Root, {
   Root,
   /** One menu within the bar. Wraps the trigger and its content. */
   Menu: BaseMenu.Root,
@@ -54,4 +54,4 @@ export const Menubar = {
   Separator: Menu.Separator,
   SubmenuRoot: Menu.SubmenuRoot,
   SubmenuTrigger: Menu.SubmenuTrigger,
-};
+});

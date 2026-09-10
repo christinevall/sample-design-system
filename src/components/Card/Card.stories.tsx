@@ -4,13 +4,13 @@ import { Button } from '../Button';
 
 const meta = {
   title: 'Components/Layout/Card',
-  component: Card.Root,
+  component: Card,
   tags: ['autodocs'],
   argTypes: {
     variant: { control: 'inline-radio', options: ['outlined', 'elevated'] },
   },
   args: { variant: 'outlined' },
-} satisfies Meta<typeof Card.Root>;
+} satisfies Meta<typeof Card>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

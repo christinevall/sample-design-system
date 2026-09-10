@@ -248,7 +248,7 @@ function ComboboxField({
   );
 }
 
-export const Combobox = {
+export const Combobox = Object.assign(ComboboxField, {
   Root: BaseCombobox.Root,
   Control,
   Input: BaseCombobox.Input,
@@ -265,4 +265,4 @@ export const Combobox = {
   Separator: BaseCombobox.Separator,
   Status: BaseCombobox.Status,
   Field: ComboboxField,
-};
+});

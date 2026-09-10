@@ -5,26 +5,34 @@
 }
 
 .label {
-  font-size: var(--sds-font-size-sm);
-  font-weight: var(--sds-font-weight-medium);
-  color: var(--sds-color-text);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
+  color: var(--sds-color-content-default);
 }
 
 .control {
   width: 100%;
   min-height: 40px;
   padding: var(--sds-space-2) var(--sds-space-3);
-  background: var(--sds-color-surface);
-  color: var(--sds-color-text);
-  border: 1px solid var(--sds-color-border);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  border: 1px solid var(--sds-color-border-default);
   border-radius: var(--sds-radius-md);
-  font-family: var(--sds-font-sans);
-  font-size: var(--sds-font-size-md);
+  font-family: var(--sds-typography-body-md-font-family);
+  font-size: var(--sds-typography-body-md-font-size);
+  font-weight: var(--sds-typography-body-md-font-weight);
+  line-height: var(--sds-typography-body-md-line-height);
+  letter-spacing: var(--sds-typography-body-md-letter-spacing);
+  text-transform: var(--sds-typography-body-md-text-transform);
   transition: border-color var(--sds-duration-fast) var(--sds-easing-standard);
 }
 
 .control::placeholder {
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .control:hover:not(:disabled) {
@@ -32,9 +40,9 @@
 }
 
 .control:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: -1px;
-  border-color: var(--sds-color-focus-ring);
+  border-color: var(--sds-color-border-focus);
 }
 
 .control:disabled {
@@ -43,15 +51,25 @@
 }
 
 .control[data-invalid] {
-  border-color: var(--sds-color-danger);
+  border-color: var(--sds-color-border-danger);
 }
 
 .description {
-  font-size: var(--sds-font-size-xs);
-  color: var(--sds-color-text-muted);
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+  color: var(--sds-color-content-muted);
 }
 
 .error {
-  font-size: var(--sds-font-size-xs);
-  color: var(--sds-color-danger);
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+  color: var(--sds-color-content-danger);
 }

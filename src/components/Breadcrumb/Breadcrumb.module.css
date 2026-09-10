@@ -1,7 +1,10 @@
 .root {
-  font-family: var(--sds-font-sans);
-  font-size: var(--sds-font-size-sm);
-  line-height: var(--sds-line-height-normal);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
 }
 
 .list {
@@ -29,18 +32,18 @@
   padding: var(--sds-space-0) var(--sds-space-1);
   margin: 0 calc(var(--sds-space-1) * -1);
   border-radius: var(--sds-radius-sm);
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
   text-decoration: none;
   transition: color var(--sds-duration-fast) var(--sds-easing-standard);
 }
 
 .link:hover {
-  color: var(--sds-color-accent);
+  color: var(--sds-color-content-accent);
   text-decoration: underline;
 }
 
 .link:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 
@@ -56,6 +59,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: var(--sds-color-text);
-  font-weight: var(--sds-font-weight-medium);
+  color: var(--sds-color-content-default);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
 }

@@ -65,7 +65,9 @@ export function RadioGroup({
 }: RadioGroupProps) {
   return (
     <Field.Root className={[styles.root, className ?? ''].filter(Boolean).join(' ')}>
-      <Field.Label render={<div />} className={styles.label}>
+      {/* A group of radios has no single control for a <label> to point at, so
+          the label renders as a <div> and tells Base UI it is not a native label. */}
+      <Field.Label render={<div />} nativeLabel={false} className={styles.label}>
         {label}
       </Field.Label>
       {description ? (

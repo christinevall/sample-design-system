@@ -4,14 +4,14 @@ import { Button } from '../Button';
 
 const meta = {
   title: 'Components/Overlays/Popover',
-  component: Popover.Content,
+  component: Popover,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
   argTypes: {
     side: { control: 'inline-radio', options: ['top', 'right', 'bottom', 'left'] },
     align: { control: 'inline-radio', options: ['start', 'center', 'end'] },
   },
-} satisfies Meta<typeof Popover.Content>;
+} satisfies Meta<typeof Popover>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

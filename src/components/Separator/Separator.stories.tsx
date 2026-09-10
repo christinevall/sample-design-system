@@ -20,7 +20,7 @@ export const Horizontal: Story = {
     <div style={{ width: 320, display: 'grid', gap: 'var(--sds-space-3)' }}>
       <div style={{ fontSize: 'var(--sds-font-size-sm)' }}>Workspace settings</div>
       <Separator {...args} />
-      <div style={{ fontSize: 'var(--sds-font-size-sm)', color: 'var(--sds-color-text-muted)' }}>
+      <div style={{ fontSize: 'var(--sds-font-size-sm)', color: 'var(--sds-color-content-muted)' }}>
         Members, billing and integrations
       </div>
     </div>
@@ -55,9 +55,9 @@ export const InAToolbar: Story = {
     <div
       style={{
         width: 360,
-        border: '1px solid var(--sds-color-border)',
+        border: '1px solid var(--sds-color-border-default)',
         borderRadius: 'var(--sds-radius-md)',
-        background: 'var(--sds-color-surface)',
+        background: 'var(--sds-color-background-surface)',
       }}
     >
       <div
@@ -80,7 +80,7 @@ export const InAToolbar: Story = {
         style={{
           padding: 'var(--sds-space-3)',
           fontSize: 'var(--sds-font-size-sm)',
-          color: 'var(--sds-color-text-muted)',
+          color: 'var(--sds-color-content-muted)',
         }}
       >
         Selection formatting applies to the current block.

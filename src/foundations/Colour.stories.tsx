@@ -1,15 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Page, Group, mono, useResolved } from './tokenTable';
 
+/** Grouped by the three semantic categories — background, content, border —
+ *  which is how the tokens are organised in tokens/tier-2-usage/ and how they
+ *  map onto Figma variable collections. */
 const ROLES: Record<string, string[]> = {
-  Surfaces: ['bg', 'surface', 'surface-sunken'],
-  Borders: ['border', 'border-strong'],
-  Text: ['text', 'text-muted', 'text-inverse'],
-  Accent: ['accent', 'accent-hover', 'accent-active', 'accent-subtle', 'on-accent'],
-  Success: ['success', 'success-hover', 'success-subtle', 'on-success'],
-  Warning: ['warning', 'warning-hover', 'warning-subtle', 'on-warning'],
-  Danger: ['danger', 'danger-hover', 'danger-subtle', 'on-danger'],
-  Utility: ['focus-ring', 'overlay'],
+  'Background · surfaces': ['background-default', 'background-surface', 'background-sunken', 'background-overlay'],
+  'Background · accent': ['background-accent', 'background-accent-hover', 'background-accent-active', 'background-accent-subtle', 'background-on-accent'],
+  'Background · status': ['background-danger', 'background-danger-hover', 'background-danger-subtle', 'background-success', 'background-success-subtle', 'background-warning', 'background-warning-subtle'],
+  'Content': ['content-default', 'content-muted', 'content-inverse', 'content-accent', 'content-danger', 'content-success', 'content-warning'],
+  'Content · on a filled background': ['content-on-accent', 'content-on-danger', 'content-on-success', 'content-on-warning'],
+  'Border': ['border-default', 'border-strong', 'border-focus', 'border-accent', 'border-accent-hover', 'border-danger', 'border-success', 'border-warning'],
 };
 
 const ALL = Object.values(ROLES).flat().map((n) => `--sds-color-${n}`);
@@ -27,12 +28,12 @@ function Swatches() {
                   style={{
                     height: 64,
                     borderRadius: 'var(--sds-radius-md)',
-                    border: '1px solid var(--sds-color-border)',
+                    border: '1px solid var(--sds-color-border-default)',
                     background: `var(--sds-color-${name})`,
                   }}
                 />
                 <div style={{ ...mono, marginTop: 'var(--sds-space-1)' }}>--sds-color-{name}</div>
-                <div style={{ ...mono, color: 'var(--sds-color-text-muted)' }}>
+                <div style={{ ...mono, color: 'var(--sds-color-content-muted)' }}>
                   {values[`--sds-color-${name}`] || ' '}
                 </div>
               </div>
@@ -85,7 +86,7 @@ export const Primitives: Story = {
                     style={{
                       height: 48,
                       background: `var(--sds-${ramp}-${step})`,
-                      border: '1px solid var(--sds-color-border)',
+                      border: '1px solid var(--sds-color-border-default)',
                     }}
                   />
                   <div style={{ ...mono, textAlign: 'center' }}>{step}</div>

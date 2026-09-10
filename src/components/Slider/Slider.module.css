@@ -20,17 +20,23 @@
 }
 
 .label {
-  font-family: var(--sds-font-sans);
-  font-size: var(--sds-font-size-sm);
-  font-weight: var(--sds-font-weight-medium);
-  line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
+  color: var(--sds-color-content-default);
 }
 
 .value {
-  font-family: var(--sds-font-mono);
-  font-size: var(--sds-font-size-sm);
-  color: var(--sds-color-text-muted);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
+  color: var(--sds-color-content-muted);
 }
 
 .control {
@@ -51,21 +57,21 @@
   position: relative;
   width: 100%;
   height: var(--sds-space-1);
-  background: var(--sds-color-surface-sunken);
-  border: 1px solid var(--sds-color-border);
+  background: var(--sds-color-background-sunken);
+  border: 1px solid var(--sds-color-border-default);
   border-radius: var(--sds-radius-full);
 }
 
 .indicator {
-  background: var(--sds-color-accent);
+  background: var(--sds-color-background-accent);
   border-radius: inherit;
 }
 
 .thumb {
   width: var(--sds-space-5);
   height: var(--sds-space-5);
-  background: var(--sds-color-surface);
-  border: 2px solid var(--sds-color-accent);
+  background: var(--sds-color-background-surface);
+  border: 2px solid var(--sds-color-border-accent);
   border-radius: var(--sds-radius-full);
   box-shadow: var(--sds-elevation-raised);
   transition: box-shadow var(--sds-duration-fast) var(--sds-easing-standard);
@@ -77,12 +83,12 @@
  * would never match.
  */
 .thumb:has(:focus-visible) {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 
 .thumb[data-dragging] {
-  box-shadow: var(--sds-shadow-md);
+  box-shadow: var(--sds-elevation-floating);
 }
 
 /*
@@ -119,12 +125,21 @@
 }
 
 .description {
-  font-size: var(--sds-font-size-xs);
-  line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text-muted);
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+  color: var(--sds-color-content-muted);
 }
 
 .error {
-  font-size: var(--sds-font-size-xs);
-  color: var(--sds-color-danger);
+  font-family: var(--sds-typography-caption-font-family);
+  font-size: var(--sds-typography-caption-font-size);
+  font-weight: var(--sds-typography-caption-font-weight);
+  line-height: var(--sds-typography-caption-line-height);
+  letter-spacing: var(--sds-typography-caption-letter-spacing);
+  text-transform: var(--sds-typography-caption-text-transform);
+  color: var(--sds-color-content-danger);
 }

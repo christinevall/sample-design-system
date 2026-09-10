@@ -11,7 +11,7 @@ const fonts = {
 
 const meta = {
   title: 'Components/Forms/Select',
-  component: Select.Field,
+  component: Select,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
   args: {
@@ -36,7 +36,7 @@ const meta = {
       ))}
     </Select.Field>
   ),
-} satisfies Meta<typeof Select.Field>;
+} satisfies Meta<typeof Select>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

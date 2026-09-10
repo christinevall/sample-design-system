@@ -11,7 +11,7 @@ const body = (
 
 const meta = {
   title: 'Components/Content/Collapsible',
-  component: Collapsible.Root,
+  component: Collapsible,
   tags: ['autodocs'],
   argTypes: {
     defaultOpen: { control: 'boolean' },
@@ -25,7 +25,7 @@ const meta = {
       </Collapsible.Root>
     </div>
   ),
-} satisfies Meta<typeof Collapsible.Root>;
+} satisfies Meta<typeof Collapsible>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

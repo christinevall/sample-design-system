@@ -53,9 +53,10 @@ const invoiceTone = {
 /**
  * A preference row: label, supporting copy, and the control on the right.
  *
- * `Switch` only takes a `label` string — it has no `description` slot the way
- * `Checkbox` does — so the row owns the text and wires it up itself: `htmlFor`
- * for the name, `aria-describedby` for the explanation.
+ * `Switch` has its own `label` and `description`, but they sit beside the
+ * control. This row puts the text on the left and the switch on the right, so
+ * the row owns the text and wires it up itself: `htmlFor` for the name,
+ * `aria-describedby` for the explanation.
  */
 function SettingRow({
   label,
@@ -146,12 +147,14 @@ function ProfilePanel() {
             description="Teammates in other regions see the current time where you are before they message you."
             defaultChecked
           />
+          <Separator />
           <SettingRow
             name="weeklyDigest"
             label="Weekly design review digest"
             description="A Monday summary of every review you were tagged in during the previous week."
             defaultChecked
           />
+          <Separator />
           <SettingRow
             name="directoryListing"
             label="Appear in the member directory"
@@ -228,17 +231,20 @@ function NotificationsPanel() {
               description="Show a system notification while the Northwind tab is open in the background."
               defaultChecked
             />
+            <Separator />
             <SettingRow
               name="soundOnMention"
               label="Play a sound on direct mentions"
               description="Only for mentions of your name, never for channel-wide announcements."
             />
+            <Separator />
             <SettingRow
               name="quietHours"
               label="Quiet hours, 19:00 to 08:00"
               description="Notifications are held and delivered as one summary the next morning."
               defaultChecked
             />
+            <Separator />
             <SettingRow
               name="smsAlerts"
               label="SMS for incidents"
@@ -367,8 +373,8 @@ function SettingsPage({ defaultTab = 'profile' }: { defaultTab?: string }) {
  * - **Labels and descriptions that survive composition.** `TextField`,
  *   `Select.Field` and `CheckboxGroup` each wire their own label, description
  *   and error slot through Base UI's `Field`, so a page of them needs no ids.
- * - **A settings row built from parts.** `Switch` has no description slot, so
- *   the row supplies the label and helper text and connects them with
+ * - **A settings row built from parts.** The text sits apart from the `Switch`,
+ *   so the row supplies the label and helper text and connects them with
  *   `htmlFor` / `aria-describedby` — the pattern to copy when a control is
  *   smaller than the row it lives in.
  * - **Status as colour and word together.** Invoice badges pair a tone token

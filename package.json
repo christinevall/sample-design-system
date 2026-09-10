@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run build:tokens && tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "validate": "node scripts/validate.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
@@ -27,6 +29,7 @@
     "@vitejs/plugin-react": "^6.1.0",
     "oxlint": "^1.79.0",
     "storybook": "^10.6.0",
+    "style-dictionary": "^4.4.0",
     "typescript": "~6.0.2",
     "vite": "^8.2.2"
   }

@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Avatar } from '../components/Avatar';
@@ -219,7 +220,7 @@ function AppShell() {
                     </Card.Description>
                   </Card.Header>
                   <Card.Body>
-                    <Meter label="Seats used" value={27} max={30} showValue tone="danger" />
+                    <Meter label="Seats used" value={27} max={30} showValue variant="danger" />
                     <p className={styles.metricCaption}>
                       27 of 30 on the Team plan. Three invites are still pending.
                     </p>
@@ -269,12 +270,15 @@ function AppShell() {
               <h2 className={styles.sectionTitle}>Recent activity</h2>
               <Card.Root>
                 <Card.Body>
-                  {activity.map((entry) => (
-                    <div className={styles.activityRow} key={entry.id}>
-                      <Avatar size="sm" fallback={entry.initials} />
-                      <span className={styles.activityText}>{entry.text}</span>
-                      <span className={styles.activityTime}>{entry.time}</span>
-                    </div>
+                  {activity.map((entry, index) => (
+                    <Fragment key={entry.id}>
+                      {index > 0 ? <Separator /> : null}
+                      <div className={styles.activityRow}>
+                        <Avatar size="sm" fallback={entry.initials} />
+                        <span className={styles.activityText}>{entry.text}</span>
+                        <span className={styles.activityTime}>{entry.time}</span>
+                      </div>
+                    </Fragment>
                   ))}
                 </Card.Body>
               </Card.Root>
@@ -305,9 +309,9 @@ function AppShell() {
  *   button and the shell supplies the hit area and focus ring itself.
  * - **`Progress` and `Meter` side by side, doing different jobs.** The
  *   migration is a task that will finish; the seat count is a reading that can
- *   go up or down, so it uses `Meter` with `tone="danger"` as it nears the cap.
- * - **Surface layering from tokens alone.** The page is `--sds-color-bg`, the
- *   bar and cards are `--sds-color-surface`, and the separation is a border
+ *   go up or down, so it uses `Meter` with `variant="danger"` as it nears the cap.
+ * - **Surface layering from tokens alone.** The page is `--sds-color-background-default`, the
+ *   bar and cards are `--sds-color-background-surface`, and the separation is a border
  *   token rather than a shadow — which is what keeps the dark theme legible.
  *
  * Switch the toolbar theme to dark: every surface, border and tone swaps

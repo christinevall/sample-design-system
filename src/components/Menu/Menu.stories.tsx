@@ -4,10 +4,10 @@ import { Button } from '../Button';
 
 const meta = {
   title: 'Components/Navigation/Menu',
-  component: Menu.Content,
+  component: Menu,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
-} satisfies Meta<typeof Menu.Content>;
+} satisfies Meta<typeof Menu>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

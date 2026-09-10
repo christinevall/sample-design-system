@@ -91,10 +91,10 @@ function Actions({ className, ...props }: React.ComponentPropsWithoutRef<'div'>)
   return <div className={[styles.actions, className ?? ''].filter(Boolean).join(' ')} {...props} />;
 }
 
-export const AlertDialog = {
+export const AlertDialog = Object.assign(Content, {
   Root: BaseAlertDialog.Root,
   Trigger: BaseAlertDialog.Trigger,
   Close: BaseAlertDialog.Close,
   Content,
   Actions,
-};
+});

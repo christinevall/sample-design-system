@@ -1,4 +1,5 @@
 .root {
+  /* validate-allow: type — layout, not type: an icon-only button holds no text; the line height only stops inline-flex growing to the font's default height. */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +17,7 @@
 }
 
 .root:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 
@@ -47,40 +48,40 @@
 
 /* Variants, mirroring Button. */
 .primary {
-  background: var(--sds-color-accent);
-  color: var(--sds-color-on-accent);
+  background: var(--sds-color-background-accent);
+  color: var(--sds-color-content-on-accent);
 }
 .primary:hover:not([data-disabled]) {
-  background: var(--sds-color-accent-hover);
+  background: var(--sds-color-background-accent-hover);
 }
 .primary:active:not([data-disabled]) {
-  background: var(--sds-color-accent-active);
+  background: var(--sds-color-background-accent-active);
 }
 
 .secondary {
-  background: var(--sds-color-surface);
-  color: var(--sds-color-text);
-  border-color: var(--sds-color-border);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  border-color: var(--sds-color-border-default);
   box-shadow: var(--sds-elevation-raised);
 }
 .secondary:hover:not([data-disabled]) {
-  background: var(--sds-color-surface-sunken);
+  background: var(--sds-color-background-sunken);
   border-color: var(--sds-color-border-strong);
 }
 
 .ghost {
   background: transparent;
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 .ghost:hover:not([data-disabled]) {
-  background: var(--sds-color-accent-subtle);
-  color: var(--sds-color-accent);
+  background: var(--sds-color-background-accent-subtle);
+  color: var(--sds-color-content-accent);
 }
 
 .danger {
-  background: var(--sds-color-danger);
-  color: var(--sds-color-on-danger);
+  background: var(--sds-color-background-danger);
+  color: var(--sds-color-content-on-danger);
 }
 .danger:hover:not([data-disabled]) {
-  background: var(--sds-color-danger-hover);
+  background: var(--sds-color-background-danger-hover);
 }

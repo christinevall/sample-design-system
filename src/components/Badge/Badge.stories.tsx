@@ -24,9 +24,9 @@ export const Danger: Story = { args: { variant: 'danger', children: 'Overdue' } 
 export const Small: Story = { args: { size: 'sm', children: '12' } };
 
 /**
- * There is no `success` variant. The semantic token layer has no
- * `--sds-color-success`, and components may not reference primitives or raw
- * colour values, so a green badge cannot be themed correctly yet.
+ * Every variant in both sizes. The status variants read the status tokens
+ * (`--sds-color-content-success` and its siblings), so they theme with the
+ * rest of the system.
  */
 export const Matrix: Story = {
   parameters: { controls: { disable: true } },
@@ -52,7 +52,7 @@ export const InlineWithText: Story = {
     <p
       style={{
         fontFamily: 'var(--sds-font-sans)',
-        color: 'var(--sds-color-text)',
+        color: 'var(--sds-color-content-default)',
         maxWidth: '42ch',
       }}
     >

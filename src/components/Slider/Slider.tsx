@@ -39,7 +39,11 @@ export function Slider({
         <div className={styles.header}>
           {/* A range slider has one input per thumb, so its label names the
               group rather than a single control. */}
-          <Field.Label className={styles.label} render={isRange ? <div /> : undefined}>
+          <Field.Label
+            className={styles.label}
+            render={isRange ? <div /> : undefined}
+            nativeLabel={!isRange}
+          >
             {label}
           </Field.Label>
           {showValue ? <BaseSlider.Value className={styles.value} /> : null}

@@ -1,27 +1,35 @@
 .container {
   width: 100%;
   overflow-x: auto;
-  border: 1px solid var(--sds-color-border);
+  border: 1px solid var(--sds-color-border-default);
   border-radius: var(--sds-radius-md);
-  background: var(--sds-color-surface);
+  background: var(--sds-color-background-surface);
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  font-family: var(--sds-font-sans);
-  font-size: var(--sds-font-size-sm);
-  line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
+  color: var(--sds-color-content-default);
 }
 
 .caption {
   caption-side: top;
   text-align: left;
   padding: var(--sds-space-3) var(--sds-space-4);
-  font-size: var(--sds-font-size-sm);
-  color: var(--sds-color-text-muted);
-  border-bottom: 1px solid var(--sds-color-border);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
+  color: var(--sds-color-content-muted);
+  border-bottom: 1px solid var(--sds-color-border-default);
 }
 
 .visuallyHidden {
@@ -37,7 +45,7 @@
 }
 
 .head {
-  background: var(--sds-color-surface-sunken);
+  background: var(--sds-color-background-sunken);
 }
 
 /* Default alignment for both kinds of cell, declared on the elements themselves
@@ -55,7 +63,7 @@
 .headerCell {
   padding: var(--sds-space-3) var(--sds-space-4);
   font-weight: var(--sds-font-weight-bold);
-  color: var(--sds-color-text);
+  color: var(--sds-color-content-default);
   white-space: nowrap;
   border-bottom: 1px solid var(--sds-color-border-strong);
 }
@@ -63,7 +71,7 @@
 .cell {
   padding: var(--sds-space-3) var(--sds-space-4);
   vertical-align: middle;
-  border-bottom: 1px solid var(--sds-color-border);
+  border-bottom: 1px solid var(--sds-color-border-default);
 }
 
 /* Applied by the `numeric` prop on both `Table.Cell` and `Table.HeaderCell`,
@@ -76,7 +84,7 @@
 /* A row header (`scope="row"`) inside the body reads as a cell, not as a column head. */
 .body .headerCell {
   font-weight: var(--sds-font-weight-medium);
-  border-bottom: 1px solid var(--sds-color-border);
+  border-bottom: 1px solid var(--sds-color-border-default);
 }
 
 /* Last row keeps the container's own border instead of doubling up. */
@@ -87,5 +95,5 @@
 
 .striped .body .row:nth-of-type(even) .cell,
 .striped .body .row:nth-of-type(even) .headerCell {
-  background: var(--sds-color-surface-sunken);
+  background: var(--sds-color-background-sunken);
 }

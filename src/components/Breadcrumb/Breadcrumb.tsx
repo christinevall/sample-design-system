@@ -89,4 +89,4 @@ function Current({ className, ...props }: BreadcrumbCurrentProps) {
   return <span aria-current="page" className={cx(styles.current, className ?? '')} {...props} />;
 }
 
-export const Breadcrumb = { Root, Item, Link, Separator, Current };
+export const Breadcrumb = Object.assign(Root, { Root, Item, Link, Separator, Current });

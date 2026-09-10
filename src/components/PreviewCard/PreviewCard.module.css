@@ -11,12 +11,15 @@
   /* `--available-width` accounts for collision padding; `100vw` does not. */
   max-width: min(20rem, var(--available-width));
   padding: var(--sds-space-4);
-  background: var(--sds-color-surface);
-  color: var(--sds-color-text);
-  font-family: var(--sds-font-sans);
-  font-size: var(--sds-font-size-sm);
-  line-height: var(--sds-line-height-normal);
-  border: 1px solid var(--sds-color-border);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
+  border: 1px solid var(--sds-color-border-default);
   border-radius: var(--sds-radius-md);
   box-shadow: var(--sds-elevation-overlay);
   transform-origin: var(--transform-origin);
@@ -32,7 +35,7 @@
 }
 
 .popup:focus-visible {
-  outline: 2px solid var(--sds-color-focus-ring);
+  outline: 2px solid var(--sds-color-border-focus);
   outline-offset: 2px;
 }
 
@@ -66,13 +69,13 @@
 }
 
 .arrowFill {
-  fill: var(--sds-color-surface);
+  fill: var(--sds-color-background-surface);
 }
 
 .arrowOuterStroke {
-  fill: var(--sds-color-border);
+  fill: var(--sds-color-border-default);
 }
 
 .arrowInnerStroke {
-  fill: var(--sds-color-surface);
+  fill: var(--sds-color-background-surface);
 }

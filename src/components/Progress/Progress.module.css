@@ -14,22 +14,31 @@
 }
 
 .label {
-  font-size: var(--sds-font-size-sm);
-  font-weight: var(--sds-font-weight-medium);
-  color: var(--sds-color-text);
+  font-family: var(--sds-typography-label-md-font-family);
+  font-size: var(--sds-typography-label-md-font-size);
+  font-weight: var(--sds-typography-label-md-font-weight);
+  line-height: var(--sds-typography-label-md-line-height);
+  letter-spacing: var(--sds-typography-label-md-letter-spacing);
+  text-transform: var(--sds-typography-label-md-text-transform);
+  color: var(--sds-color-content-default);
 }
 
 .value {
-  font-size: var(--sds-font-size-sm);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
   font-variant-numeric: tabular-nums;
-  color: var(--sds-color-text-muted);
+  color: var(--sds-color-content-muted);
 }
 
 .track {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: var(--sds-color-surface-sunken);
+  background: var(--sds-color-background-sunken);
   border-radius: var(--sds-radius-full);
 }
 
@@ -37,13 +46,13 @@
   position: absolute;
   top: 0;
   height: 100%;
-  background: var(--sds-color-accent);
+  background: var(--sds-color-background-accent);
   border-radius: inherit;
   transition: width var(--sds-duration-normal) var(--sds-easing-standard);
 }
 
 .indicator[data-complete] {
-  background: var(--sds-color-accent-active);
+  background: var(--sds-color-background-accent-active);
 }
 
 /* Unknown duration: Base UI leaves the width unset, so drive it here. */

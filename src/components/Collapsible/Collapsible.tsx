@@ -90,8 +90,8 @@ function Panel({ className, children, ...props }: CollapsiblePanelProps) {
   );
 }
 
-export const Collapsible = {
+export const Collapsible = Object.assign(Root, {
   Root,
   Trigger,
   Panel,
-};
+});

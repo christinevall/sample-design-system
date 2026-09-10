@@ -1,8 +1,8 @@
 .root {
   display: flex;
   flex-direction: column;
-  background: var(--sds-color-surface);
-  color: var(--sds-color-text);
+  background: var(--sds-color-background-surface);
+  color: var(--sds-color-content-default);
   font-family: var(--sds-font-sans);
   border: 1px solid transparent;
   border-radius: var(--sds-radius-lg);
@@ -11,7 +11,7 @@
 
 /* Variants */
 .outlined {
-  border-color: var(--sds-color-border);
+  border-color: var(--sds-color-border-default);
 }
 
 .elevated {
@@ -28,23 +28,34 @@
 
 .title {
   margin: 0;
-  font-size: var(--sds-font-size-lg);
-  font-weight: var(--sds-font-weight-bold);
-  line-height: var(--sds-line-height-tight);
-  color: var(--sds-color-text);
+  font-family: var(--sds-typography-heading-lg-font-family);
+  font-size: var(--sds-typography-heading-lg-font-size);
+  font-weight: var(--sds-typography-heading-lg-font-weight);
+  line-height: var(--sds-typography-heading-lg-line-height);
+  letter-spacing: var(--sds-typography-heading-lg-letter-spacing);
+  text-transform: var(--sds-typography-heading-lg-text-transform);
+  color: var(--sds-color-content-default);
 }
 
 .description {
   margin: 0;
-  font-size: var(--sds-font-size-sm);
-  line-height: var(--sds-line-height-normal);
-  color: var(--sds-color-text-muted);
+  font-family: var(--sds-typography-body-sm-font-family);
+  font-size: var(--sds-typography-body-sm-font-size);
+  font-weight: var(--sds-typography-body-sm-font-weight);
+  line-height: var(--sds-typography-body-sm-line-height);
+  letter-spacing: var(--sds-typography-body-sm-letter-spacing);
+  text-transform: var(--sds-typography-body-sm-text-transform);
+  color: var(--sds-color-content-muted);
 }
 
 .body {
   padding: var(--sds-space-3) var(--sds-space-5);
-  font-size: var(--sds-font-size-md);
-  line-height: var(--sds-line-height-normal);
+  font-family: var(--sds-typography-body-md-font-family);
+  font-size: var(--sds-typography-body-md-font-size);
+  font-weight: var(--sds-typography-body-md-font-weight);
+  line-height: var(--sds-typography-body-md-line-height);
+  letter-spacing: var(--sds-typography-body-md-letter-spacing);
+  text-transform: var(--sds-typography-body-md-text-transform);
 }
 
 /* The header sits directly on the body when no title block is used. */

@@ -71,7 +71,7 @@ function SignUpForm(props: FormProps) {
         <Button type="submit">Create account</Button>
       </FormActions>
       {created ? (
-        <p style={{ margin: 0, fontSize: 14, color: 'var(--sds-color-text-muted)' }}>
+        <p style={{ margin: 0, fontSize: 14, color: 'var(--sds-color-content-muted)' }}>
           Account created.
         </p>
       ) : null}

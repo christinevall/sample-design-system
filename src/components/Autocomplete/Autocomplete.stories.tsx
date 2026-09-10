@@ -24,7 +24,7 @@ const languages = [
 
 const meta = {
   title: 'Components/Forms/Autocomplete',
-  component: Autocomplete.Field,
+  component: Autocomplete,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },
   args: {
@@ -49,7 +49,7 @@ const meta = {
       )}
     </Autocomplete.Field>
   ),
-} satisfies Meta<typeof Autocomplete.Field>;
+} satisfies Meta<typeof Autocomplete>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

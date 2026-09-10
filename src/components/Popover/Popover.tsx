@@ -99,9 +99,9 @@ function Content({
   );
 }
 
-export const Popover = {
+export const Popover = Object.assign(Content, {
   Root: BasePopover.Root,
   Trigger: BasePopover.Trigger,
   Close: BasePopover.Close,
   Content,
-};
+});

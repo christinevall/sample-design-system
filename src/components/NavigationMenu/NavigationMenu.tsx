@@ -172,7 +172,7 @@ function Panel({
   );
 }
 
-export const NavigationMenu = {
+export const NavigationMenu = Object.assign(Root, {
   Root,
   List,
   Item,
@@ -181,4 +181,4 @@ export const NavigationMenu = {
   Content,
   Link,
   Panel,
-};
+});

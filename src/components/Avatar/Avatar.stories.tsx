@@ -70,7 +70,7 @@ export const Stack: Story = {
           style={{
             marginLeft: index === 0 ? 0 : 'calc(-1 * var(--sds-space-2))',
             borderRadius: 'var(--sds-radius-full)',
-            boxShadow: '0 0 0 2px var(--sds-color-surface)',
+            boxShadow: '0 0 0 2px var(--sds-color-background-surface)',
             display: 'inline-flex',
           }}
         >
