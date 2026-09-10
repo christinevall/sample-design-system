@@ -745,6 +745,83 @@
       ]
     },
     {
+      "name": "RadioGroup",
+      "page": "RadioGroup",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=vertical",
+      "source": "src/components/RadioGroup/RadioGroup.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Deployment target"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Where the next build is published."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "vertical",
+            "horizontal"
+          ],
+          "default": "vertical"
+        }
+      ]
+    },
+    {
+      "name": "RadioGroupItem",
+      "page": "RadioGroup",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "checked=false, disabled=false",
+      "source": "src/components/RadioGroup/RadioGroup.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Staging"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Up to ten editors and review."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "checked",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
       "name": "Select",
       "page": "Select",
       "kind": "component",
@@ -917,6 +994,54 @@
       ]
     },
     {
+      "name": "Switch",
+      "page": "Switch",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "checked=false, disabled=false",
+      "source": "src/components/Switch/Switch.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Email notifications"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Sent to your account address. Digests are never sent more than once a day."
+        },
+        {
+          "name": "Field.Label",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "checked",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
       "name": "Tabs",
       "page": "Tabs",
       "kind": "set",
@@ -978,6 +1103,72 @@
         },
         {
           "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Toggle",
+      "page": "Toggle",
+      "kind": "set",
+      "variants": 48,
+      "defaultVariant": "variant=secondary, size=md, pressed=false, disabled=false, iconOnly=false",
+      "source": "src/components/Toggle/Toggle.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Show archived"
+        },
+        {
+          "name": "aria-label",
+          "type": "TEXT",
+          "default": "Bold"
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "secondary",
+            "ghost"
+          ],
+          "default": "secondary"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "pressed",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "iconOnly",
           "type": "VARIANT",
           "values": [
             "false",

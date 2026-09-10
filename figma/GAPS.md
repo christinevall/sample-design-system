@@ -43,4 +43,12 @@ meets something it cannot express. Anything not listed is expected to match.
 | Progress | `status=indeterminate` slides a 35% indicator across the track (1.4s) | Drawn at rest at the start of the track | Motion is not in the contract |
 | Progress, Meter | `font-variant-numeric: tabular-nums` on the value | Not mirrored | It changes nothing in a still frame: tabular figures only stop digits shifting while the number changes |
 | Meter | `.danger .value` is body-sm at medium weight | Fields bound one by one, marked `textStyle` | As `Select.Item`: Figma cannot override one field of a text style |
+| Toggle | `children` is text, or an icon when `iconOnly` | The text has the TEXT property `children`; the icon is swapped on its layer | Figma keeps one property per name: a second `children` was silently renamed `children2`. Text is the common case |
+| Toggle | An icon-only toggle is named by `aria-label` (`IconOnly` story) | A hidden layer with an `aria-label` text property | As IconButton's `label`: the frame carries the name back |
+| Toggle | An icon beside a label (`WithIcon` story) | Not mirrored | It would need an optional icon in every text variant, with no prop to name the switch that shows it |
+| Toggle | 48 variants | — | Over the ~30 guideline. variant, size, pressed, disabled and iconOnly are all real props, and there is no repeating part to split off |
+| Switch | With no label or description it renders the bare control | `Field.Label` hides the whole text column, so a description without a label (`DescriptionOnly` story) cannot be drawn | An auto-layout frame whose children are all hidden keeps its last size instead of collapsing (tested), so the column itself has to be hidden. The story notes that such a switch has no accessible name |
+| Switch | `.wrapper:has(.description)` aligns the row to the top instead of the centre | Always centred | Figma cannot change alignment with a boolean. Top-aligned, the label sits a few pixels higher |
+| RadioGroup | `margin-top: space/1` on the group | Top padding bound to `space/1` | Same result; Figma has no margin |
+| RadioGroup | Field.Error and the danger border (`data-invalid`) | Not mirrored | Validation state, not a prop — as with Checkbox and Select |
 | Avatar | With no `fallback`, it draws the person glyph (`GlyphFallback` story) | Not mirrored as a state: the Figma set has `fallback` as text and `size` | The glyph state is "no fallback given", not a prop value a designer picks. `icon/person` exists on the Icons page for when it is modelled |

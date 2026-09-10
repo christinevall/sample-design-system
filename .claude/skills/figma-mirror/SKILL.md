@@ -83,6 +83,15 @@ commit that with the component.
   carries it back.
 - A TEXT property's default applies to every variant, so variant-specific
   sample text is lost. The labels beside the set carry it instead.
+- Property names are unique across types: a second `children` is silently
+  renamed `children2`. Where `children` is text in some variants and an icon in
+  others (Toggle), the text keeps the property and the icon is swapped on its
+  layer.
+- An auto-layout frame whose children are all hidden keeps its last size; it
+  does not collapse. To drop a label-and-description column, hide the column
+  itself (bind it to `Field.Label`), not only its lines.
+- Boolean and text defaults come from the **Default story's** args
+  (`showValue` on for Progress), the same composition Storybook opens on.
 - `search_design_system` answers one query per call; batching is clamped.
 - A story can be broken. Standalone `Checkbox` crashes (`Field.Item` outside a
   `Field.Root`); compare against a story that renders and flag the crash.

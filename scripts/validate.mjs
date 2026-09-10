@@ -284,8 +284,9 @@ if (existsSync(FIGMA_MANIFEST)) {
         const renders = new RegExp(`<(?:Base)?${p.name.replace('.', '\\.')}[\\s>/]`).test(src);
         if (!parts.has(p.name.split('.').pop()) && !renders) report(F, 0, 'figma-unknown-prop', `${c.name}: ${p.name} is not a part of ${component}`);
       } else if (p.type === 'TEXT') {
-        // aria-* attributes pass through to every component's element (an icon-only Toggle's aria-label)
-        if (!(p.name === 'children' || p.name.startsWith('aria-') || isProp(p.name) || parts.has(capitalised(p.name)))) {
+        // aria-* attributes pass through to every component's element (an icon-only Toggle's aria-label),
+        // and placeholder to the <input> or <textarea> a field renders — HTML attributes the types inherit
+        if (!(p.name === 'children' || p.name.startsWith('aria-') || p.name === 'placeholder' || isProp(p.name) || parts.has(capitalised(p.name)))) {
           report(F, 0, 'figma-unknown-prop', `${c.name}: text property "${p.name}" is not children, a prop or a part of ${component}`);
         }
       } else if (p.name !== 'children' && !isProp(p.name)) { // children: an icon swap (IconButton, Toggle)
