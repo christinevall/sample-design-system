@@ -2,6 +2,53 @@
   "file": "sample-design-system",
   "components": [
     {
+      "name": "Accordion",
+      "page": "Accordion",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Accordion/Accordion.tsx",
+      "props": []
+    },
+    {
+      "name": "Accordion.Item",
+      "page": "Accordion",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "open=false, disabled=false",
+      "source": "src/components/Accordion/Accordion.tsx",
+      "props": [
+        {
+          "name": "trigger",
+          "type": "TEXT",
+          "default": "How does billing work?"
+        },
+        {
+          "name": "panel",
+          "type": "TEXT",
+          "default": "Plans are billed monthly on the day you subscribed. Changing plan mid-cycle prorates the difference on your next invoice."
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
       "name": "Alert",
       "page": "Alert",
       "kind": "set",
@@ -328,6 +375,77 @@
             "horizontal"
           ],
           "default": "vertical"
+        }
+      ]
+    },
+    {
+      "name": "Collapsible",
+      "page": "Collapsible",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "open=false, disabled=false",
+      "source": "src/components/Collapsible/Collapsible.tsx",
+      "props": [
+        {
+          "name": "panel",
+          "type": "TEXT",
+          "default": "Runs on every push to a protected branch\nRetries transient failures twice before reporting\nArtifacts are kept for 30 days"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Collapsible.Trigger",
+      "page": "Collapsible",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "open=false, disabled=false",
+      "source": "src/components/Collapsible/Collapsible.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Pipeline details"
+        },
+        {
+          "name": "showChevron",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
         }
       ]
     },
@@ -1558,6 +1676,112 @@
             "true"
           ],
           "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar",
+      "page": "Toolbar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=horizontal",
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar.Button",
+      "page": "Toolbar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "disabled=false",
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Link"
+        },
+        {
+          "name": "aria-label",
+          "type": "TEXT",
+          "default": "Bold"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar.Input",
+      "page": "Toolbar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "disabled=false",
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "props": [
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "Search issues"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar.Link",
+      "page": "Toolbar",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Formatting help"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar.Separator",
+      "page": "Toolbar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=vertical",
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "vertical",
+            "horizontal"
+          ],
+          "default": "vertical"
         }
       ]
     }

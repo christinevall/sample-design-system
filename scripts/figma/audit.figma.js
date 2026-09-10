@@ -49,7 +49,8 @@ for (const page of figma.root.children) {
         // the CSS does (Select.Item: body-md, font-weight medium). Figma cannot
         // override one field of a style, so every field must be bound instead.
         if (n.type === 'TEXT' && raw.has('textStyle')) {
-          for (const f of ['fontFamily', 'fontSize', 'fontWeight', 'lineHeight', 'letterSpacing']) if (!n.boundVariables?.[f]) issues.add(`${n.name} › ${f}`);
+          // …except a field the CSS sets raw, marked too (Menu.Item's line-height: 1.2 → 'textStyle,lineHeight')
+          for (const f of ['fontFamily', 'fontSize', 'fontWeight', 'lineHeight', 'letterSpacing']) if (!n.boundVariables?.[f] && !raw.has(f)) issues.add(`${n.name} › ${f}`);
         } else if (n.type === 'TEXT' && !(typeof n.textStyleId === 'string' && n.textStyleId)) issues.add(`${n.name} › text style`);
         // A component with a fixed height stops hugging its content: switch a
         // description on and it overflows. A height the CSS sets on purpose is

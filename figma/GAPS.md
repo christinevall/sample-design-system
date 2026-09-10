@@ -66,4 +66,9 @@ meets something it cannot express. Anything not listed is expected to match.
 | Table | `border-collapse` table layout sizes columns to their content | Columns fixed to the default content's widths | Figma has no table layout. Widen a column by resizing its cells |
 | Table | `overflow-x: auto` scrolls a table wider than its container | Not mirrored | Behaviour, not a look |
 | Table | 35 cells | Not exposed | Exposing every cell would bury the Table's own properties. Select a cell to edit its text |
+| Collapsible, Accordion | The panel's height animates from 0 to `--collapsible-panel-height` / `--accordion-panel-height` | Open: the panel at its natural height. Closed: no panel | A runtime value, and motion |
+| Accordion | `.item:first-child` adds a top border | An override on the first item inside `Accordion` | Figma has no structural selectors |
+| Toolbar | `.button[data-pressed]` and `[data-popup-open]` tint a button that renders a Toggle or a Menu trigger (`render` prop, `WithMenu` story) | Not a `Toolbar.Button` variant | Toolbar.Button has no `pressed` or `open` prop; the state belongs to the component it renders. Mirrored with Menu |
+| Toolbar | A button holds an icon or text (`children`) | Both layers exist; the text layer starts hidden. Show it and hide the icon on the instance | No prop names the choice, so it is layer visibility rather than a property |
+| Toolbar | `.separator` stretches to the toolbar's height (`align-self: stretch`) | 32px in `Toolbar.Separator`, marked `height`; stretched inside `Toolbar` | Its height is the toolbar's, known only in place |
 | Avatar | With no `fallback`, it draws the person glyph (`GlyphFallback` story) | Not mirrored as a state: the Figma set has `fallback` as text and `size` | The glyph state is "no fallback given", not a prop value a designer picks. `icon/person` exists on the Icons page for when it is modelled |

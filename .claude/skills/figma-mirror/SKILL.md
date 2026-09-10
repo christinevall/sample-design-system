@@ -83,6 +83,13 @@ commit that with the component.
   carries it back.
 - A TEXT property's default applies to every variant, so variant-specific
   sample text is lost. The labels beside the set carry it instead.
+- A `use_figma` call that throws is **rolled back**: nothing it did persists.
+  Fix the script and rerun it whole, and make lookups throw with the layer
+  names they saw, so the next attempt is informed.
+- `use_figma` runs with `figma.skipInvisibleInstanceChildren = true`: hidden
+  layers inside an instance do not appear in `children` or `findOne`. Set it
+  to `false` at the top of any script that shows or edits a hidden layer on
+  an instance (Toolbar's text buttons).
 - `resize()` pins an auto-layout frame's size. Set the sizing modes (`AUTO`
   to hug) **after** calling it, or the component keeps a fixed height and
   overflows once a description is switched on. The audit flags any component
