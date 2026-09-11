@@ -11,7 +11,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build:tokens": "node scripts/build-tokens.mjs",
-    "validate": "node scripts/validate.mjs"
+    "validate": "node scripts/validate.mjs",
+    "figma:tokens": "node scripts/figma/tokens-to-figma.mjs",
+    "figma:spec": "node scripts/figma/css-to-spec.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

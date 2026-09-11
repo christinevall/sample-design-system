@@ -1,0 +1,2771 @@
+{
+  "file": "sample-design-system",
+  "components": [
+    {
+      "name": "Accordion",
+      "page": "Accordion",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Accordion/Accordion.tsx",
+      "props": []
+    },
+    {
+      "name": "Accordion.Item",
+      "page": "Accordion",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "open=false, disabled=false",
+      "source": "src/components/Accordion/Accordion.tsx",
+      "props": [
+        {
+          "name": "trigger",
+          "type": "TEXT",
+          "default": "How does billing work?"
+        },
+        {
+          "name": "panel",
+          "type": "TEXT",
+          "default": "Plans are billed monthly on the day you subscribed. Changing plan mid-cycle prorates the difference on your next invoice."
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Alert",
+      "page": "Alert",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "variant=info",
+      "source": "src/components/Alert/Alert.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Scheduled maintenance"
+        },
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Exports are paused on Sunday from 02:00 to 04:00 UTC."
+        },
+        {
+          "name": "onDismiss",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "info",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "default": "info"
+        }
+      ]
+    },
+    {
+      "name": "AlertDialog.Content",
+      "page": "AlertDialog",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/AlertDialog/AlertDialog.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Discard draft?"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Your changes since the last save will be lost."
+        },
+        {
+          "name": "AlertDialog.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "AlertDialog.Actions",
+          "type": "BOOLEAN",
+          "default": true
+        }
+      ]
+    },
+    {
+      "name": "Autocomplete",
+      "page": "Autocomplete",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Language"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Suggestions are hints. Any text you type is kept as the value."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "Autocomplete.Content",
+      "page": "Autocomplete",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "props": []
+    },
+    {
+      "name": "Autocomplete.Control",
+      "page": "Autocomplete",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "filled=false, open=false, disabled=false",
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "props": [
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "Start typing"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "Rust"
+        },
+        {
+          "name": "clearable",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "showTrigger",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "filled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Autocomplete.Item",
+      "page": "Autocomplete",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "highlighted=false, disabled=false",
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "C"
+        },
+        {
+          "name": "highlighted",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Avatar",
+      "page": "Avatar",
+      "kind": "set",
+      "variants": 3,
+      "defaultVariant": "size=md",
+      "source": "src/components/Avatar/Avatar.tsx",
+      "props": [
+        {
+          "name": "fallback",
+          "type": "TEXT",
+          "default": "DW"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "Badge",
+      "page": "Badge",
+      "kind": "set",
+      "variants": 10,
+      "defaultVariant": "variant=neutral, size=md",
+      "source": "src/components/Badge/Badge.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Badge"
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "neutral",
+            "accent",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "default": "neutral"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "sm",
+            "md"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumb",
+      "page": "Breadcrumb",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "props": []
+    },
+    {
+      "name": "Breadcrumb.Current",
+      "page": "Breadcrumb",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Northwind rebrand"
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumb.Link",
+      "page": "Breadcrumb",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Projects"
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumb.Separator",
+      "page": "Breadcrumb",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "props": []
+    },
+    {
+      "name": "Button",
+      "page": "Button",
+      "kind": "set",
+      "variants": 24,
+      "defaultVariant": "variant=primary, size=md, disabled=false",
+      "source": "src/components/Button/Button.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Button"
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "primary",
+            "secondary",
+            "ghost",
+            "danger"
+          ],
+          "default": "primary"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Card",
+      "page": "Card",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "variant=outlined",
+      "source": "src/components/Card/Card.tsx",
+      "props": [
+        {
+          "name": "Card.Header",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Card.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Card.Footer",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Invite your team"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Team members can view dashboards and comment, but cannot change billing."
+        },
+        {
+          "name": "body",
+          "type": "TEXT",
+          "default": "Seats are billed per active member. You currently have 3 of 10 seats in use."
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "outlined",
+            "elevated"
+          ],
+          "default": "outlined"
+        }
+      ]
+    },
+    {
+      "name": "Checkbox",
+      "page": "Checkbox",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "checked=false, indeterminate=false, disabled=false",
+      "source": "src/components/Checkbox/Checkbox.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Email me about product updates"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "One email every Monday summarising what changed."
+        },
+        {
+          "name": "Field.Label",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "checked",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "indeterminate",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "CheckboxGroup",
+      "page": "CheckboxGroup",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=vertical",
+      "source": "src/components/CheckboxGroup/CheckboxGroup.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Notify me about"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "You can change this at any time in settings."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "vertical",
+            "horizontal"
+          ],
+          "default": "vertical"
+        }
+      ]
+    },
+    {
+      "name": "Collapsible",
+      "page": "Collapsible",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "open=false, disabled=false",
+      "source": "src/components/Collapsible/Collapsible.tsx",
+      "props": [
+        {
+          "name": "panel",
+          "type": "TEXT",
+          "default": "Runs on every push to a protected branch\nRetries transient failures twice before reporting\nArtifacts are kept for 30 days"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Collapsible.Trigger",
+      "page": "Collapsible",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "open=false, disabled=false",
+      "source": "src/components/Collapsible/Collapsible.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Pipeline details"
+        },
+        {
+          "name": "showChevron",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Combobox",
+      "page": "Combobox",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Combobox/Combobox.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Country"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Type to filter the list, then pick a match."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "Combobox.Content",
+      "page": "Combobox",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Combobox/Combobox.tsx",
+      "props": []
+    },
+    {
+      "name": "Combobox.Control",
+      "page": "Combobox",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "filled=false, open=false, disabled=false",
+      "source": "src/components/Combobox/Combobox.tsx",
+      "props": [
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "Search countries"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "Portugal"
+        },
+        {
+          "name": "clearable",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "showTrigger",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "filled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Combobox.Item",
+      "page": "Combobox",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "highlighted=false, selected=false, disabled=false",
+      "source": "src/components/Combobox/Combobox.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Argentina"
+        },
+        {
+          "name": "highlighted",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "selected",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Dialog.Content",
+      "page": "Dialog",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Dialog/Dialog.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Publish this release?"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Everyone on the team will be notified."
+        },
+        {
+          "name": "Dialog.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Dialog.Actions",
+          "type": "BOOLEAN",
+          "default": true
+        }
+      ]
+    },
+    {
+      "name": "Fieldset",
+      "page": "Fieldset",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "disabled=false",
+      "source": "src/components/Fieldset/Fieldset.tsx",
+      "props": [
+        {
+          "name": "legend",
+          "type": "TEXT",
+          "default": "Billing address"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "icon/alert-octagon",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/alert-triangle",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/align-center",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/align-left",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/align-right",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/bold",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Toggle/Toggle.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/caret-down",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/caret-up",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/check",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Combobox/Combobox.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/check-checkbox",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Checkbox/Checkbox.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/check-circle",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/chevron-down",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/chevron-down-accordion",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Accordion/Accordion.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/chevron-right",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Breadcrumb/Breadcrumb.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/chevron-right-collapsible",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Collapsible/Collapsible.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/close",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/dash",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Checkbox/Checkbox.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/edit",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/IconButton/IconButton.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/info-circle",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Alert/Alert.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/italic",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/minus",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NumberField/NumberField.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/more-vertical",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/AlertDialog/AlertDialog.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/person",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Avatar/Avatar.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/plus",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NumberField/NumberField.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/scrub-cursor",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NumberField/NumberField.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/star",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Toggle/Toggle.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/trash",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/IconButton/IconButton.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "icon/underline",
+      "page": "Icons",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/ToggleGroup/ToggleGroup.stories.tsx",
+      "props": []
+    },
+    {
+      "name": "IconButton",
+      "page": "IconButton",
+      "kind": "set",
+      "variants": 24,
+      "defaultVariant": "variant=ghost, size=md, disabled=false",
+      "source": "src/components/IconButton/IconButton.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "INSTANCE_SWAP",
+          "default": "38:159"
+        },
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Edit"
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "ghost",
+            "primary",
+            "secondary",
+            "danger"
+          ],
+          "default": "ghost"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Menu.Content",
+      "page": "Menu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Menu/Menu.tsx",
+      "props": []
+    },
+    {
+      "name": "Menu.GroupLabel",
+      "page": "Menu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Menu/Menu.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Edit"
+        }
+      ]
+    },
+    {
+      "name": "Menu.Item",
+      "page": "Menu",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "highlighted=false, disabled=false",
+      "source": "src/components/Menu/Menu.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Rename project"
+        },
+        {
+          "name": "itemShortcut",
+          "type": "TEXT",
+          "default": "Cmd Z"
+        },
+        {
+          "name": "Menu.ItemShortcut",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "highlighted",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Menu.Separator",
+      "page": "Menu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Menu/Menu.tsx",
+      "props": []
+    },
+    {
+      "name": "Menu.SubmenuTrigger",
+      "page": "Menu",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "open=false",
+      "source": "src/components/Menu/Menu.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Send to"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Menubar",
+      "page": "Menubar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=horizontal",
+      "source": "src/components/Menubar/Menubar.tsx",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        }
+      ]
+    },
+    {
+      "name": "Menubar.Trigger",
+      "page": "Menubar",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "open=false, disabled=false",
+      "source": "src/components/Menubar/Menubar.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "File"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Meter",
+      "page": "Meter",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "variant=accent, size=md",
+      "source": "src/components/Meter/Meter.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Storage used"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "42%"
+        },
+        {
+          "name": "Meter.Label",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "showValue",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "accent",
+            "danger"
+          ],
+          "default": "accent"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "NavigationMenu",
+      "page": "NavigationMenu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
+      "props": []
+    },
+    {
+      "name": "NavigationMenu.Link",
+      "page": "NavigationMenu",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "active=false",
+      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Components"
+        },
+        {
+          "name": "active",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "NavigationMenu.Trigger",
+      "page": "NavigationMenu",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/NavigationMenu/NavigationMenu.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Product"
+        }
+      ]
+    },
+    {
+      "name": "NumberField",
+      "page": "NumberField",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "disabled=false",
+      "source": "src/components/NumberField/NumberField.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Seats"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "3"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Drag the label sideways to change the value quickly."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Popover.Content",
+      "page": "Popover",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "side=bottom",
+      "source": "src/components/Popover/Popover.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Notifications"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Choose how this project reaches you."
+        },
+        {
+          "name": "Popover.Title",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Popover.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "side",
+          "type": "VARIANT",
+          "values": [
+            "bottom",
+            "top",
+            "left",
+            "right"
+          ],
+          "default": "bottom"
+        }
+      ]
+    },
+    {
+      "name": "PreviewCard.Content",
+      "page": "PreviewCard",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "side=bottom",
+      "source": "src/components/PreviewCard/PreviewCard.tsx",
+      "props": [
+        {
+          "name": "side",
+          "type": "VARIANT",
+          "values": [
+            "bottom",
+            "top",
+            "left",
+            "right"
+          ],
+          "default": "bottom"
+        }
+      ]
+    },
+    {
+      "name": "Progress",
+      "page": "Progress",
+      "kind": "set",
+      "variants": 6,
+      "defaultVariant": "size=md, status=progressing",
+      "source": "src/components/Progress/Progress.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Uploading assets"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "40%"
+        },
+        {
+          "name": "Progress.Label",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "showValue",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "status",
+          "type": "VARIANT",
+          "values": [
+            "progressing",
+            "complete",
+            "indeterminate"
+          ],
+          "default": "progressing"
+        }
+      ]
+    },
+    {
+      "name": "RadioGroup",
+      "page": "RadioGroup",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=vertical",
+      "source": "src/components/RadioGroup/RadioGroup.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Deployment target"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Where the next build is published."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "vertical",
+            "horizontal"
+          ],
+          "default": "vertical"
+        }
+      ]
+    },
+    {
+      "name": "RadioGroupItem",
+      "page": "RadioGroup",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "checked=false, disabled=false",
+      "source": "src/components/RadioGroup/RadioGroup.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Staging"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Up to ten editors and review."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "checked",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Select",
+      "page": "Select",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Font family"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Applies to every document in this workspace."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "Select.Content",
+      "page": "Select",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "props": []
+    },
+    {
+      "name": "Select.GroupLabel",
+      "page": "Select",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Select/Select.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Production"
+        }
+      ]
+    },
+    {
+      "name": "Select.Item",
+      "page": "Select",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "highlighted=false, selected=false, disabled=false",
+      "source": "src/components/Select/Select.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Sans-serif"
+        },
+        {
+          "name": "highlighted",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "selected",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Select.Trigger",
+      "page": "Select",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "placeholder=true, open=false, disabled=false",
+      "source": "src/components/Select/Select.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "Choose a font"
+        },
+        {
+          "name": "placeholder",
+          "type": "VARIANT",
+          "values": [
+            "true",
+            "false"
+          ],
+          "default": "true"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Separator",
+      "page": "Separator",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=horizontal",
+      "source": "src/components/Separator/Separator.tsx",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        }
+      ]
+    },
+    {
+      "name": "Slider",
+      "page": "Slider",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "orientation=horizontal, disabled=false",
+      "source": "src/components/Slider/Slider.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Volume"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "40"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Applies to notification sounds only."
+        },
+        {
+          "name": "showValue",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Spinner",
+      "page": "Spinner",
+      "kind": "set",
+      "variants": 3,
+      "defaultVariant": "size=md",
+      "source": "src/components/Spinner/Spinner.tsx",
+      "props": [
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "Switch",
+      "page": "Switch",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "checked=false, disabled=false",
+      "source": "src/components/Switch/Switch.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Email notifications"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Sent to your account address. Digests are never sent more than once a day."
+        },
+        {
+          "name": "Field.Label",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "checked",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Table",
+      "page": "Table",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "striped=false, hideCaption=false",
+      "source": "src/components/Table/Table.tsx",
+      "props": [
+        {
+          "name": "caption",
+          "type": "TEXT",
+          "default": "Invoices issued in the last quarter"
+        },
+        {
+          "name": "striped",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "hideCaption",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Table.Cell",
+      "page": "Table",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "numeric=false",
+      "source": "src/components/Table/Table.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Northwind Trading"
+        },
+        {
+          "name": "numeric",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Table.HeaderCell",
+      "page": "Table",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "scope=col, numeric=false",
+      "source": "src/components/Table/Table.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Reference"
+        },
+        {
+          "name": "scope",
+          "type": "VARIANT",
+          "values": [
+            "col",
+            "row"
+          ],
+          "default": "col"
+        },
+        {
+          "name": "numeric",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Tabs",
+      "page": "Tabs",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=horizontal",
+      "source": "src/components/Tabs/Tabs.tsx",
+      "props": [
+        {
+          "name": "panel",
+          "type": "TEXT",
+          "default": "A summary of the project, its owners and the current release."
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        }
+      ]
+    },
+    {
+      "name": "Tabs.Tab",
+      "page": "Tabs",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "orientation=horizontal, active=false, disabled=false",
+      "source": "src/components/Tabs/Tabs.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Overview"
+        },
+        {
+          "name": "Tabs.Indicator",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        },
+        {
+          "name": "active",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Textarea",
+      "page": "Textarea",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "filled=false, disabled=false",
+      "source": "src/components/Textarea/Textarea.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Release notes"
+        },
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "What changed in this version?"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "Fixed a crash when opening a project with no members.\nSpeeded up the first paint by roughly 200ms."
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Markdown is supported. Keep it under 500 characters."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "filled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "TextField",
+      "page": "TextField",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "filled=false, disabled=false",
+      "source": "src/components/TextField/TextField.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Email address"
+        },
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "you@example.com"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "christine@example.com"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "We only use this to send receipts."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "filled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Toast.Root",
+      "page": "Toast",
+      "kind": "set",
+      "variants": 3,
+      "defaultVariant": "type=none",
+      "source": "src/components/Toast/Toast.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Deployment queued"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Build #482 starts as soon as a runner frees up."
+        },
+        {
+          "name": "action",
+          "type": "TEXT",
+          "default": "Undo"
+        },
+        {
+          "name": "Toast.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Toast.Action",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "type",
+          "type": "VARIANT",
+          "values": [
+            "none",
+            "success",
+            "error"
+          ],
+          "default": "none"
+        }
+      ]
+    },
+    {
+      "name": "Toggle",
+      "page": "Toggle",
+      "kind": "set",
+      "variants": 48,
+      "defaultVariant": "variant=secondary, size=md, pressed=false, disabled=false, iconOnly=false",
+      "source": "src/components/Toggle/Toggle.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Show archived"
+        },
+        {
+          "name": "aria-label",
+          "type": "TEXT",
+          "default": "Bold"
+        },
+        {
+          "name": "variant",
+          "type": "VARIANT",
+          "values": [
+            "secondary",
+            "ghost"
+          ],
+          "default": "secondary"
+        },
+        {
+          "name": "size",
+          "type": "VARIANT",
+          "values": [
+            "md",
+            "sm",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "pressed",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "iconOnly",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "ToggleGroup",
+      "page": "ToggleGroup",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "segmented=false, orientation=horizontal, disabled=false",
+      "source": "src/components/ToggleGroup/ToggleGroup.tsx",
+      "props": [
+        {
+          "name": "segmented",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar",
+      "page": "Toolbar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=horizontal",
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar.Button",
+      "page": "Toolbar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "disabled=false",
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Link"
+        },
+        {
+          "name": "aria-label",
+          "type": "TEXT",
+          "default": "Bold"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar.Input",
+      "page": "Toolbar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "disabled=false",
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "props": [
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "Search issues"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar.Link",
+      "page": "Toolbar",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Formatting help"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar.Separator",
+      "page": "Toolbar",
+      "kind": "set",
+      "variants": 2,
+      "defaultVariant": "orientation=vertical",
+      "source": "src/components/Toolbar/Toolbar.tsx",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "VARIANT",
+          "values": [
+            "vertical",
+            "horizontal"
+          ],
+          "default": "vertical"
+        }
+      ]
+    },
+    {
+      "name": "Tooltip.Content",
+      "page": "Tooltip",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "side=top",
+      "source": "src/components/Tooltip/Tooltip.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Saves without publishing"
+        },
+        {
+          "name": "side",
+          "type": "VARIANT",
+          "values": [
+            "top",
+            "bottom",
+            "left",
+            "right"
+          ],
+          "default": "top"
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "Color Primitives": {
+      "modes": [
+        "Value"
+      ],
+      "names": [
+        "color/neutral/0",
+        "color/neutral/50",
+        "color/neutral/100",
+        "color/neutral/200",
+        "color/neutral/300",
+        "color/neutral/400",
+        "color/neutral/500",
+        "color/neutral/600",
+        "color/neutral/700",
+        "color/neutral/800",
+        "color/neutral/900",
+        "color/neutral/950",
+        "color/brand/50",
+        "color/brand/100",
+        "color/brand/200",
+        "color/brand/300",
+        "color/brand/400",
+        "color/brand/500",
+        "color/brand/600",
+        "color/brand/700",
+        "color/brand/800",
+        "color/brand/900",
+        "color/success/100",
+        "color/success/300",
+        "color/success/500",
+        "color/success/600",
+        "color/success/700",
+        "color/warning/100",
+        "color/warning/300",
+        "color/warning/500",
+        "color/warning/600",
+        "color/warning/700",
+        "color/danger/100",
+        "color/danger/300",
+        "color/danger/500",
+        "color/danger/600",
+        "color/danger/700"
+      ]
+    },
+    "Color": {
+      "modes": [
+        "Light",
+        "Dark"
+      ],
+      "names": [
+        "color/background/default",
+        "color/background/surface",
+        "color/background/sunken",
+        "color/background/overlay",
+        "color/background/on-accent",
+        "color/background/accent",
+        "color/background/accent-hover",
+        "color/background/accent-active",
+        "color/background/accent-subtle",
+        "color/background/danger",
+        "color/background/danger-hover",
+        "color/background/danger-subtle",
+        "color/background/success",
+        "color/background/success-subtle",
+        "color/background/warning",
+        "color/background/warning-subtle",
+        "color/content/default",
+        "color/content/muted",
+        "color/content/inverse",
+        "color/content/accent",
+        "color/content/danger",
+        "color/content/success",
+        "color/content/warning",
+        "color/content/on-accent",
+        "color/content/on-danger",
+        "color/content/on-success",
+        "color/content/on-warning",
+        "color/border/default",
+        "color/border/strong",
+        "color/border/focus",
+        "color/border/accent",
+        "color/border/accent-hover",
+        "color/border/danger",
+        "color/border/success",
+        "color/border/warning",
+        "elevation/raised/color",
+        "elevation/floating/color",
+        "elevation/overlay/color"
+      ]
+    },
+    "Size": {
+      "modes": [
+        "Value"
+      ],
+      "names": [
+        "space/0",
+        "space/1",
+        "space/2",
+        "space/3",
+        "space/4",
+        "space/5",
+        "space/6",
+        "space/8",
+        "space/10",
+        "space/12",
+        "radius/sm",
+        "radius/md",
+        "radius/lg",
+        "radius/full",
+        "breakpoint/sm",
+        "breakpoint/md",
+        "breakpoint/lg",
+        "breakpoint/xl"
+      ]
+    },
+    "Typography": {
+      "modes": [
+        "Value"
+      ],
+      "names": [
+        "font/size/xs",
+        "font/size/sm",
+        "font/size/md",
+        "font/size/lg",
+        "font/size/xl",
+        "font/weight/regular",
+        "font/weight/medium",
+        "font/weight/bold",
+        "font/sans",
+        "font/mono",
+        "typography/heading-xl/font-family",
+        "typography/heading-xl/font-size",
+        "typography/heading-xl/font-weight",
+        "typography/heading-xl/line-height",
+        "typography/heading-xl/letter-spacing",
+        "typography/heading-lg/font-family",
+        "typography/heading-lg/font-size",
+        "typography/heading-lg/font-weight",
+        "typography/heading-lg/line-height",
+        "typography/heading-lg/letter-spacing",
+        "typography/heading-md/font-family",
+        "typography/heading-md/font-size",
+        "typography/heading-md/font-weight",
+        "typography/heading-md/line-height",
+        "typography/heading-md/letter-spacing",
+        "typography/body-md/font-family",
+        "typography/body-md/font-size",
+        "typography/body-md/font-weight",
+        "typography/body-md/line-height",
+        "typography/body-md/letter-spacing",
+        "typography/body-sm/font-family",
+        "typography/body-sm/font-size",
+        "typography/body-sm/font-weight",
+        "typography/body-sm/line-height",
+        "typography/body-sm/letter-spacing",
+        "typography/label-md/font-family",
+        "typography/label-md/font-size",
+        "typography/label-md/font-weight",
+        "typography/label-md/line-height",
+        "typography/label-md/letter-spacing",
+        "typography/label-sm/font-family",
+        "typography/label-sm/font-size",
+        "typography/label-sm/font-weight",
+        "typography/label-sm/line-height",
+        "typography/label-sm/letter-spacing",
+        "typography/code-sm/font-family",
+        "typography/code-sm/font-size",
+        "typography/code-sm/font-weight",
+        "typography/code-sm/line-height",
+        "typography/code-sm/letter-spacing",
+        "typography/title-md/font-family",
+        "typography/title-md/font-size",
+        "typography/title-md/font-weight",
+        "typography/title-md/line-height",
+        "typography/title-md/letter-spacing",
+        "typography/title-sm/font-family",
+        "typography/title-sm/font-size",
+        "typography/title-sm/font-weight",
+        "typography/title-sm/line-height",
+        "typography/title-sm/letter-spacing",
+        "typography/label-xl/font-family",
+        "typography/label-xl/font-size",
+        "typography/label-xl/font-weight",
+        "typography/label-xl/line-height",
+        "typography/label-xl/letter-spacing",
+        "typography/label-lg/font-family",
+        "typography/label-lg/font-size",
+        "typography/label-lg/font-weight",
+        "typography/label-lg/line-height",
+        "typography/label-lg/letter-spacing",
+        "typography/overline/font-family",
+        "typography/overline/font-size",
+        "typography/overline/font-weight",
+        "typography/overline/line-height",
+        "typography/overline/letter-spacing",
+        "typography/caption/font-family",
+        "typography/caption/font-size",
+        "typography/caption/font-weight",
+        "typography/caption/line-height",
+        "typography/caption/letter-spacing"
+      ]
+    },
+    "Motion": {
+      "modes": [
+        "Value"
+      ],
+      "names": [
+        "duration/fast",
+        "duration/normal",
+        "easing/standard"
+      ]
+    }
+  },
+  "codeSyntaxExceptions": {
+    "elevation/raised/color": null,
+    "elevation/floating/color": null,
+    "elevation/overlay/color": null
+  },
+  "textStyles": [
+    {
+      "name": "typography/heading-xl",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/heading-lg",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/heading-md",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/title-md",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/title-sm",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/body-md",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/body-sm",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/label-xl",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/label-lg",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/label-md",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/label-sm",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/overline",
+      "textCase": "UPPER",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/caption",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    },
+    {
+      "name": "typography/code-sm",
+      "textCase": "ORIGINAL",
+      "bound": [
+        "fontFamily",
+        "fontSize",
+        "fontWeight",
+        "letterSpacing",
+        "lineHeight"
+      ]
+    }
+  ],
+  "effectStyles": [
+    "elevation/raised",
+    "elevation/floating",
+    "elevation/overlay"
+  ]
+}
