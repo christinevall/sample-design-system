@@ -85,6 +85,36 @@
       ]
     },
     {
+      "name": "AlertDialog.Content",
+      "page": "AlertDialog",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/AlertDialog/AlertDialog.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Discard draft?"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Your changes since the last save will be lost."
+        },
+        {
+          "name": "AlertDialog.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "AlertDialog.Actions",
+          "type": "BOOLEAN",
+          "default": true
+        }
+      ]
+    },
+    {
       "name": "Avatar",
       "page": "Avatar",
       "kind": "set",
@@ -446,6 +476,36 @@
             "true"
           ],
           "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Dialog.Content",
+      "page": "Dialog",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Dialog/Dialog.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Publish this release?"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Everyone on the team will be notified."
+        },
+        {
+          "name": "Dialog.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Dialog.Actions",
+          "type": "BOOLEAN",
+          "default": true
         }
       ]
     },
@@ -1787,6 +1847,51 @@
             "true"
           ],
           "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Toast.Root",
+      "page": "Toast",
+      "kind": "set",
+      "variants": 3,
+      "defaultVariant": "type=none",
+      "source": "src/components/Toast/Toast.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "TEXT",
+          "default": "Deployment queued"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Build #482 starts as soon as a runner frees up."
+        },
+        {
+          "name": "action",
+          "type": "TEXT",
+          "default": "Undo"
+        },
+        {
+          "name": "Toast.Description",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "Toast.Action",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "type",
+          "type": "VARIANT",
+          "values": [
+            "none",
+            "success",
+            "error"
+          ],
+          "default": "none"
         }
       ]
     },
