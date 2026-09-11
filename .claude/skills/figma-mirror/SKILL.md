@@ -197,5 +197,5 @@ not a thing you draw), **ContextMenu** (the same popup as `Menu`).
 | `scripts/figma/snapshot.figma.js` | Figma MCP | what the library contains → `figma/manifest.json` |
 | `scripts/figma/audit.figma.js` | Figma MCP | every hand-set value in a component |
 
-Known gaps and their reasons live in `figma/GAPS.md`. Findings worth writing
-about go in `docs/project-brief.md`.
+Known gaps and their reasons live in `figma/GAPS.md`. A decision that changes
+how the mirror works goes in `docs/decisions.md`.
