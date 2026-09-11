@@ -115,6 +115,130 @@
       ]
     },
     {
+      "name": "Autocomplete",
+      "page": "Autocomplete",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Language"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Suggestions are hints. Any text you type is kept as the value."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "Autocomplete.Content",
+      "page": "Autocomplete",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "props": []
+    },
+    {
+      "name": "Autocomplete.Control",
+      "page": "Autocomplete",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "filled=false, open=false, disabled=false",
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "props": [
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "Start typing"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "Rust"
+        },
+        {
+          "name": "clearable",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "showTrigger",
+          "type": "BOOLEAN",
+          "default": false
+        },
+        {
+          "name": "filled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Autocomplete.Item",
+      "page": "Autocomplete",
+      "kind": "set",
+      "variants": 4,
+      "defaultVariant": "highlighted=false, disabled=false",
+      "source": "src/components/Autocomplete/Autocomplete.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "C"
+        },
+        {
+          "name": "highlighted",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
       "name": "Avatar",
       "page": "Avatar",
       "kind": "set",
@@ -461,6 +585,139 @@
         },
         {
           "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Combobox",
+      "page": "Combobox",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Combobox/Combobox.tsx",
+      "props": [
+        {
+          "name": "label",
+          "type": "TEXT",
+          "default": "Country"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "default": "Type to filter the list, then pick a match."
+        },
+        {
+          "name": "Field.Description",
+          "type": "BOOLEAN",
+          "default": false
+        }
+      ]
+    },
+    {
+      "name": "Combobox.Content",
+      "page": "Combobox",
+      "kind": "component",
+      "variants": 1,
+      "defaultVariant": null,
+      "source": "src/components/Combobox/Combobox.tsx",
+      "props": []
+    },
+    {
+      "name": "Combobox.Control",
+      "page": "Combobox",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "filled=false, open=false, disabled=false",
+      "source": "src/components/Combobox/Combobox.tsx",
+      "props": [
+        {
+          "name": "placeholder",
+          "type": "TEXT",
+          "default": "Search countries"
+        },
+        {
+          "name": "value",
+          "type": "TEXT",
+          "default": "Portugal"
+        },
+        {
+          "name": "clearable",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "showTrigger",
+          "type": "BOOLEAN",
+          "default": true
+        },
+        {
+          "name": "filled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "open",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "disabled",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Combobox.Item",
+      "page": "Combobox",
+      "kind": "set",
+      "variants": 8,
+      "defaultVariant": "highlighted=false, selected=false, disabled=false",
+      "source": "src/components/Combobox/Combobox.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "TEXT",
+          "default": "Argentina"
+        },
+        {
+          "name": "highlighted",
+          "type": "VARIANT",
+          "values": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "selected",
           "type": "VARIANT",
           "values": [
             "false",

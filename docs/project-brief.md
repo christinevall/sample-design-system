@@ -183,6 +183,39 @@ text styles. Because the code does: 0 of 43 component stylesheets use
 `--sds-typography-*`; all set size, weight and line height separately. The text
 styles were defined and never adopted. Mirroring was correct; the fix is in code.
 
+**19. The icons had drifted inside the components.**
+Extracting every inline SVG from the code found the same shape drawn several
+ways: Accordion and Collapsible draw their own chevrons, and Checkbox's tick is
+Select's check at a heavier stroke. Figma mirrors each drawing as its own icon,
+because merging them is a code decision, not a Figma one.
+
+**20. Figma cannot say everything CSS says, and the list is the finding.**
+Parent selectors (ToggleGroup's segmented look), structural ones
+(`:first-child`, striped rows), values computed at runtime (the Tabs
+indicator, a slider's thumb) and a state that shares a name with a prop
+(Select's `placeholder`) each need a stated workaround. `figma/GAPS.md` records
+every one with its reason. None was smoothed over.
+
+**21. Figma's API fails in ways that look like success.**
+An inner shadow on a frame with no fill lands on its children. A dash pattern
+restarts at every path segment, so a circle drew four arcs. `resize()` quietly
+pinned 20 components to fixed heights. A second property called `children`
+became `children2` without an error. Each passed a first look; the audit and
+the screenshots caught them, and each is now a rule in the skill.
+
+**22. Mirroring the code found bugs in the code.**
+A standalone Checkbox crashes in every story (its `Field.Item` needs a
+`Field.Root`). `Select.Separator` has no styles and renders nothing. Alert's
+warning and danger icons are the reverse of the usual convention. Menu rows use
+a line height no text style has. Building the mirror meant reading every
+component closely, and that reading is a review.
+
+**23. Checked against each other, not trusted.**
+After the build, a fingerprint of every Figma component was compared with the
+manifest the repo records: 97 of 97 identical. `validate` then checks each
+recorded property against the code — a real prop, real values, the code
+default top-left — so a prop renamed in code fails CI until Figma follows.
+
 ## Brad Frost's model, and what we took
 
 Source: "Keep AI on the Rails of Your Design System", part of
@@ -229,30 +262,28 @@ it is an adoption argument, not a technical one, and reads as inertia.
 
 ## Where we are
 
-Branch `feature/ai-foundation`, off `main` (identical to the retired `develop`),
-pushed. Merging into `main` by pull request.
+`feature/ai-foundation` is merged into `main` (PR #1). The Figma work is on
+`feature/figma-mirror`, in review as a pull request into `main`.
 
-Done: render-loop fix, manifest fix (29→8 errors), DTCG token pipeline, text
-styles, breakpoints, Brad-standard colour naming, `CLAUDE.md` grounding rules,
-`validate.mjs` (reports clean), docs corrected.
-
-Figma foundations mirrored (2026-09-10), file
+**Figma library complete (2026-09-11)**, file
 [sample-design-system](https://www.figma.com/design/PvLNUW3xI3A9kTumVi7O3d/sample-design-system):
-5 collections — Color Primitives, Color (Light/Dark), Size, Typography, Motion —
-plus 8 text styles and 3 effect styles. Built from `tokens/*.json` by a
-generator, not retyped by hand. Pages: Cover, Foundations (every swatch, bar
-and specimen bound), then Badge (10 variants), Button (24) and Card (2, with
-real Button instances in its footer).
 
-Next: publish to Chromatic → Foundations page for text styles and breakpoints →
-Figma library from the manifest → name check in
-`validate.mjs` → first round-trip test.
+- Foundations: 5 variable collections (176 variables), 14 text styles and 3
+  effect styles, generated from `tokens/*.json`.
+- 97 components: 28 icons, and 69 components and sets covering 39 of the 42
+  code components. Form, ScrollArea and ContextMenu are left out by decision.
+- Every component audited — 1,184 layers, nothing unbound — and
+  `figma/manifest.json` matches the live file 97 of 97.
+- The process is the `figma-mirror` skill, with its scripts in
+  `scripts/figma/` and the decided gaps in `figma/GAPS.md`.
 
-**Figma (2026-09-10):** connected through the Figma Console bridge. The library
-now has 8 components — Alert, Avatar, Badge, Breadcrumb, Button, Card,
-NavigationMenu, Separator — each built from its stylesheet, with property
-names taken from the code. Publishing the library is manual: the plugin API
-cannot publish.
+Publishing the library is manual: the plugin API cannot publish.
+
+Next: merge the PR → publish the library → fix the standalone Checkbox crash
+(a separate task) → decide the open code questions (Alert's icons,
+`Select.Separator`, Menu's line height, a segmented look on Toggle) → the
+return trip, Figma to Storybook, as its own skill → Chromatic once a token
+exists.
 
 **Still missing from Base UI 1.8.0:** Drawer and OTP Field.
 
