@@ -156,12 +156,11 @@ for (const file of files.filter((f) => f.startsWith('src/components/') && f.ends
 // next reader — and the next agent — a name that no longer exists, which is how
 // `--sds-color-focus-ring` survived the colour rename. Wildcards and patterns
 // (`--sds-space-*`, `--sds-typography-<style>-*`) are skipped: the character
-// after the name is `-`. project-brief.md is history and quotes deleted names
-// on purpose, so it is left out.
+// after the name is `-`.
 const DOCS = [
   'CLAUDE.md', 'CONTRIBUTING.md', 'README.md',
   ...execSync("find docs src -name '*.md' -o -name '*.mdx'", { encoding: 'utf8' }).trim().split('\n'),
-].filter((f) => f && existsSync(f) && !f.endsWith('project-brief.md'));
+].filter((f) => f && existsSync(f));
 for (const file of DOCS) {
   readFileSync(file, 'utf8').split('\n').forEach((line, i) => {
     for (const m of line.matchAll(/--sds-[a-z0-9]+(?:-[a-z0-9]+)*/g)) {

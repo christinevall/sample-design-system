@@ -7,10 +7,10 @@ together on a real codebase without drift**. Not a product — every decision
 optimises for legible and demonstrable over scale.
 
 **If the task is writing, explaining, planning or discussing this project
-rather than changing code, read `docs/project-brief.md` first.** It carries the
-decisions and why they were made, the findings worth writing about, what is
-still blocked, and the wider argument this work sits inside. Keep it current
-when a decision changes.
+rather than changing code, read `docs/decisions.md` first.** It carries what
+the project is for, the thesis it tests, and every decision with its reason.
+Keep it current when a decision changes. Notes, findings and articles about the
+project are kept outside this repo.
 
 ## STOP — ground yourself first
 
@@ -81,7 +81,7 @@ prop fails CI. What cannot be mirrored exactly, and why, is in `figma/GAPS.md`.
 
 ## Further reading
 
-- `docs/project-brief.md` — what this project is for, decisions, findings, open questions
+- `docs/decisions.md` — what this project is for, the thesis, and every decision with its reason
 - `docs/architecture.md` — why the repo is shaped this way
 - `docs/conventions.md` — how to add a component
 - `docs/branching.md` — the branch model
