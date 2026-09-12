@@ -4,6 +4,8 @@ A design system built on [Base UI](https://base-ui.com) primitives, documented i
 
 42 components, 4 foundations pages, 4 full-screen patterns.
 
+**Live Storybook:** [christinevall.github.io/sample-design-system](https://christinevall.github.io/sample-design-system/) — no install needed. It updates on every merge to `main`.
+
 ## Stack
 
 - **Vite 8 + React 19 + TypeScript** for the build
@@ -81,6 +83,7 @@ See [docs/conventions.md](docs/conventions.md). The short version:
 - [x] Move tokens to a DTCG source of truth (`tokens/**/*.json`) with a generator emitting the CSS
 - [x] Sync tokens to Figma variables (mirrored 2026-09-10 through the Figma Console bridge)
 - [ ] Code Connect mappings so Figma components point at these files
+- [x] Publish Storybook from `main` (GitHub Pages)
 - [ ] Publish Storybook per branch, including `design`
 
 ## Branching
