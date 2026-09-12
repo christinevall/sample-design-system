@@ -15,13 +15,35 @@ A design system built on [Base UI](https://base-ui.com) primitives, documented i
 
 ## Getting started
 
+**If you have never run code before, you need exactly two things:**
+
+1. **[Claude Code](https://claude.com/claude-code)** — the desktop app.
+2. **[Node.js](https://nodejs.org)** — download the LTS build and run the
+   installer. Node 22 or newer (this repo is developed on Node 24). To check
+   whether you already have it, open Terminal and type `node -v`.
+
+Then download this repository (green **Code** button → **Download ZIP**),
+unzip it, open the folder in Claude Code, and say:
+
+> Show me Storybook
+
+Claude installs the dependencies and starts it for you. To run the health
+check on this system, say:
+
+> Run the design system inspection
+
+The inspection skill already ships inside this repo — nothing to install.
+
+### Or, from the terminal
+
 ```bash
 npm install
-npm run storybook   # http://localhost:6006  <- the real workspace
+npm run storybook   # http://localhost:6001  <- the real workspace
 npm run dev         # http://localhost:5173  <- scratch playground
 npm run build       # tokens + typecheck + production build
 npm run build:tokens # regenerate the CSS token layer from tokens/
 npm run build-storybook
+npm run check:contrast # colour contrast of every token pair
 ```
 
 Open **Getting started** in the Storybook sidebar first.
@@ -89,3 +111,11 @@ See [docs/conventions.md](docs/conventions.md). The short version:
 ## Branching
 
 See [docs/branching.md](docs/branching.md). `main` is the design system; changes land on it through `feature/*` pull requests. `design` exists as a long-lived branch for designers to prototype in real code, and accepted prototypes come back through a normal feature branch rather than merging `design` directly.
+
+## Credits
+
+The design system health check in `.claude/skills/ds-inspection/` is the
+`ds-inspection` skill by **[Brad Frost](https://bradfrost.com)**, from
+<https://github.com/bradfrost/skills>, bundled here under the MIT licence so
+that it runs with no setup. See
+[`.claude/skills/ds-inspection/ATTRIBUTION.md`](.claude/skills/ds-inspection/ATTRIBUTION.md).

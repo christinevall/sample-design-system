@@ -12,6 +12,20 @@ the project is for, the thesis it tests, and every decision with its reason.
 Keep it current when a decision changes. Notes, findings and articles about the
 project are kept outside this repo.
 
+## If someone is running this for the first time
+
+Many people opening this repo are designers, not developers. Before running any
+npm command, check the runtime and say what is wrong in plain language:
+
+- `node -v` must print v20.19+ or v22.12+ (see `engines` in `package.json`).
+  If the command is not found, the fix is: download the LTS installer from
+  <https://nodejs.org>, run it, reopen the terminal. Say that — do not paste a
+  stack trace.
+- If `node_modules/` is missing, run `npm install` yourself rather than telling
+  them to. It takes a few minutes on a first run; say so before starting.
+- "Show me Storybook" means: install if needed, `npm run storybook` (port 6001),
+  then open it in the Browser pane. Do not ask them to open a URL by hand.
+
 ## STOP — ground yourself first
 
 **Before writing or changing any UI in this repo, check what actually exists. This session. Not from memory, not from an earlier session.**
