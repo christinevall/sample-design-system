@@ -7,6 +7,10 @@
  * can. So each prototype passes its own source (Vite's `?raw`) through here,
  * and "Show code" and "Components used" are derived from it — never written by
  * hand, so they cannot disagree with what the page is actually made of.
+ *
+ * A file with several stories: put `source` on the meta's `parameters.docs` so
+ * every story's "Show code" gets it (a story without it falls back to the
+ * one-line `<Component prop=… />`), and `description` on the first story only.
  */
 
 type Entry = {
